@@ -1,0 +1,20 @@
+<svg width="414" height="789" viewBox="0 0 414 789" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M414 789H0V0H122L149 15H265L292 0H414V789Z" fill="#D9D9D9"/>
+<path d="M414 789H0V0H122L149 15H265L292 0H414V789Z" fill="url(#zxc)"/>
+<path d="M414 34.8447L371.953 76.917V789H316.43L252 726H162.016L97.5703 789H42.0469V76.917L0 34.8447V0H122L149 15H265L292 0H414V34.8447Z" fill="url(#xcv)"/>
+<path d="M122 0L149 15H265L292 0H316V94.0518L289.611 112.471V126.704L252 164.381V726H162V164.381L124.389 126.704V112.471L98 94.0518V0H122Z" fill="black" fill-opacity="0.2"/>
+<path d="M15.0571 10H0V0H34L15.0571 10Z" fill="#111111"/>
+<path d="M398.943 10H414V0H380L398.943 10Z" fill="#111111"/>
+<path d="M15 764H0V789H149L122 774H34L15 764Z" fill="#111111"/>
+<path d="M399 764H414V789H265L292 774H380L399 764Z" fill="#111111"/>
+<defs>
+<linearGradient id="zxc" x1="384.001" y1="-34.5798" x2="384.001" y2="845.24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#171B14"/>
+<stop offset="1"/>
+</linearGradient>
+<linearGradient id="xcv" x1="207" y1="-22.4298" x2="207" y2="328.38" gradientUnits="userSpaceOnUse">
+<stop stop-color="#21271D"/>
+<stop offset="1"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,570 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'index'
+    var id_page = 'id-page-index'
+    var class_page = 'class-page-index'
+    var headerCustomClass = 'type1' 
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description' content='')
+block head
+  link(rel='stylesheet' href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/header.bundle.js')
+  script(defer src='./assets/scripts/footer.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+block content
+  section.hero
+    .video-frame 
+      <video muted playsinline autoplay loop>
+          <source src="./assets/images/123.mp4">
+      </video>
+    .hero__content.container
+      .hero__text
+        h1.hero__title 
+          span.white-space Інновації, що
+          br 
+          span зупиняють
+          br
+          span ворога
+        p.hero__descr 
+          span.accent Перший Окремий Штурмовий Полк 
+          br
+          | Закриваємо напрямки since 2014.
+      .swiper-directions 
+        .swiper-wrapper 
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                p Напрямки:
+                h3.direction-title Радіотелефоніст мінометного взводу
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/2.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                p Напрямки:
+                h3.direction-title Радіотелефоніст мінометного взводу
+          .swiper-slide 
+            .direction-btn
+              img(src="./assets/images/soldiers/3.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                p Напрямки:
+                h3.direction-title Радіотелефоніст мінометного взводу
+        .swiper-controls
+          .swiper-button-prev(data-directions-prev-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M13.7483 4.98431L13.0491 5.69916L7.37817 11.4999H20.0012V13.4999H7.37817L13.0491 19.3007L13.7483 20.0156L12.3186 21.414L11.6194 20.6992L4.28638 13.1992L3.60278 12.4999L4.28638 11.8007L11.6194 4.30072L12.3186 3.58588L13.7483 4.98431Z" fill="#FFEED7"/>
+            </svg>
+          .swiper-counter
+            span.current 1
+            |  / 
+            span.total 5
+          .swiper-button-next(data-directions-next-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M13.7483 4.98431L13.0491 5.69916L7.37817 11.4999H20.0012V13.4999H7.37817L13.0491 19.3007L13.7483 20.0156L12.3186 21.414L11.6194 20.6992L4.28638 13.1992L3.60278 12.4999L4.28638 11.8007L11.6194 4.30072L12.3186 3.58588L13.7483 4.98431Z" fill="#FFEED7"/>
+            </svg>
+    .decor-frame
+      .btn-frame
+      button.general-btn(type="button" data-call-us-btn)
+        span Долучитися
+  section.values.container
+    h2.values__title.section-title Наші
+      br
+      | цінності
+    .values__help-wrap
+      .values__content 
+        .values-block 
+          .values-block__text-wrap   
+            h3.values-block__title Нація
+            p.values-block__text Ми знаходимося на шляху достворення Української Самостійної Соборної Держави
+        .values-block 
+          .values-block__text-wrap   
+            h3.values-block__title Нація
+            p.values-block__text Ми знаходимося на шляху достворення Української Самостійної Соборної Держави
+        .values-block 
+          .values-block__text-wrap   
+            h3.values-block__title Нація
+            p.values-block__text Ми знаходимося на шляху достворення Української Самостійної Соборної Держави
+        .values-block 
+          .values-block__text-wrap   
+            h3.values-block__title Нація
+            p.values-block__text Ми знаходимося на шляху достворення Української Самостійної Соборної Держави
+      .values__img-wrap 
+        img(src="./assets/images/soldiers/value.png", alt="soldier")
+      .values__svg-wrap 
+        <svg xmlns="http://www.w3.org/2000/svg" width="692" height="294" viewBox="0 0 692 294" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM401 3L401.354 2.64645L401.207 2.5H401V3ZM3 3V3.5H401V3V2.5H3V3ZM401 3L400.646 3.35355L690.646 293.354L691 293L691.354 292.646L401.354 2.64645L401 3Z" fill="#BE9A68"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="692" height="294" viewBox="0 0 692 294" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM401 3L401.354 2.64645L401.207 2.5H401V3ZM3 3V3.5H401V3V2.5H3V3ZM401 3L400.646 3.35355L690.646 293.354L691 293L691.354 292.646L401.354 2.64645L401 3Z" fill="#BE9A68"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="531" height="6" viewBox="0 0 531 6" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM3 3V3.5H531V3V2.5H3V3Z" fill="#BE9A68"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="531" height="6" viewBox="0 0 531 6" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM3 3V3.5H531V3V2.5H3V3Z" fill="#BE9A68"/>
+        </svg>
+  section.interest
+    .svg-layer
+      
+      <svg width="414" height="789" class="icon--svg-layout-mobile" viewBox="0 0 414 789" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M414 789H0V0H122L149 15H265L292 0H414V789Z" fill="#D9D9D9"/>
+        <path d="M414 789H0V0H122L149 15H265L292 0H414V789Z" fill="url(#zxc)"/>
+        <path d="M414 34.8447L371.953 76.917V789H316.43L252 726H162.016L97.5703 789H42.0469V76.917L0 34.8447V0H122L149 15H265L292 0H414V34.8447Z" fill="url(#xcv)"/>
+        <path d="M122 0L149 15H265L292 0H316V94.0518L289.611 112.471V126.704L252 164.381V726H162V164.381L124.389 126.704V112.471L98 94.0518V0H122Z" fill="black" fill-opacity="0.2"/>
+        <path d="M15.0571 10H0V0H34L15.0571 10Z" fill="#111111"/>
+        <path d="M398.943 10H414V0H380L398.943 10Z" fill="#111111"/>
+        <path d="M15 764H0V789H149L122 774H34L15 764Z" fill="#111111"/>
+        <path d="M399 764H414V789H265L292 774H380L399 764Z" fill="#111111"/>
+        <defs>
+        <linearGradient id="zxc" x1="384.001" y1="-34.5798" x2="384.001" y2="845.24" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#171B14"/>
+        <stop offset="1"/>
+        </linearGradient>
+        <linearGradient id="xcv" x1="207" y1="-22.4298" x2="207" y2="328.38" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#21271D"/>
+        <stop offset="1"/>
+        </linearGradient>
+        </defs>
+      </svg>
+      <svg width="768" height="901" class="icon--svg-layout-tablet" viewBox="0 0 768 901" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M768 901H0V0H269L306 19H462L499 0H768V901Z" fill="#D9D9D9"/>
+        <path d="M768 901H0V0H269L306 19H462L499 0H768V901Z" fill="url(#paint0_linear_1438_9981)"/>
+        <path d="M768 64.5986L690 142.598V901H587L467 784H301L181 901H78V142.598L0 64.5986V0H269L306 19H462L499 0H768V64.5986Z" fill="url(#paint1_linear_1438_9981)"/>
+        <path d="M269 0L306 19H462L499 0H582V168.348L534.5 201.317V226.795L467 294.233V784H301V294.233L233.5 226.795V201.317L186 168.348V0H269Z" fill="black" fill-opacity="0.2"/>
+        <path d="M15.5 10L0 10L8.74228e-07 -2.86102e-06L35 1.98774e-07L15.5 10Z" fill="#111111"/>
+        <path d="M752.5 10L768 10L768 2.86102e-06L733 -1.98774e-07L752.5 10Z" fill="#111111"/>
+        <path d="M15.4659 872H0V901H306L269 882H34.9231L15.4659 872Z" fill="#111111"/>
+        <path d="M752.534 872H768V901H462L499 882H733.077L752.534 872Z" fill="#111111"/>
+        <defs>
+        <linearGradient id="paint0_linear_1438_9981" x1="384.001" y1="-39.4885" x2="384.001" y2="965.224" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#171B14"/>
+        <stop offset="1"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear_1438_9981" x1="384" y1="-41.3585" x2="384" y2="605.502" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#21271D"/>
+        <stop offset="1"/>
+        </linearGradient>
+        </defs>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon--svg-layout-desktop" width="1920" height="1423" fill="none" viewBox="0 0 1920 1423">
+        <g class="bg__bg">
+          <g class="bg__bg">
+            <path fill="url(#bg__a)" d="m1192 0-49 25H776L727 0H0v1423h1920V0h-728Z" class="bg__back"/>
+            <path fill="url(#bg__b)" d="M0 161.5V0h727l49 25h367l49-25h728v161.5l-195 195V1398h-300l-300-293H795l-300 293H195V356.5L0 161.5Z" class="bg__middle"/>
+            <g class="bg__top">
+              <path fill="#000" fill-opacity=".2" d="m1125 589 135-135v-51l95-66V0h-163l-49 25H776L727 0H565v337l95 66v51l135 135v516h330V589Z"/>
+              <path stroke="url(#bg__c)" stroke-opacity=".4" d="m660.5 402.738-.215-.148-94.785-65.852V.5h161.38l48.892 24.945.108.055h367.24l.11-.055L1192.12.5h162.38v336.238l-94.79 65.852-.21.148v51.055l-135 135V1104.5h-329V588.793l-135-135v-51.055Z"/>
+            </g>
+          </g>
+          <g class="bg__substruct">
+            <g class="bg__substruct bg__elements">
+              <path fill="#111" d="M1889 21h31V0h-70l39 21Z" class="bg__ÐÐ°Ð½ÑÐ¸Ðº bg__left"/>
+              <path fill="#111" d="M31 21H0V0h70L31 21Z" class="bg__ÐÐ°Ð½ÑÐ¸Ðº bg__right"/>
+            </g>
+            <g class="bg__substruct bg__element">
+              <path fill="#111" d="M31 1377H0v46h776l-49-25H70l-39-21Zm1858 0h31v46h-776l49-25h657l39-21Z" class="bg__substruct bg__element"/>
+            </g>
+          </g>
+        </g>
+        <defs>
+          <linearGradient id="bg__a" x1="960" x2="960" y1="-63.653" y2="1555.88" class="bg__a" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#171B14"/>
+            <stop offset="1"/>
+          </linearGradient>
+          <linearGradient id="bg__b" x1="960" x2="960" y1="-64.035" y2="937.502" class="bg__b" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#21271D"/>
+            <stop offset="1"/>
+          </linearGradient>
+          <linearGradient id="bg__c" x1="960" x2="960" y1="-863.479" y2="835.459" class="bg__c" gradientUnits="userSpaceOnUse">
+            <stop offset=".442" stop-opacity="0"/>
+            <stop offset=".529" stop-color="#BE9A68" stop-opacity=".4"/>
+            <stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    .interest-content
+      h2.section-title.interest-title чим ти цікавишся?
+      .swiper-interest 
+        .swiper-wrapper 
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.inerest-slide-title Радіотелефоніст мінометного взводу
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+            .gen-btn-wrap 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+                
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/2.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.inerest-slide-title Розвідник
+                p Розвідник веде спостереження за ворогом для збору розвідувальної інформації. Діє приховано, забезпечує точні дані для планування бойових дій.
+            .gen-btn-wrap 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide 
+            .direction-btn
+              img(src="./assets/images/soldiers/3.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.inerest-slide-title Радіотелефоніст мінометного взводу
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+            .gen-btn-wrap 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.inerest-slide-title Радіотелефоніст мінометного взводу
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+            .gen-btn-wrap 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.inerest-slide-title Радіотелефоніст мінометного взводу
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+            .gen-btn-wrap 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+        .swiper-main-controls
+          .swiper-btn-prev(data-interest-prev-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M16.7512 9.75L16.7512 8.25L3.78345 8.25L9.87036 2.02441L10.3948 1.48828L9.32251 0.439453L8.79809 0.975586L1.46509 8.47559L0.952393 9L1.46509 9.52441L8.7981 17.0244L9.32251 17.5605L10.3948 16.5117L9.87036 15.9756L3.78345 9.75L16.7512 9.75Z" fill="#111111"/>
+            </svg>
+          .swiper-btn-next(data-interest-next-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M16.7512 9.75L16.7512 8.25L3.78345 8.25L9.87036 2.02441L10.3948 1.48828L9.32251 0.439453L8.79809 0.975586L1.46509 8.47559L0.952393 9L1.46509 9.52441L8.7981 17.0244L9.32251 17.5605L10.3948 16.5117L9.87036 15.9756L3.78345 9.75L16.7512 9.75Z" fill="#111111"/>
+            </svg>
+        .offset(style='height:80px; podsition: relative; z-index: -1')
+  section.leaders
+    .leaders-content
+      h2.section-title.leaders-title шлях
+        br
+        | мужності
+      .swiper-leaders 
+        .swiper-wrapper 
+          .swiper-slide
+            <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+              <g data-figma-bg-blur-radius="48">
+              <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+              <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+              </g>
+              <defs>
+              <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+              </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+              <stop offset="0.475962" stop-opacity="0"/>
+              <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+              </linearGradient>
+              </defs>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+            <g data-figma-bg-blur-radius="48">
+            <mask id="path-1-inside-1_1504_9856" fill="white">
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </mask>
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+            <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+            </svg>
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.leaders-slide-title Командир 5 роти
+                h4.sign-call Кара
+                p Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+                .gen-btn-wrap.tablet
+                  button.general-btn(type="button" data-more-popap)
+                    span Детальніше
+            .gen-btn-wrap.mobile 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+                
+          .swiper-slide
+            <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+              <g data-figma-bg-blur-radius="48">
+              <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+              <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+              </g>
+              <defs>
+              <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+              </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+              <stop offset="0.475962" stop-opacity="0"/>
+              <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+              </linearGradient>
+              </defs>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+            <g data-figma-bg-blur-radius="48">
+            <mask id="path-1-inside-1_1504_9856" fill="white">
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </mask>
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+            <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+            </svg>
+            .direction-btn 
+              img(src="./assets/images/soldiers/2.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.leaders-slide-title Розвідник
+                h4.sign-call Кара
+                p Розвідник веде спостереження за ворогом для збору розвідувальної інформації. Діє приховано, забезпечує точні дані для планування бойових дій.
+                .gen-btn-wrap.tablet
+                  button.general-btn(type="button" data-more-popap)
+                    span Детальніше
+            .gen-btn-wrap.mobile 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide 
+            <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+              <g data-figma-bg-blur-radius="48">
+              <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+              <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+              </g>
+              <defs>
+              <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+              </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+              <stop offset="0.475962" stop-opacity="0"/>
+              <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+              </linearGradient>
+              </defs>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+            <g data-figma-bg-blur-radius="48">
+            <mask id="path-1-inside-1_1504_9856" fill="white">
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </mask>
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+            <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+            </svg>
+            .direction-btn
+              img(src="./assets/images/commanders/commander1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.leaders-slide-title Радіотелефоніст мінометного взводу
+                h4.sign-call Кара
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+                .gen-btn-wrap.tablet
+                  button.general-btn(type="button" data-more-popap)
+                    span Детальніше
+            .gen-btn-wrap.mobile 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide
+            <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+              <g data-figma-bg-blur-radius="48">
+              <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+              <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+              </g>
+              <defs>
+              <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+              </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+              <stop offset="0.475962" stop-opacity="0"/>
+              <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+              </linearGradient>
+              </defs>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+            <g data-figma-bg-blur-radius="48">
+            <mask id="path-1-inside-1_1504_9856" fill="white">
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </mask>
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+            <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+            </svg>
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.leaders-slide-title Радіотелефоніст мінометного взводу
+                h4.sign-call Кара
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+                .gen-btn-wrap.tablet
+                  button.general-btn(type="button" data-more-popap)
+                    span Детальніше
+            .gen-btn-wrap.mobile 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+          .swiper-slide
+            <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+              <g data-figma-bg-blur-radius="48">
+              <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+              <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+              </g>
+              <defs>
+              <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+              </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+              <stop offset="0.475962" stop-opacity="0"/>
+              <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+              </linearGradient>
+              </defs>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none" >
+            <g data-figma-bg-blur-radius="48">
+            <mask id="path-1-inside-1_1504_9856" fill="white">
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </mask>
+            <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+            <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+            </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+            </svg>
+            .direction-btn 
+              img(src="./assets/images/soldiers/1.png", alt="soldier")
+            .text-frame--border
+              .text-frame 
+                h3.leaders-slide-title Радіотелефоніст мінометного взводу
+                h4.sign-call Кара
+                p Радіотелефоніст мінометного взводу забезпечує зв’язок для наведення і координації вогню. Відповідає за передачу даних і справність радіозасобів.
+                .gen-btn-wrap.tablet
+                  button.general-btn(type="button" data-more-popap)
+                    span Детальніше
+            .gen-btn-wrap.mobile 
+              button.general-btn(type="button" data-more-popap)
+                span Детальніше
+        .swiper-main-controls
+          .swiper-btn-prev(data-leaders-prev-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M16.7512 9.75L16.7512 8.25L3.78345 8.25L9.87036 2.02441L10.3948 1.48828L9.32251 0.439453L8.79809 0.975586L1.46509 8.47559L0.952393 9L1.46509 9.52441L8.7981 17.0244L9.32251 17.5605L10.3948 16.5117L9.87036 15.9756L3.78345 9.75L16.7512 9.75Z" fill="#111111"/>
+            </svg>
+          .swiper-btn-next(data-leaders-next-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M16.7512 9.75L16.7512 8.25L3.78345 8.25L9.87036 2.02441L10.3948 1.48828L9.32251 0.439453L8.79809 0.975586L1.46509 8.47559L0.952393 9L1.46509 9.52441L8.7981 17.0244L9.32251 17.5605L10.3948 16.5117L9.87036 15.9756L3.78345 9.75L16.7512 9.75Z" fill="#111111"/>
+            </svg>
+        .offset(style='height:80px; podsition: relative; z-index: -1')
+  section.questions.container 
+    .questions-conent 
+      .questions-title-wrap
+        h2.questions-title.section-title популярні 
+          br
+          | запитання 
+          br
+          | і відповіді
+        .questions-img-wrap
+          img(src="./assets/images/questions.png", alt="soldiers attack")
+
+      .questions__text-wrap 
+        .questions__block 
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title З якого віку можна долучитися до ваших лав?
+              p.block__text Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title Чи можна долучитися без військового досвіду?
+              p.block__text Для добровольців без військового досвіду ми запроваджуємо навчальні заходи.
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title З якого віку можна долучитися до ваших лав?
+              p.block__text Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title З якого віку можна долучитися до ваших лав?
+              p.block__text Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title З якого віку можна долучитися до ваших лав?
+              p.block__text Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+          .question__text-gradient
+            .questions__text-wrap
+              h3.block__title З якого віку можна долучитися до ваших лав?
+              p.block__text Прийшов до батальйону у 2022 році в складі розвідувальної групи “Дике Поле” солдатом. У 2024 році взяв на себе управління батальйоном.
+        .questions__footer 
+          p 
+            span Немає твого питання? 
+            | напиши нам в особисті
+          .social-list 
+            a(href="https://t.me/dvunit" target="_blank").social-list__item
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M7.06305 11.1474L6.7653 14.9166C7.19131 14.9166 7.37581 14.7519 7.59707 14.5541L9.59436 12.8362L13.733 15.5639C14.492 15.9446 15.0267 15.7441 15.2315 14.9355L17.9481 3.47944L17.9488 3.47877C18.1896 2.46897 17.5431 2.0741 16.8035 2.32182L0.835653 7.82372C-0.254123 8.20442 -0.237622 8.75116 0.650399 8.99889L4.73275 10.1417L14.2152 4.80176C14.6615 4.53581 15.0672 4.68296 14.7335 4.94891L7.06305 11.1474Z" fill="#FFEED7"/>
+              </svg>
+            a(href="/").social-list__item
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M4.97118 15.145L5.24331 15.3056C6.38679 15.9811 7.69777 16.3384 9.03467 16.3391H9.03759C13.1433 16.3391 16.4849 13.0132 16.4865 8.92547C16.4871 6.94439 15.7131 5.08181 14.3067 3.6804C12.9002 2.27925 11.0302 1.50707 9.04025 1.50625C4.93139 1.50625 1.5898 4.83167 1.58825 8.9194C1.58771 10.3202 1.98131 11.6844 2.72708 12.8646L2.90434 13.1452L2.15165 15.8809L4.97118 15.145ZM0 18L1.27143 13.3781C0.487198 12.0254 0.0746338 10.4909 0.0752797 8.91899C0.0771914 4.00106 4.09733 0 9.03777 0C11.4351 0.00102875 13.6853 0.929884 15.3774 2.61585C17.0693 4.30178 18.0008 6.54284 18 8.92619C17.9979 13.8439 13.9769 17.8457 9.03777 17.8457C9.03741 17.8457 9.03795 17.8457 9.03777 17.8457H9.03394C7.53404 17.8452 6.06022 17.4706 4.75123 16.7598L0 18Z" fill="#FFEED7"/>
+                <path d="M0.0752803 8.91926C0.0747378 10.4912 0.487306 12.0258 1.27155 13.3784L0 18L4.75112 16.7598C6.0602 17.4705 7.53395 17.845 9.03387 17.8457H9.03769C13.9769 17.8457 17.9979 13.8438 18 8.92618C18.0008 6.5427 17.0693 4.3017 15.3773 2.61585C13.6851 0.929988 11.4351 0.00102875 9.03769 0C4.09747 0 0.0771962 4.00105 0.0751295 8.91897M2.90446 13.1453L2.72711 12.8649C1.98134 11.6845 1.58773 10.3203 1.58827 8.91965C1.5899 4.83218 4.93144 1.5065 9.04033 1.5065C11.0301 1.50727 12.9002 2.27952 14.3068 3.68065C15.7133 5.08188 16.4873 6.94461 16.4867 8.92546C16.4849 13.0132 13.1433 16.3391 9.03751 16.3391H9.03459C7.69771 16.3383 6.38662 15.9811 5.24321 15.3056L4.97107 15.145L2.15156 15.8809L2.90446 13.1453ZM9.03769 17.8457H9.03778H9.03769C9.0376 17.8457 9.03751 17.8457 9.03769 17.8457Z" fill="#FFEED7"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.78819 4.91812C6.62228 4.5205 6.44772 4.51254 6.28992 4.50554C6.16078 4.49962 6.01309 4.50001 5.86556 4.50001C5.71786 4.50001 5.47796 4.55976 5.2751 4.79869C5.07206 5.03763 4.5 5.61521 4.5 6.78988C4.5 7.96466 5.2936 9.09978 5.40416 9.25924C5.51491 9.4184 6.9361 11.9061 9.18668 12.8631C11.0573 13.6584 11.4379 13.5003 11.8439 13.4604C12.2499 13.4207 13.1541 12.883 13.3385 12.3255C13.5231 11.768 13.5231 11.2901 13.4678 11.1904C13.4124 11.0908 13.2647 11.0311 13.0433 10.9118C12.8218 10.7924 11.7332 10.2147 11.5302 10.135C11.3272 10.0554 11.1796 10.0157 11.0319 10.2547C10.8842 10.4935 10.4601 11.0311 10.3309 11.1904C10.2018 11.3499 10.0725 11.3698 9.85111 11.2504C9.6296 11.1306 8.9164 10.8787 8.07036 10.0654C7.41206 9.43258 6.96767 8.65104 6.83843 8.41199C6.70929 8.17324 6.82464 8.04392 6.93567 7.92487C7.03516 7.81789 7.15718 7.6461 7.26794 7.50675C7.37842 7.36731 7.41528 7.26781 7.48909 7.10855C7.56299 6.94919 7.52604 6.80975 7.47071 6.69032C7.41528 6.5709 6.98496 5.39018 6.78806 4.91805" fill="#FFEED7"/>
+              </svg>
+            a(href="/").social-list__item
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M6.84075 0.26236L7.04212 1.08024C6.24585 1.27755 5.48364 1.59305 4.78087 2.01623L4.35 1.29286C5.12267 0.824826 5.96332 0.477334 6.84075 0.26236ZM11.1607 0.26236L10.9605 1.07911C11.7568 1.27642 12.519 1.59192 13.2217 2.01511L13.6582 1.29173C12.8823 0.824917 12.0403 0.477883 11.1607 0.26236ZM1.2945 4.34611C0.827804 5.12027 0.480406 5.96032 0.263995 6.83799L1.08187 7.04048C1.27918 6.24422 1.59468 5.48201 2.01787 4.77923L1.2945 4.34499V4.34611ZM0.844495 8.99911C0.843097 8.59011 0.873565 8.18163 0.93562 7.77736L0.10312 7.64911C-0.0324203 8.54325 -0.0324203 9.45272 0.10312 10.3469L0.93562 10.2209C0.873565 9.81659 0.843097 9.40811 0.844495 8.99911ZM13.6515 16.7031L13.2195 15.9831C12.5185 16.4071 11.7572 16.7223 10.9616 16.918L11.1641 17.737C12.0404 17.5191 12.8789 17.1706 13.6515 16.7031ZM17.1581 8.99911C17.1581 9.40936 17.1274 9.81661 17.0659 10.2209L17.8984 10.3469C18.0339 9.45272 18.0339 8.54325 17.8984 7.64911L17.0659 7.77736C17.1274 8.18236 17.1581 8.58961 17.1581 8.99911ZM17.7386 11.1569L16.9196 10.9544C16.7225 11.7514 16.407 12.5144 15.9836 13.2179L16.707 13.6532C17.1745 12.8777 17.5223 12.0361 17.7386 11.1569ZM10.2236 17.0631C9.41362 17.1869 8.589 17.1869 7.779 17.0631L7.653 17.8979C8.5464 18.0332 9.45509 18.0332 10.3485 17.8979L10.2225 17.0642L10.2236 17.0631ZM15.5674 13.8366C15.0816 14.496 14.4986 15.0778 13.8382 15.5624L14.34 16.243C15.0673 15.7088 15.7101 15.0683 16.2469 14.3429L15.5674 13.8366ZM13.8382 2.43249C14.4986 2.91849 15.0814 3.50124 15.5674 4.16161L16.2469 3.65536C15.712 2.92958 15.0711 2.2883 14.3456 1.75298L13.8382 2.43249ZM2.43412 4.16161C2.91967 3.50105 3.50269 2.91804 4.16325 2.43249L3.657 1.75298C2.93122 2.28787 2.28994 2.92878 1.75462 3.65424L2.43412 4.16048V4.16161ZM16.7081 4.34499L15.9836 4.78036C16.4077 5.48124 16.7239 6.24286 16.9196 7.03824L17.7386 6.83574C17.5221 5.95846 17.1747 5.1188 16.7081 4.34499ZM7.77787 0.933985C8.58781 0.812136 9.41143 0.812136 10.2214 0.933985L10.3474 0.101485C9.45396 -0.0338283 8.54528 -0.0338283 7.65187 0.101485L7.77787 0.933985ZM2.86612 16.4691L1.12575 16.8741L1.53075 15.1315L0.71062 14.9402L0.304495 16.6817C0.271683 16.8214 0.275043 16.9672 0.314259 17.1052C0.353475 17.2433 0.42725 17.369 0.528609 17.4706C0.629968 17.5722 0.755562 17.6463 0.893515 17.6858C1.03147 17.7253 1.17722 17.729 1.317 17.6965L3.0585 17.2949L2.86612 16.4691ZM0.884995 14.1876L1.7085 14.3766L1.98975 13.1695C1.57889 12.4809 1.27255 11.7352 1.08075 10.9566L0.26287 11.1591C0.446453 11.9048 0.724714 12.6239 1.09087 13.2989L0.884995 14.1876ZM4.8225 16.0135L3.61537 16.2947L3.80662 17.1171L4.69537 16.9101C5.37037 17.278 6.08925 17.5559 6.83512 17.7392L7.03762 16.9202C6.26083 16.7268 5.51699 16.4194 4.83037 16.0079L4.8225 16.0135ZM9.00075 1.68661C8.04045 1.68691 7.08962 1.87634 6.20254 2.2441C5.31546 2.61186 4.50951 3.15075 3.83069 3.82998C3.15187 4.50922 2.61348 5.31551 2.24626 6.20282C1.87905 7.09012 1.6902 8.04107 1.6905 9.00136C1.69175 10.3768 2.0809 11.724 2.81325 12.8882L2.11012 15.8897L5.10825 15.1866C6.74815 16.1709 8.70831 16.4736 10.5688 16.0301C12.4292 15.5866 14.042 14.432 15.0615 12.8138C16.0809 11.1956 16.4261 9.24242 16.0229 7.37281C15.6197 5.50319 14.5003 3.86586 12.9045 2.81161C11.7356 2.07541 10.3821 1.68536 9.00075 1.68661Z" fill="#FFEED7"/>
+              </svg>
+    
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

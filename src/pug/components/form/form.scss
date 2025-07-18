@@ -1,0 +1,478 @@
+.overflow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out 0.2s;
+  opacity: 1;
+  
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+  }
+}
+.modal-form{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background: $bg-color;
+  border: none;
+  transition: transform 0.3s ease-in-out 0.3s, opacity 0.3s ease 0.3s;
+  opacity: 1;
+  padding: 20px;
+  padding-bottom: 28px;
+  .hidden & {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  @include tablet {
+    padding: 40px;
+    width: 523px;
+    top:50%;
+    left:50%;
+   
+    transform: translate(-50%, -50%);
+  }
+  
+  @include desktop{
+    width: 580px;
+  }
+}
+.call-us__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: $bg-color;
+  transform: translate(-50%, -50%);
+  padding: 32px 16px;
+  transition: transform 0.3s ease-in-out 0.3s, opacity 0.3s ease 0.3s;
+  opacity: 1;
+
+  .hidden & {
+    transform: translate(-50%, -20%);
+    opacity: 0;
+  }
+
+  @include tablet {
+    padding: 72px 24px;
+  }
+
+  @include laptop {
+    padding: 100px 100px;
+  }
+
+  @include desktop {
+    padding: 100px 120px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  // border-radius: 50%;
+  // background-color: $light-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 20px;
+  right: 20px;
+  
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  @include laptop {
+    top: 30px;
+    right: 30px;
+  }
+
+  @include desktop {
+    top: 50px;
+    right: 50px;
+  }
+}
+
+.call-us__title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 48px;
+
+  h2 {
+    
+   
+  }
+
+  p {
+    @include general-text;
+   
+
+    @include tablet {
+      width: 324px;
+    }
+
+    @include laptop {
+      width: 500px;
+    }
+
+    @include desktop {
+      width: 600px;
+    }
+  }
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+}
+
+.form {
+
+  @include tablet {}
+
+  @include laptop {}
+
+  @include desktop {}
+}
+
+.inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  }
+
+  @include laptop {
+  margin-left: auto;
+  margin-right: auto;
+  width: 55.43%
+  }
+
+  @include desktop {
+    gap: 20px;
+  }
+}
+
+
+
+
+.relative-wrapper {
+  position: relative;
+  &.is-focused {
+  .form-field {
+    background-color: rgba(255, 238, 215, 0.40);
+   }
+   .input-title {
+    opacity: 1;
+  }
+}
+  @include tablet {
+    width: calc((100% - 20px) / 2);
+  &:nth-child(2n) {
+    .form-field{
+      -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 20px) 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 20px) 100%, 0% 100%);
+    }
+  }
+
+}
+}
+.relative-wrapper--textarea{
+
+  width: 100%;
+  .form-field {
+    
+    background-color: rgba(255, 238, 215, 0.10);
+    padding: 1px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 20px) 100%, 20px 100%, 0% calc(100% - 10px));
+  }
+  .form-field__input{height:120px;}
+  
+
+}
+.form-field{
+  // position: relative;
+  height: fit-content;
+  overflow: visible;
+  background-color: rgba(255, 238, 215, 0.10);
+    padding: 1px;
+  @include tablet {
+    
+    background-color: rgba(255, 238, 215, 0.10);
+    padding: 1px;
+  -webkit-clip-path: polygon(0% calc(100% - 10px), 20px 100%, 100% 100%, 100% 0%, 0% 0%);
+  clip-path: polygon(0% calc(100% - 10px), 20px 100%, 100% 100%, 100% 0%, 0% 0%);
+
+
+}
+}
+.input-message {
+  position: absolute;
+  bottom: -16px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  z-index: 2;
+  color: red;
+}
+.input-title {
+  opacity: 0;
+  pointer-events: none;
+  color: $accent-color;
+  @include tiny-text;
+  font-size: 12px;
+  position: absolute;
+  text-transform: none;
+  z-index: 2;
+  top: 0;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: all 0.25s ease-out;
+  clip-path:inherit;
+  -webkit-clip-path:inherit;
+  background-color:  rgb(17, 17, 17);
+  line-height: 140%;
+  padding: 2px 8px;
+
+}
+.form-field__input {
+  @include general-text;
+  color: $text-color;
+  width: 100%;
+  padding: 20px;
+  // border: 1px solid rgba(255, 238, 215, 0.10);
+  background-color: rgb(17, 17, 17);
+  clip-path:inherit;
+  -webkit-clip-path:inherit;
+ 
+
+  &::placeholder {
+    color:$text-color2
+    
+  }
+ &:focus {
+ 
+
+ }
+  @include tablet {
+    border:none;
+    padding: 20px 30px;
+  }
+
+  @include laptop {
+    padding: 20px 40px;
+  }
+
+  @include desktop {
+    padding: 20px 40px;
+  }
+}
+.text-input{
+  resize: none;
+
+}
+.form__button {
+  justify-self: flex-end;
+
+ 
+  width: fit-content;
+
+  &:hover .submit-btn__text {
+    
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.form__button-svg {
+  transform: scale(1.25);
+
+  @include laptop {
+    transform: translateY(50%) scale(1.25);
+  }
+}
+
+.form__button-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  .submit-decor {
+    background-color: $bg-color;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10px;
+    width: calc(100% - (61px * 2));
+    @include laptop {
+      width: calc(100% - (170px * 2));
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    z-index: -1;
+    height: 10px;
+    width: 86px;
+    background-color: $bg-color;
+    transform: rotate(-36deg) translateY(23px);
+     @include laptop {
+      left: -65px;
+    top: 50%;
+    z-index: -1;
+    height: 10px;
+    width: 220px;
+    background-color: $bg-color;
+    transform: rotate(-36deg) translateY(71px);
+     }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    z-index: -1;
+    height: 10px;
+    width: 86px;
+    background-color: $bg-color;
+    transform: rotate(36deg) translateY(23px);
+     @include laptop {
+      right: -65px;
+    top: 50%;
+    z-index: -1;
+    height: 10px;
+    width: 220px;
+    background-color: $bg-color;
+    transform: rotate(36deg) translateY(71px);
+     }
+  }
+  @include tablet {
+    
+  }
+
+  @include laptop {}
+
+  @include desktop {}
+
+ 
+}
+
+.submit-btn__text {
+  @include laptop {
+    
+  }
+}
+
+.iti__flag {
+  background-image: url('../images/libs/flags.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  .iti__flag {
+    background-image: url('../images/libs/flags@2x.png');
+  }
+}
+
+.input-message {
+  @include tiny-text;
+  
+}
+
+.footer .iti--allow-dropdown input {
+  padding-left: 50px;
+  padding-right: 0;
+
+  @include laptop {
+    padding-left: 56px;
+    padding-right: 20px;
+  }
+}
+
+.iti__country-list {
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+}
+
+
+
+.iti__mobile {
+  .iti__country-list {
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+  }
+}
+.custom-select-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .custom-select-opener{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  span {
+    @include general-text;
+    color: $text-color2;
+  }
+@include tablet {
+    padding: 20px 30px;
+  }
+  @include laptop {
+    padding: 20px 40px;
+  }
+
+}
+
+.custom-select-panel{
+  background-color: rgb(17, 17, 17);
+  color: $accent-color;
+  // max-height: 200px;
+  top: calc(100% - 10px);
+  
+}
+&.is-open .custom-select-panel{
+  border: 1px solid rgba(255, 238, 215, 0.10);
+  border-top: none;
+  border-bottom-left-radius: 0;
+}
+.custom-select-option.has-focus {
+  background-color: #000;
+}
+}
+.select-fake-input{
+  display: block;
+  height: calc(40px + 14px * 1.4);
+  @include tablet {
+    height: calc(40px + 1.82vw  * 1.4);
+  }
+  @include laptop {
+    height: calc(40px + 0.93vw  * 1.4);
+  }
+}

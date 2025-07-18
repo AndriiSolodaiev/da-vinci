@@ -1,0 +1,1235 @@
+.hero {
+  height: calc(100svh - 40px);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.video-frame {
+  
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  video {
+   width: 100%;
+  height: 100%;
+    object-fit: cover;
+   
+  }
+}
+.hero__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+  // background-color: $text-color;
+  @include laptop {
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
+  .hero__title{
+    @include title-text;
+    text-align: center;
+    margin-bottom: 20px;
+    @include tablet {
+      
+      margin-bottom: 12px;
+      
+    }
+    @include laptop {
+      text-align: start;
+      margin-bottom: 40px;
+
+    }
+   
+  }
+  .hero__descr{
+    @include general-text;
+    color: $text-color;
+    text-align: center;
+    // span {
+    //   width: 100%;
+    //   text-align: center;
+    // }
+    @include laptop {
+      text-align: start;
+    }
+  }
+}
+.white-space{
+  white-space: nowrap;
+}
+.accent{
+color: $accent-color
+}
+
+.decor-frame {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  &::before {
+    content: "";
+    width: 34px;
+    height: 10px;
+    background-color: $bg-color;
+    clip-path: polygon(0% 0%, 50% 0%, 100% 100%, 0% 100%);
+    @include laptop {
+      width: 70px;
+      height: 21px;
+    }
+  }
+  &::after {
+    content: "";
+    width: 34px;
+    height: 10px;
+    background-color: $bg-color;
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+     @include laptop {
+      width: 70px;
+      height: 21px;
+    }
+  }
+
+  .btn-frame{
+    width: 276px;
+    height: 41px;
+    background-color: $bg-color;
+    clip-path: polygon(
+    7.3% 75.6%, 0% 100%, 100% 100%, 92.7% 75.6%,
+    92.7% 24.4%, 85.4% 0%, 14.6% 0%, 7.3% 24.4%
+  );
+  @include laptop {
+    width: 410px;
+    height: 55px;
+    
+  }
+  }
+  .general-btn {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+
+  }
+}
+.general-btn {
+  @include gen-btn-text;
+  width: 224px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $text-color;
+  clip-path: polygon(0% 15%, 9% 0%, 33% 0%, 34% 6%, 66% 6%, 67% 0%, 91% 0%, 100% 15%, 100% 85%, 91% 100%, 58% 100%, 57% 94%, 43% 94%, 42% 100%, 9% 100%, 0% 85%);
+  @include laptop {
+    width: 332px;
+    height: 90px;
+    
+  }
+}
+
+.swiper-directions {
+  display: none;
+
+  overflow: hidden;
+  width: 445px;
+  @include laptop {
+    display: initial;
+  }
+  .swiper-slide {
+    img {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .text-frame--border {
+      position: relative;
+     
+      padding: 1px;
+      
+      top: -50px;
+      z-index: 2;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      clip-path: polygon(0% 4%, 5% 0%, 28% 0%, 31% 9%, 68% 9%, 72% 0%, 95% 0%, 100% 4%, 100% 96%, 95% 100%, 75% 100%, 72% 91%, 28% 91%, 25% 100%, 5% 100%, 0% 96%);
+      -webkit-clip-path: polygon(0% 4%, 5% 0%, 28% 0%, 31% 9%, 68% 9%, 72% 0%, 95% 0%, 100% 4%, 100% 96%, 95% 100%, 75% 100%, 72% 91%, 28% 91%, 25% 100%, 5% 100%, 0% 96%);
+      background-color: rgba(91, 80, 60, 0.315) ;
+    }
+    .text-frame {
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      clip-path: inherit;
+      width: 445px;
+      height: 235px;
+      clip-path: inherit;
+      
+      background-color: #00000041;
+      &>p {
+        @include general-text;
+        color: $text-color2;
+        margin-bottom: 12px;
+        text-align: center
+        }
+      }
+      .direction-title {
+        @include article-title;
+        font-family: $default-font2;
+        text-align: center;
+      }
+
+  }
+
+}
+.swiper-button-next {
+  svg {
+    transform: rotate(180deg) ;
+  }
+}
+.swiper-button-next, .swiper-button-prev {
+  cursor: pointer;
+  position: relative;
+  svg {
+    width: 24px;
+    height: 24px;
+    path{
+      fill: $text-color;
+      transition: all 0.3s ease-in-out;
+    }
+    
+  }
+}
+.desktop {
+  .swiper-button-next:hover {
+  svg {
+    transform: rotate(180deg) scale(1.2) ;
+    
+    transition: all 0.3s ease-in-out;
+    path{
+     fill: $accent-color;
+      
+    }
+  }
+  
+}
+.swiper-button-prev:hover {
+  svg {
+    transform: scale(1.2) ;
+    fill: $accent-color;
+    transition: all 0.3s ease-in-out;
+     path{
+     fill: $accent-color;
+      
+    }
+  }
+  
+}
+}
+
+.swiper-controls{
+  display: flex;
+  gap:25px;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  position: relative;
+  bottom: 45px;
+  z-index: 2;
+}
+.swiper-button-disabled{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.direction-btn {
+  position: relative;
+  z-index: 1; // важливо для того, щоб псевдоелемент був ззаду
+  cursor: pointer;
+  &>img {
+    transition: transform 0.5s ease-in-out;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse  at center 70%, $accent-color 0% , transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
+    
+    pointer-events: none;
+  }
+
+  &:hover{
+    &::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    
+    }
+    &>img {
+      transform: scale(1.08);
+    }
+
+  }
+}
+
+.section-title {
+  @include title-text;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+  @include laptop {
+    margin-bottom: 100px;
+  }
+}
+
+.values {
+  padding-top:134px;
+  padding-bottom: 100px;
+  @include tablet {
+    padding-top:175px;
+    padding-bottom: 0px;
+    margin-bottom: -80px;
+  }
+  @include laptop {
+    padding-top:255px;
+    margin-bottom: 0px;
+  }
+}
+
+.values__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @include laptop {
+    position: relative;
+    z-index: 3;
+    display: grid;
+grid-template-columns: 1fr 1fr; // 2 колонки
+  grid-template-rows: auto auto;
+    grid-row-gap: 6.7vw;
+  }
+}
+
+.values-block{
+  width: 100%;
+  // border: 1px solid rgba(190, 154, 104, 0.40);
+  padding: 1px;
+  // for anim start
+  opacity: 0;
+  transform: translateY(-40px);
+  filter: blur(4px);
+  transition: all 0.3s ease;
+  // for animation
+  background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 60%, rgba(190, 154, 104, 0.40) 70%);
+  @include tablet {
+    width: calc((100% - 20px) / 2);
+    clip-path: polygon(89% 0, 100% 14%, 100% 100%, 0 100%, 0 0);
+    &:nth-child(2n) {
+      clip-path: polygon(11% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
+    }
+    
+  }
+  @include laptop {
+    width: 26vw;
+    &:nth-child(2n) {
+      margin-left: auto;
+    }
+    &:nth-child(3) {
+      transform: translateX(20%) translateY(-40px);
+    }
+    &:nth-child(4) {
+      transform: translateX(-20%) translateY(-40px);
+    }
+  }
+  &__text-wrap {
+    padding:40px;
+    background-color: #111111;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    clip-path: inherit;
+    -webkit-clip-path: inherit;
+    @include tablet {
+      padding:40px 20px;
+    }
+    @include laptop {
+      padding: 57px 40px;
+    }
+  }
+  &__title {
+    @include article-title;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+   
+    @include laptop {
+      margin-bottom: 1.04vw;
+    }
+  }
+  &__text {
+    @include general-text;
+    color: $accent-color;
+    text-align: center;
+  }
+
+
+}
+  .values__img-wrap {
+    display: none;
+    @include tablet {
+    display: initial;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -80px;
+    &::before {
+      content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+    width: 100%;
+    height: 100%;
+    filter: blur(30px);
+    background: radial-gradient(circle  at center 50%, $accent-color 20% , transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+    }
+    &::after {
+      content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.00) 0%, #111 100%);
+    z-index: 3;
+    pointer-events: none;
+    }
+    &>img {
+      position: relative;
+      z-index: 2;
+      width: 70%;
+      height: auto;
+      margin-left: auto;
+    margin-right: auto;
+      
+    
+    }
+  }
+  @include laptop {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    bottom: 0;
+    top: auto;
+     &>img {
+      width: 43%;
+      height: auto;
+      
+    }
+    &::before {
+      
+    background: radial-gradient(circle  at center 50%, $accent-color 10% , transparent 40%);
+    
+    }
+  }
+}
+.values__help-wrap {
+  position: relative;
+   
+  @include laptop {
+    padding-bottom:9.6vw;
+    
+  }
+}
+
+.values__svg-wrap{
+  display: none;
+  @include laptop{
+    display: grid;
+    width:100%;
+  grid-template-columns: 1fr 1fr; // 2 колонки
+  grid-template-rows: auto auto;
+  grid-row-gap: 4.16vw;
+  position: absolute;
+  z-index: 1;
+  top: -2.08vw;
+    & svg:nth-child(1) {
+      width: 35.83vw;
+      height: 15.1vw;
+      margin-left: auto;
+    }
+    & svg:nth-child(2) {
+      width: 35.83vw;
+      height: 15.1vw;
+      margin-right: auto;
+      transform: rotateY(180deg);
+    }
+    & svg:nth-child(3) {
+      width: 27.5vw;
+      
+      margin-left: auto;
+    }
+    & svg:nth-child(4) {
+      width: 27.5vw;
+      
+      margin-right: auto;
+      transform: rotateY(180deg);
+    }
+    path {
+  stroke: #BE9A68;
+  stroke-width: 1;
+  fill: none;
+  opacity: 1;
+  
+}
+  }
+}
+
+
+
+.interest{
+  position: relative;
+  z-index: 3;
+  padding-top: 100px;
+    padding-bottom: 100px;
+    @include tablet {
+      padding-top: 120px;
+    padding-bottom: 120px;
+    }
+    @include laptop {
+      padding-top: 190px;
+    padding-bottom: 190px;
+    }}
+  .svg-layer {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    @include tablet {
+      top: -30px;
+    }
+    @include laptop {
+      top: -20px;
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      display: none;
+      
+    }
+
+    // MOBILE by default
+    .icon--svg-layout-mobile {
+      display: block;
+    }
+
+    // TABLET ≥768px
+    @include tablet {
+      .icon--svg-layout-mobile {
+        display: none;
+      }
+      .icon--svg-layout-tablet {
+        display: block;
+      }
+    }
+
+    // DESKTOP ≥1366px
+    @include laptop {
+      .icon--svg-layout-tablet {
+        display: none;
+      }
+      .icon--svg-layout-desktop {
+        display: block;
+      }
+    }
+  }
+  
+  .interest-title{
+    margin-bottom: 40px ;
+    
+  }
+
+.swiper-interest {
+  overflow: hidden;
+  margin-left: calc((75px / 414px) * 100vw);
+  margin-right: calc((75px / 414px) * 100vw);
+  @include tablet {
+    margin-left: 14.3vw;
+    margin-right: 14.3vw;
+  }
+  @include laptop {
+    margin-left: 11.97vw;
+    margin-right: 11.97vw;
+  }
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  .swiper-slide {
+  
+    
+    transition: all 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    height: auto;
+    @include laptop {
+    &.swiper-slide-next {
+      transform: translateY(80px);
+    }}
+    img {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .text-frame--border {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 1px;
+      top: -50px;
+      z-index: 2;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
+      -webkit-clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
+      background-color: rgba(91, 80, 60, 0.315) ;
+    }
+    .text-frame {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      // justify-content: center;
+      align-items: center;
+      padding: 40px;
+      padding-bottom: calc((55px / 414px) * 100vw);
+      clip-path: inherit;
+      // width: 445px;
+      // height: 235px;
+      clip-path: inherit;
+      @include tablet {
+        padding-bottom: calc((55px / 768px) * 100vw);
+      }
+      @include laptop {
+        padding-bottom: 85px;
+      }
+      background-color: #0000008a;
+      &>p {
+        @include general-text;
+        color: $text-color2;
+        text-align: center;
+        color: $accent-color;
+         margin-top: auto;
+         
+        }
+      }
+      .inerest-slide-title {
+        @include general-text;
+       
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: $text-color;
+        @include tablet {
+          font-size: 2.3vw;
+        }
+        @include laptop {
+          font-size: 1.66vw;
+        }
+      }
+      .gen-btn-wrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        z-index: 5;
+        bottom: 0px;
+        
+        z-index: 5;
+        padding-right: 20px;
+        padding-left: 20px;
+        @include laptop {
+          padding-right: 3.2vw;
+        padding-left: 3.2vw;
+        }
+      }
+      .general-btn {
+       width: 100%;
+       padding-bottom: 27%;
+       position: relative;
+       span {
+        font-size: calc((16px / 414px) * 100vw);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include tablet {
+          font-size: calc((16px / 768px) * 100vw);
+        }
+        @include laptop {
+          font-size: calc((20px / 1920px) * 100vw);
+        }
+       }
+
+    }
+  }
+
+}
+.swiper-main-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  position:absolute;
+  z-index: 3;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.swiper-btn-prev, .swiper-btn-next{
+  pointer-events: all;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0% 0%, 77% 0%, 100% 15%, 100% 83%,77% 100%, 0% 100%);
+  background-color: $text-color;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease-out;
+  .swiper-button-disabled {
+    opacity: 0.6;
+    
+    pointer-events: none;
+  }
+  svg {
+    transform: translateX(-20%) ;
+  }
+  @include laptop {
+    width: 90px;
+    height: 90px;
+  }
+  color: #171B14
+}
+.swiper-btn-next {
+  clip-path: polygon(0 17%, 23% 0%, 100% 0, 100% 100%, 23% 100%, 0 83%);
+  svg {
+    transform: rotate(180deg) translateX(-20%);
+  }
+}
+.interest-content{
+  position: relative;
+  z-index: 2;
+}
+
+.leaders{
+  position: relative;
+  z-index: 3;
+  background-color: $bg-color;
+  padding-top: 100px;
+    padding-bottom: 100px;
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: $bg-color;
+      top: 0;
+      transform: translateY(-100%);
+      left: 0;
+      clip-path: polygon(
+        10.07% 0%,
+        0% 0%,
+        0% 100%,
+        100% 100%,
+        81.88% 40%,
+        22.82% 40%,
+        10.07% 0%
+      );
+      width: 149px;
+      height: 25px;
+
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $bg-color;
+      top: 0;
+      transform: translateY(-100%);
+      right: 0;
+      clip-path: polygon(
+        89.93% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        18.12% 40%,
+        77.18% 40%,
+        89.93% 0%
+      );
+      width: 149px;
+      height: 25px;
+    }
+    @include tablet {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    &::before, &::after  {
+      width: 39.84vw;
+      height: 3.77vw;
+    }
+    }
+    @include laptop {
+      padding-top: 190px;
+      padding-bottom: 190px;
+    &::before, &::after {
+      width: 40.4vw;
+      height: 2.4vw;
+    }
+    }
+  .direction-btn {
+    &::before {
+      opacity: 1;
+      filter: blur(30px);
+      -webkit-filter: blur(30px);
+    }
+  }
+  }
+  
+  
+  .leaders-title{
+    margin-bottom: 40px ;
+    @include tablet {
+      margin-bottom: 80px ;
+    }
+    @include laptop {
+      margin-bottom: 13.02vw ;
+    }
+    
+  }
+
+.swiper-leaders {
+  overflow: hidden;
+  margin-left: 75px;
+  margin-right: 75px;
+  @include tablet {
+    overflow: visible;
+    margin-left: 14.3vw;
+    margin-right: 14.3vw;
+  }
+  @include laptop {
+    margin-left: 11.97vw;
+    margin-right: 11.97vw;
+  }
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  .swiper-slide {
+    transition: all 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    @include tablet {
+      flex-direction: row;
+    }
+    .direction-btn {
+      pointer-events: none;
+      img {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+      @include tablet {
+        width: 50%;
+        &::before {
+      transform: translate(-50%, -50%) scale(1);
+    
+    background: radial-gradient(ellipse  at center 50%, $accent-color 0% , transparent 80%);
+    opacity: 1;
+    }
+        img {
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          width:100%;
+          object-position: bottom;
+        }
+        
+      }
+       @include laptop {
+        width: 40%;
+        &::before {
+          transform: translate(-30%, -50%) ;
+    background: radial-gradient(ellipse  at 50% 50%, $accent-color 0% , transparent 90%);
+    }
+        img {
+          
+          left: 80px;
+        }
+       }
+    }
+    
+    .text-frame--border {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 1px;
+      top: -50px;
+      z-index: 2;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
+      -webkit-clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
+      background-color: rgba(91, 80, 60, 0.315);
+      @include tablet {
+        clip-path: none;
+        background-color: transparent;
+        width: 50%;
+        top: 0;
+        backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      }
+      @include laptop {
+        width: 40%;
+      }
+    }
+    .text-frame {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      // justify-content: center;
+      align-items: center;
+      padding: 40px;
+      padding-bottom: 55px;
+      clip-path: inherit;
+      // width: 445px;
+      // height: 235px;
+      clip-path: inherit;
+      @include tablet {
+        
+        align-items: flex-start;
+        background-color: transparent;
+      }
+      @include laptop {
+        padding: 80px;
+        width: 80%;
+      }
+      background-color: #0000008a;
+      &>p {
+        @include general-text;
+        color: $text-color2;
+        text-align: center;
+        color: $accent-color;
+        @include tablet {
+        margin-bottom: 40px;
+        text-align: start;
+      }
+      @include laptop {
+        margin-bottom: 60px
+      }
+        }
+      }
+      .leaders-slide-title {
+        @include general-text;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 4px;
+        color: $text-color;
+        @include tablet {
+          font-size: 2.3vw;
+          text-align: start;
+        }
+        @include laptop {
+          font-size: 1.66vw;
+        }
+      }
+      .sign-call{
+        @include article-title;
+        margin-bottom: 12px;
+        @include tablet {
+          text-align: start;
+        }
+      }
+      .gen-btn-wrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        z-index: 5;
+        bottom: 0px;
+        
+        z-index: 5;
+        padding-right: 20px;
+        padding-left: 20px;
+        &.tablet {
+          display: none;
+        }
+        @include tablet {
+        position: static;
+        padding-right: 0;
+        padding-left: 0;
+        &.mobile {
+          display: none;
+        }
+        &.tablet {
+          display: flex;
+        }
+      }
+        @include laptop {
+          
+        }
+      }
+      .general-btn {
+       width: 100%;
+       padding-bottom: 27%;
+       position: relative;
+       span {
+        font-size: calc((16px / 360px) * 100vw);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include tablet {
+          font-size: calc((16px / 768px) * 100vw);
+        }
+        @include laptop {
+          font-size: calc((20px / 1920px) * 100vw);
+        }
+       }
+
+    }
+  }
+  .tablet-frame {
+    display: none;
+    @include tablet {
+      display: block;
+      position: absolute;
+      z-index:-1;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+    }
+     @include laptop {
+    display: none;
+  }
+  }
+  .desktop-frame {
+    display: none;
+    
+     @include laptop {
+    display: block;
+      position: absolute;
+      z-index:-1;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+  }
+  }
+ 
+}
+.questions {
+  padding-bottom: 110px;
+  @include laptop {
+     padding-bottom: 10.9vw;
+  }
+}
+.questions-conent {
+  @include laptop {
+    display: flex;
+    flex:1;
+    gap: calc(130px / 1920px * 100vw);
+    .questions-title-wrap {
+      position:sticky;
+      top: 130px;
+      height: calc(100svh - 130px);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.questions-title{
+  text-align: start;
+}
+.questions-img-wrap{
+  display: none;
+  @include laptop {
+    display: block;
+    margin-top: auto;
+    margin-left: -40px;
+    width: 80%;
+    // transform: translateZ(0);
+    &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -40%) scale(1);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle  at center 70%, $accent-color 0% , transparent 50%);
+    filter:blur(20px);
+      -webkit-filter:blur(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
+    
+    pointer-events: none;
+  }
+  }
+}
+.questions__block {
+  display: flex;
+  flex-direction: column;
+  gap:16px;
+  margin-bottom: 40px;
+  @include tablet {
+    margin-bottom: 20px;
+  }
+   @include laptop {
+    margin-bottom: 80px;
+  }
+}
+
+.question__text-gradient{
+  width: 100%;
+  // border: 1px solid rgba(190, 154, 104, 0.40);
+  padding: 1px;
+  // for anim start
+  // opacity: 0;
+  // transform: translateY(-40px);
+  // filter: blur(4px);
+  // -webkit-filter: blur(4px);
+  transition: all 0.3s ease;
+  // for animation
+  clip-path: polygon(0% calc(100% - 20px), 30px 100%, 100% 100%, 100% 0%, 0% 0%);;
+  background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 90%);
+  @include tablet {background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 65%, rgba(190, 154, 104, 0.40) 95%)}
+  @include laptop {background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 65% , rgba(190, 154, 104, 0.40) 95%)}
+  .questions__text-wrap {
+    padding:40px;
+    background-color: #111111;
+    clip-path: inherit;
+    -webkit-clip-path: inherit;
+    @include tablet {
+      display: flex;
+      
+      gap: 60px;
+      padding:40px 60px;
+    }
+    @include laptop {
+      padding: 60px;
+    }
+  }
+  .block__title {
+    @include general-text--title;
+    margin-bottom: 12px;
+    @include tablet {
+      width: 45%;
+    }
+   
+  }
+  .block__text {
+    @include general-text;
+    @include tablet {
+      width: 45%;
+    }
+    
+  }
+}
+.questions__footer {
+  margin-left: 40px;
+  @include tablet {
+margin-left: calc(50% + 30px);
+    }
+     @include laptop {
+margin-left: 30px;
+width: 60%;
+    }
+  &>p {
+    @include general-text--title;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: $default-font;
+    span {
+      color: $accent-color;
+    }
+    @include tablet {
+margin-bottom: 20px;
+    }
+    @include laptop {
+margin-bottom: 28px;
+    }
+  }
+
+  
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+   @include tablet {
+    gap: 12px;
+  }
+  @include laptop {
+    gap: 20px;
+  }
+
+  &__item{
+    
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0.75px solid rgba(255, 238, 215, 0.40);
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+    @include laptop {
+      width: 64px;
+height: 64px;
+svg {
+  width: 24px;
+height: 24px;
+}
+    }
+  }
+}

@@ -1,0 +1,76 @@
+header(class="header "+headerCustomClass)
+  .header-bg.container
+    .header_left-block
+      button.call-us-btn.menu-button(data-call-us-btn) 
+        span.menu-button__inner Долучитися
+      .header-contacts
+        button.header-contacts-gen.menu-button 
+          span.menu-button__inner ЗВ’ЯЗАТИСЯ
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M11.293 14.707C11.4805 14.8946 11.7348 15 12 15C12.2652 15 12.5195 14.8946 12.707 14.707L17.4141 10L16 8.58594L12 12.5859L8 8.58594L6.58594 10L11.293 14.707Z" fill="#FFEED7"/>
+            </svg>
+        a(href="tel:+380732884610").header-phone.menu-button
+          span.menu-button__inner +380 (73) 288 46 10 
+        a(href="/").header-phone.menu-button
+          span.menu-button__inner +380 (73) 288 46 10 
+        a(href="/").header-phone.menu-button
+          span.menu-button__inner +380 (73) 288 46 10 
+       
+    
+    
+    a(href="/").header-logo
+      +svg("logo")
+      
+    .header_right-block
+      //- .language-wrap 
+      //-   a(href="/ua").language-item 
+      //-     span UA
+      //-   a(href="/en").language-item 
+      //-     span EN
+        
+      button.menu-btn.menu-button(data-menu-button)
+        .menu-button__inner
+          span Меню
+          .menu-burger(data-menu-button)
+            span.over 
+            span.middle
+            span.under  
+
+  .overflow(data-call-us__overflow).hidden
+    .modal-form(data-call-us-modal)
+      .close-btn(data-call-us-modal-close) 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.99992 2.79285L4.35348 3.1464L11.9999 10.7928L19.6464 3.1464L19.9999 2.79285L20.707 3.49995L20.3535 3.85351L12.707 11.5L20.3535 19.1464L20.707 19.5L19.9999 20.2071L19.6464 19.8535L11.9999 12.2071L4.35348 19.8535L3.99992 20.2071L3.29282 19.5L3.64637 19.1464L11.2928 11.5L3.64637 3.85351L3.29282 3.49995L3.99992 2.79285Z" fill="#292925"/>
+        </svg>
+      .form-title Замовити дзвінок
+      +form
+ 
+  .menu-overlay.hidden(data-menu)
+    .menu-container
+      .menu-list 
+        a(href="/").menu-item 
+          span Головна
+        a(href="/achive").menu-item 
+          span відзнака
+        a(href="/history").menu-item 
+          span історія підрозділу
+        a(href="/vacancy").menu-item 
+          span вакансії
+        a(href="/help").menu-item 
+          span допомогти
+        
+      
+        a(href="/arademy").menu-item 
+          span академія
+        a(href="/location").menu-item 
+          span локація хабу
+        a(href="#contacts").menu-item 
+          span Контакти
+      a(href="tel:+380732884610").header-phone
+        span +380 (73) 288 46 10
+      button.call-us-btn(data-call-us-btn) 
+        span Замовити дзвінок
+
+
+
+

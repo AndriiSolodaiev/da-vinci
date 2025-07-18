@@ -1,0 +1,153 @@
+$default-font: 'DrukWideCyr', sans-serif;
+$default-font2: 'Inter', sans-serif;
+
+$mc2: #ff554c;
+$mc3: #e5df06;
+$mc4: #4f90b6;
+$gray: #878797;
+$text: #22223e;
+$wc: #fff;
+$bc: #000;
+$bc2: #000;
+
+$bg-color: #111;
+$accent-color: #BE9A68;
+$color-body: rgba(110,162,188,1);
+$text-color: #FFEED7;
+$second-accent-color: rgba(240,186,82,1);
+$text-color2: #B5AA9B;
+
+@mixin title-text () {
+	font-size: 32px;
+	font-family: $default-font;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 100%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $text-color;
+	@include tablet {
+		font-size: 6.25vw;
+	}
+	@include laptop {
+		font-size: 4.16vw;
+	}
+}
+
+@mixin article-title () {
+	font-size: 18px;
+	font-family: $default-font;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 100%;
+
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $text-color;
+	@include tablet {
+		font-size: 2.32vw;
+	}
+	@include laptop {
+		font-size: 1.66vw;
+	}
+}
+@mixin article-title--low () {
+	font-size: 18px;
+	font-family: $default-font2;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 120%;
+	
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $text-color;
+	@include tablet {
+		font-size: 2.6vw;
+	}
+	@include laptop {
+		font-size: 1.66vw;
+	}
+}
+@mixin general-text--title() {
+	font-size: 18px;
+	font-family: $default-font2;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 120%;
+	color: $text-color;
+	@include tablet {
+		font-size: 2.6vw;
+	}
+	@include laptop {
+		font-size: 1.66vw;
+	}
+	
+}
+@mixin btn-text () {
+	font-size: 12px;
+	font-family: $default-font2;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 100%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $bc;
+	@include tablet {
+		font-size: 14px;
+	}
+	@include laptop {
+		font-size: 18px;
+	}
+}
+@mixin gen-btn-text () {
+	font-size: 16px;
+	font-family: $default-font;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 100%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $bc;
+	@include tablet {
+		font-size: 14px;
+	}
+	@include laptop {
+		font-size: 18px;
+	}
+}
+@mixin general-text() {
+	font-size: 14px;
+	font-family: $default-font2;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 140%;
+	color: $accent-color;
+	@include tablet {
+		font-size: 1.82vw;
+	}
+	@include laptop {
+		font-size: 0.93vw;
+	}
+	
+}
+// @mixin general-text-bold() {
+// 	font-size: 20px;
+// 	font-family: Gotham Pro;
+// 	font-weight: 700;
+// 	font-style: normal;
+// 	line-height: 140%;
+// 	letter-spacing: -0.04em;
+// 	text-decoration: none;
+// 	text-transform: none;
+// }
+@mixin tiny-text() {
+	font-size: 14px;
+	font-family:  $default-font2;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 140%;
+
+	text-decoration: none;
+	// text-transform: uppercase;
+
+}
