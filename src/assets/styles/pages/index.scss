@@ -1,8 +1,11 @@
 .hero {
-  height: calc(100svh - 40px);
+  height: calc(100svh - 50px);
   width: 100%;
   position: relative;
   z-index: 2;
+   @include tablet {
+    height: calc(100svh - 60px);
+   }
 }
 .video-frame {
   
@@ -113,7 +116,6 @@ color: $accent-color
   @include laptop {
     width: 410px;
     height: 55px;
-    
   }
   }
   .general-btn {
@@ -127,18 +129,73 @@ color: $accent-color
 }
 .general-btn {
   @include gen-btn-text;
+ 
   width: 224px;
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
   background-color: $text-color;
+  transition: background-color 0.3s;
   clip-path: polygon(0% 15%, 9% 0%, 33% 0%, 34% 6%, 66% 6%, 67% 0%, 91% 0%, 100% 15%, 100% 85%, 91% 100%, 58% 100%, 57% 94%, 43% 94%, 42% 100%, 9% 100%, 0% 85%);
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(22, 26, 19, 0.74);
+    width: 150%;
+    height: 220%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    // opacity: 0;
+    z-index: 1;
+  }
+
+  &::before {
+    transform: rotate(45deg) translate(0%, -140%);
+   background-color: rgba(29, 35, 26, 0.705);
+  }
+
+  &::after {
+    transform: rotate(45deg) translate(0%, 140%);
+  
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    color: $bg-color;
+    transition: color 0.3s ease, color 0.3s ease;
+  }
+
+  &:hover {
+    // border-color: #9691912d;
+    
+    &::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(-10%, -40%);
+    }
+
+    &::after {
+     opacity: 1;
+      transform: rotate(45deg) translate(-10%, 58%);
+    }
+    span {
+      
+      color: $text-color2;
+    }
+  }
+
   @include laptop {
     width: 332px;
     height: 90px;
-    
   }
+
 }
 
 .swiper-directions {
@@ -269,6 +326,8 @@ color: $accent-color
     position: absolute;
     top: 50%;
     left: 50%;
+    filter:blur(20px);
+      -webkit-filter:blur(20px);
     transform: translate(-50%, -50%) scale(0.8);
     width: 100%;
     height: 100%;
@@ -373,6 +432,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     -webkit-backdrop-filter: blur(10px);
     clip-path: inherit;
     -webkit-clip-path: inherit;
+    height: 100%;
     @include tablet {
       padding:40px 20px;
     }
@@ -512,20 +572,27 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   }
 }
 
-
+.offset {
+  position: relative;
+  z-index: -1;
+  height:20px;
+  @include tablet {
+    height: 80px;
+  }
+}
 
 .interest{
   position: relative;
   z-index: 3;
   padding-top: 100px;
-    padding-bottom: 100px;
+    
     @include tablet {
       padding-top: 120px;
-    padding-bottom: 120px;
+    // padding-bottom: 120px;
     }
     @include laptop {
       padding-top: 190px;
-    padding-bottom: 190px;
+    // padding-bottom: 190px;
     }}
   .svg-layer {
     position: absolute;
@@ -606,7 +673,22 @@ grid-template-columns: 1fr 1fr; // 2 колонки
 
     position: relative;
     height: auto;
+    .direction-btn:hover{
+      cursor:grab;
+    }
+    &:hover {
+      
+      .direction-btn::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    
+    }
+    .direction-btn>img {
+      transform: scale(1.08);
+    }
+    }
     @include laptop {
+
     &.swiper-slide-next {
       transform: translateY(80px);
     }}
@@ -635,13 +717,14 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       flex-grow: 1;
       // justify-content: center;
       align-items: center;
-      padding: 40px;
+      padding: 40px 20px;
       padding-bottom: calc((55px / 414px) * 100vw);
       clip-path: inherit;
       // width: 445px;
       // height: 235px;
       clip-path: inherit;
       @include tablet {
+        padding: 40px;
         padding-bottom: calc((55px / 768px) * 100vw);
       }
       @include laptop {
@@ -682,7 +765,9 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         z-index: 5;
         padding-right: 20px;
         padding-left: 20px;
+        
         @include laptop {
+          
           padding-right: 3.2vw;
         padding-left: 3.2vw;
         }
@@ -732,24 +817,92 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   width: 40px;
   height: 40px;
   transition: all 0.3s ease-out;
-  .swiper-button-disabled {
+ 
+  @include laptop {
+ padding-right: 12px;
+  }
+  &.swiper-button-disabled {
     opacity: 0.6;
     
     pointer-events: none;
   }
-  svg {
-    transform: translateX(-20%) ;
-  }
+ 
+
+
   @include laptop {
     width: 90px;
     height: 90px;
   }
   color: #171B14
 }
+.desktop {
+  .swiper-btn-prev, .swiper-btn-next {
+     transition: background-color 0.2s ease;
+
+  svg {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+    path {
+      transition: fill 0.3s ease-in-out;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background: rgba(190, 154, 104, 0.8);
+
+    svg {
+      path{
+        fill: $text-color;
+      }
+      animation: arrow-warp 0.4s ease-in-out forwards;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px dashed $text-color;
+      clip-path: inherit;
+      animation: targeting-border 1s linear infinite;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes arrow-warp {
+  0% {
+    transform: scale(1) translateX(0) skewX(0deg);
+  }
+  50% {
+    transform: scale(1.2) translateX(-2px) skewX(10deg);
+  }
+  100% {
+    transform: scale(1) translateX(0) skewX(0deg);
+  }
+}
+
+@keyframes targeting-border {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  }
+}
 .swiper-btn-next {
   clip-path: polygon(0 17%, 23% 0%, 100% 0, 100% 100%, 23% 100%, 0 83%);
-  svg {
-    transform: rotate(180deg) translateX(-20%);
+  
+  padding-right: 0px;
+  @include laptop {
+    padding-left: 12px;
   }
 }
 .interest-content{
@@ -762,7 +915,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   z-index: 3;
   background-color: $bg-color;
   padding-top: 100px;
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
     &::before {
       content: "";
       position: absolute;
@@ -908,7 +1061,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       flex-direction: column;
       flex-grow: 1;
       padding: 1px;
-      top: -50px;
+      top: -100px;
       z-index: 2;
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
@@ -933,14 +1086,14 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       flex-grow: 1;
       // justify-content: center;
       align-items: center;
-      padding: 40px;
-      padding-bottom: 55px;
+      padding: 40px 20px;
+      padding-bottom: 15.2vw;
       clip-path: inherit;
       // width: 445px;
       // height: 235px;
       clip-path: inherit;
       @include tablet {
-        
+        padding: 40px ;
         align-items: flex-start;
         background-color: transparent;
       }
@@ -954,6 +1107,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         color: $text-color2;
         text-align: center;
         color: $accent-color;
+        margin-bottom: 12px;
         @include tablet {
         margin-bottom: 40px;
         text-align: start;
@@ -990,15 +1144,15 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         width: 100%;
         position: absolute;
         z-index: 5;
-        bottom: 0px;
-        
-        z-index: 5;
+        bottom: 60px;
         padding-right: 20px;
         padding-left: 20px;
         &.tablet {
           display: none;
         }
+       
         @include tablet {
+          justify-content: flex-start;
         position: static;
         padding-right: 0;
         padding-left: 0;
@@ -1018,18 +1172,26 @@ grid-template-columns: 1fr 1fr; // 2 колонки
        padding-bottom: 27%;
        position: relative;
        span {
-        font-size: calc((16px / 360px) * 100vw);
+        font-size: calc((16px / 414px) * 100vw);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         @include tablet {
-          font-size: calc((16px / 768px) * 100vw);
+          font-size: 14px;
         }
         @include laptop {
-          font-size: calc((20px / 1920px) * 100vw);
+          font-size: 18px;
         }
        }
+       @include tablet {
+          width: 282px;
+         padding-bottom: 70px;
+        }
+        @include laptop {
+          width: 332px;
+          padding-bottom: 90px;
+        }
 
     }
   }
@@ -1084,7 +1246,8 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   }
 }
 .questions-title{
-  text-align: start;
+  @include laptop {text-align: start;}
+  
 }
 .questions-img-wrap{
   display: none;
@@ -1107,6 +1270,21 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       -webkit-filter:blur(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: -1;
+    
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    
+    background: linear-gradient(180deg, #00000000, $bg-color);
+    
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
     
     pointer-events: none;
   }
@@ -1219,10 +1397,56 @@ margin-bottom: 28px;
     align-items: center;
     border-radius: 50%;
     border: 0.75px solid rgba(255, 238, 215, 0.40);
+    position: relative;
+    overflow: hidden;
     svg {
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
       width: 18px;
       height: 18px;
     }
+     &::before,
+      &::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(190, 154, 104, 0.651);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    // opacity: 0;
+    z-index: 1;
+  }
+
+  &::before {
+    transform: rotate(45deg) translate(0%, -100%);
+   background-color: rgba(190, 154, 104, 0.39);
+  }
+
+  &::after {
+    transform: rotate(45deg) translate(0%, 100%);
+  
+  }
+  &:hover {
+    // border-color: #9691912d;
+    
+    &::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(0%, -49%);
+    }
+
+    &::after {
+     opacity: 1;
+      transform: rotate(45deg) translate(0%, 49%);
+    }
+    svg {
+      
+      transform: scale(1.2) ;
+    }
+  }
     @include laptop {
       width: 64px;
 height: 64px;

@@ -5,9 +5,7 @@ import { gsap, ScrollTrigger, CustomEase } from 'gsap/all';
 import '../modules/helpers/imgParallax';
 
 
-import { initSmoothScrolling } from '../modules/scroll/leniscroll';
-import device from "current-device"
-// initSmoothScrolling();
+
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 const currentEl = document.querySelector('.swiper-counter .current');
@@ -81,7 +79,7 @@ paths.forEach((path, index) => {
       start: "top 80%",
       toggleActions: "play none none none",
       once: true,
-      markers: true
+      
     }
   });
 
@@ -103,54 +101,73 @@ paths.forEach((path, index) => {
     }, 0); // той самий час у timeline
 });
 
- const swiperInerest = new Swiper('.swiper-interest', {
+let swiperInterest = null;
+
+function getInitialEffect() {
+  return window.innerWidth < 768 ? 'cube' : 'slide';
+}
+
+function getSlidesPerView() {
+  if (window.innerWidth >= 1366) return 3;
+  if (window.innerWidth >= 768) return 2;
+  return 1;
+}
+
+function createSwiper() {
+  swiperInterest = new Swiper('.swiper-interest', {
     modules: [Navigation, EffectCube],
     speed: 600,
-    // effect: 'cube',
-    // grabCursor: true,
-    // cubeEffect: {
-    //   shadow: false,
-    //   slideShadows: true,
-    //   shadowOffset: 20,
-    //   shadowScale: 0.94,
-    // },
-    
+    effect: getInitialEffect(),
+    grabCursor: true,
+    cubeEffect: {
+      shadow: false,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    },
+    spaceBetween: 20,
     loop: false,
     navigation: {
       nextEl: '[data-interest-next-btn]',
       prevEl: '[data-interest-prev-btn]',
     },
-    slidesPerView: 1,
-    
-    breakpoints: {
-      768: {
-        // effect: "slide",
-        // cubeEffect: undefined, 
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-       1366: {
-        // effect: "slide",
-        // cubeEffect: undefined, 
-        spaceBetween: 20,
-        slidesPerView: 3,
-      }
-    }
-   
+    slidesPerView: getSlidesPerView(),
+    // No need for breakpoints, we handle config in JS
   });
+}
+
+// Initial create
+createSwiper();
+
+// Re-create on resize if effect or slidesPerView should change
+let lastEffect = getInitialEffect();
+let lastSlides = getSlidesPerView();
+
+window.addEventListener('resize', () => {
+  const newEffect = getInitialEffect();
+  const newSlides = getSlidesPerView();
+
+  // Only recreate if something actually changes
+  if (lastEffect !== newEffect || lastSlides !== newSlides) {
+    if (swiperInterest) swiperInterest.destroy(true, true);
+    createSwiper();
+    lastEffect = newEffect;
+    lastSlides = newSlides;
+  }
+});
 
   const swiperLeaders = new Swiper('.swiper-leaders', {
     modules: [Navigation, EffectCube],
     speed: 600,
     // effect: 'cube',
-    // grabCursor: true,
+    grabCursor: true,
     // cubeEffect: {
     //   shadow: false,
     //   slideShadows: true,
     //   shadowOffset: 20,
     //   shadowScale: 0.94,
     // },
-    
+    spaceBetween: 20,
     loop: false,
     navigation: {
       nextEl: '[data-leaders-next-btn]',
@@ -176,3 +193,32 @@ paths.forEach((path, index) => {
   });
 
  
+  export function trackVisibility(targetSelector, callback) {
+  const target = document.querySelector(targetSelector);
+  if (!target) {
+    console.warn(`Елемент ${targetSelector} не знайдено.`);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        callback('enter', entry.target);
+      } else {
+        callback('exit', entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1 // 10% елемента видно — вважається в зоні видимості
+  });
+
+  observer.observe(target);
+}
+ trackVisibility(".video-frame video", (event, video) => {
+        if (event === 'enter') {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+

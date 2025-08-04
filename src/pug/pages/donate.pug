@@ -1,0 +1,156 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'donate'
+    var id_page = 'id-page-donate'
+    var class_page = 'class-page-donate'
+    var headerCustomClass = 'type1' 
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/header.bundle.js')
+  script(defer src='./assets/scripts/footer.bundle.js')
+  script(defer src='./assets/scripts/donate.bundle.js')
+block content
+  section.honors.container.donate
+    .svg-layer 
+      <svg  viewBox="0 0 1920 1204" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 161.5V21V0H70H727H1192H1850H1920V21V161.5L1725 356.5V1179H1425L1125 886H795L495 1179H195V356.5L0 161.5Z" fill="url(#paint0_linear_1642_13896)"/>
+        <path d="M1125 589L1260 454V403L1355 337V0H1260H1192H727H660H565V337L660 403V454L795 589V1204H1125V589Z" fill="black" fill-opacity="0.2"/>
+        <path d="M660.5 402.738L660.285 402.59L565.5 336.738V0.5H1354.5V336.738L1259.71 402.59L1259.5 402.738V453.793L1124.5 588.793V1203.5H795.5V588.793L660.5 453.793V402.738Z" stroke="url(#paint1_linear_1642_13896)" stroke-opacity="0.4"/>
+        <defs>
+          <linearGradient id="paint0_linear_1642_13896" x1="960" y1="-64.0354" x2="960" y2="937.501" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1A1818"/>
+            <stop offset="1" stop-color="#111111"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1642_13896" x1="960" y1="-863.479" x2="960" y2="835.459" gradientUnits="userSpaceOnUse">
+            <stop offset="0.442308" stop-opacity="0"/>
+            <stop offset="0.528846" stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    h1.section-title.honors-title Допомогти
+    .swiper-leaders 
+      .swiper-wrapper 
+        .swiper-slide
+          <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+            
+            <g data-figma-bg-blur-radius="48">
+            <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+            <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+            </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+          <foreignObject x="-48" y="-48" width="1471" height="636"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(24px);clip-path:url(#bgblur_0_1687_16525_clip_path);height:100%;width:100%"></div></foreignObject><g data-figma-bg-blur-radius="48">
+          <g data-figma-bg-blur-radius="48">
+          <mask id="path-1-inside-1_1504_9856" fill="white">
+          <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+          </mask>
+          <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+          <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+          </g>
+          <defs>
+          <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+          </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+          <stop offset="0.475962" stop-opacity="0"/>
+          <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+          </linearGradient>
+          </defs>
+          </svg>
+          .direction-btn 
+            img(src="./assets/images/donate/1.jpg", alt="auto")
+          .text-frame--border
+            .text-frame 
+              h3.leaders-slide-title Автотранспорт
+              h4.sign-call Пікап
+              p Для виконання бойових завдань потребуємо автомобілі типу Pick-Up:
+              p Двигун >2,5 л.; Дизель; Повний привід;
+              .gen-btn-wrap.tablet
+                button.general-btn(type="button" data-more-popap)
+                  span задонатити
+          .gen-btn-wrap.mobile 
+            button.general-btn(type="button" data-more-popap)
+              span задонатити
+              
+        .swiper-slide
+          <svg class="tablet-frame" xmlns="http://www.w3.org/2000/svg" width="604" height="368" viewBox="0 0 604 368" fill="none" preserveAspectRatio="none">
+
+            <g data-figma-bg-blur-radius="48">
+            <path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z" fill="black" fill-opacity="0.2"/>
+            <path d="M583.882 0.5L603.5 10.3086V346.5H311.874L311.763 346.56L272.873 367.5H50.127L11.2373 346.56L11.126 346.5H0.5V10.3086L20.1182 0.5H583.882Z" stroke="url(#paint0_linear_1132_13089)" stroke-opacity="0.6"/>
+            </g>
+            <defs>
+            <clipPath id="bgblur_0_1132_13089_clip_path" transform="translate(48 48)"><path d="M50 368L11 347H0V10L20 0H584L604 10V347H312L273 368H267H141H50Z"/>
+            </clipPath><linearGradient id="paint0_linear_1132_13089" x1="-271.158" y1="-71.9868" x2="352.588" y2="-739.398" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="0.475962" stop-opacity="0"/>
+            <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+            </linearGradient>
+            </defs>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="desktop-frame" preserveAspectRatio="none" width="1375" height="540" viewBox="0 0 1375 540" fill="none">
+          <g data-figma-bg-blur-radius="48">
+          <mask id="path-1-inside-1_1504_9856" fill="white">
+          <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+          </mask>
+          <path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z" fill="#111111" fill-opacity="0.3"/>
+          <path d="M1355 0L1355.45 -0.894427L1355.24 -1H1355V0ZM1375 10H1376V9.38197L1375.45 9.10557L1375 10ZM1375 498V499H1376V498H1375ZM1344 498V497H1343.75L1343.53 497.12L1344 498ZM1305 519V520H1305.25L1305.47 519.88L1305 519ZM639 519V518H638.748L638.526 518.12L639 519ZM600 540V541H600.252L600.474 540.88L600 540ZM180 540L179.526 540.88L179.748 541H180V540ZM141 519L141.474 518.12L141.252 518H141V519ZM70 519L69.5259 519.88L69.7479 520H70V519ZM31 498L31.4741 497.12L31.2521 497H31V498ZM0 498H-1V499H0V498ZM0 10L-0.447214 9.10557L-1 9.38197V10H0ZM20 0V-1H19.7639L19.5528 -0.894427L20 0ZM1355 0L1354.55 0.894427L1374.55 10.8944L1375 10L1375.45 9.10557L1355.45 -0.894427L1355 0ZM1375 10H1374V498H1375H1376V10H1375ZM1375 498V497H1344V498V499H1375V498ZM1344 498L1343.53 497.12L1304.53 518.12L1305 519L1305.47 519.88L1344.47 498.88L1344 498ZM1305 519V518H639V519V520H1305V519ZM639 519L638.526 518.12L599.526 539.12L600 540L600.474 540.88L639.474 519.88L639 519ZM600 540V539H180V540V541H600V540ZM180 540L180.474 539.12L141.474 518.12L141 519L140.526 519.88L179.526 540.88L180 540ZM141 519V518H70V519V520H141V519ZM70 519L70.4741 518.12L31.4741 497.12L31 498L30.5259 498.88L69.5259 519.88L70 519ZM31 498V497H0V498V499H31V498ZM0 498H1V10H0H-1V498H0ZM0 10L0.447214 10.8944L20.4472 0.894427L20 0L19.5528 -0.894427L-0.447214 9.10557L0 10ZM20 0V1H1355V0V-1H20V0Z" fill="url(#paint0_linear_1504_9856)" fill-opacity="0.6" mask="url(#path-1-inside-1_1504_9856)"/>
+          </g>
+          <defs>
+          <clipPath id="bgblur_0_1504_9856_clip_path" transform="translate(48 48)"><path d="M1355 0L1375 10V498H1344L1305 519H639L600 540H180L141 519H70L31 498H0V10L20 0H1355Z"/>
+          </clipPath><linearGradient id="paint0_linear_1504_9856" x1="-202.631" y1="-244.511" x2="514.478" y2="-694.735" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#BE9A68" stop-opacity="0.4"/>
+          <stop offset="0.475962" stop-opacity="0"/>
+          <stop offset="1" stop-color="#BE9A68" stop-opacity="0.4"/>
+          </linearGradient>
+          </defs>
+          </svg>
+          .direction-btn 
+            img(src="./assets/images/donate/1.jpg", alt="auto")
+          .text-frame--border
+            .text-frame 
+              h3.leaders-slide-title Дрон
+              h4.sign-call DJI Mavic
+              p Розвідник веде спостереження за ворогом для збору розвідувальної інформації. Діє приховано, забезпечує точні дані для планування бойових дій.
+              .gen-btn-wrap.tablet
+                button.general-btn(type="button" data-more-popap)
+                  span Задонатити
+          .gen-btn-wrap.mobile 
+            button.general-btn(type="button" data-more-popap)
+              span Задонатити
+      .swiper-main-controls
+          .swiper-btn-prev(data-leaders-prev-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M16.7512 9.75L16.7512 8.25L3.78345 8.25L9.87036 2.02441L10.3948 1.48828L9.32251 0.439453L8.79809 0.975586L1.46509 8.47559L0.952393 9L1.46509 9.52441L8.7981 17.0244L9.32251 17.5605L10.3948 16.5117L9.87036 15.9756L3.78345 9.75L16.7512 9.75Z" fill="#111111"/>
+            </svg>
+          .swiper-btn-next(data-leaders-next-btn)
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M3.99878 13V11L16.6218 11L10.9509 5.19922L10.2517 4.48437L11.6814 3.08594L12.3806 3.80078L19.7136 11.3008L20.3972 12L19.7136 12.6992L12.3806 20.1992L11.6814 20.9141L10.2517 19.5156L10.9509 18.8008L16.6218 13L3.99878 13Z" fill="#111111"/>
+            </svg>
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

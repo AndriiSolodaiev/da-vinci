@@ -1,0 +1,73 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'honors'
+    var id_page = 'id-page-honors'
+    var class_page = 'class-page-honors'
+    var headerCustomClass = 'type1' 
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/header.bundle.js')
+  script(defer src='./assets/scripts/footer.bundle.js')
+  script(defer src='./assets/scripts/honors.bundle.js')
+block content
+  section.honors.container
+    .svg-layer 
+      <svg  viewBox="0 0 1920 1204" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 161.5V21V0H70H727H1192H1850H1920V21V161.5L1725 356.5V1179H1425L1125 886H795L495 1179H195V356.5L0 161.5Z" fill="url(#paint0_linear_1642_13896)"/>
+        <path d="M1125 589L1260 454V403L1355 337V0H1260H1192H727H660H565V337L660 403V454L795 589V1204H1125V589Z" fill="black" fill-opacity="0.2"/>
+        <path d="M660.5 402.738L660.285 402.59L565.5 336.738V0.5H1354.5V336.738L1259.71 402.59L1259.5 402.738V453.793L1124.5 588.793V1203.5H795.5V588.793L660.5 453.793V402.738Z" stroke="url(#paint1_linear_1642_13896)" stroke-opacity="0.4"/>
+        <defs>
+          <linearGradient id="paint0_linear_1642_13896" x1="960" y1="-64.0354" x2="960" y2="937.501" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1A1818"/>
+            <stop offset="1" stop-color="#111111"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1642_13896" x1="960" y1="-863.479" x2="960" y2="835.459" gradientUnits="userSpaceOnUse">
+            <stop offset="0.442308" stop-opacity="0"/>
+            <stop offset="0.528846" stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    h1.section-title.honors-title Відзнака 
+      br
+      | "Хрест 
+      span Да Вінчі"
+    .honors-content 
+      .honors-content__text
+        p "Хрест Да Вінчі" — почесна відзнака командира 1 окремого штурмового полку, призначена для нагородження громадян України та іноземців за виявлену відвагу в умовах російсько-української війни, помітний внесок у зміцнення обороноздатності України різних рівнів, мілітаризацію суспільства та віддане служіння ідеалам Перемоги.
+        p "Хрест Да Вінчі" виражає приналежність нагородженої особи до комбатантської (волонтерської) спільноти та активної когорти "яструбів війни" громадянського суспільства України. Володіння почесною відзнакою підкреслює долученість особи до річища безкомпромісної боротьби за українські цінності, територіальну цілісність та засади національної держави.
+      .honors-content__links 
+        a(href="" target="_blank").link--hover 
+          span.link-face.link-face--front Статут відзнаки "Хрест Да Вінчі"
+          span.link-face.link-face--back Статут відзнаки "Хрест Да Вінчі"
+        a(href="" target="_blank").link--hover
+          span.link-face.link-face--front Стаття вікіпедії
+          span.link-face.link-face--back Стаття вікіпедії
+      .values__svg-wrap 
+        <svg xmlns="http://www.w3.org/2000/svg" width="692" height="294" viewBox="0 0 692 294" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM401 3L401.354 2.64645L401.207 2.5H401V3ZM3 3V3.5H401V3V2.5H3V3ZM401 3L400.646 3.35355L690.646 293.354L691 293L691.354 292.646L401.354 2.64645L401 3Z" fill="#BE9A68"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="692" height="294" viewBox="0 0 692 294" fill="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM401 3L401.354 2.64645L401.207 2.5H401V3ZM3 3V3.5H401V3V2.5H3V3ZM401 3L400.646 3.35355L690.646 293.354L691 293L691.354 292.646L401.354 2.64645L401 3Z" fill="#BE9A68"/>
+        </svg>
+      .honors-content__img
+        img(src="./assets/images/honor.png", alt="honor")
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

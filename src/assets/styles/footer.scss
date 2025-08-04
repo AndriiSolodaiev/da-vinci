@@ -1,7 +1,7 @@
 .footer.interest {
   overflow: hidden;
   padding-bottom: 0;
-  background-color: #000;
+  background:linear-gradient(180deg, $bg-color 30%, #000);
   .svg-layer {
     top:0;
   }
@@ -64,6 +64,12 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 12px;
+  position: relative;
+  z-index: 4;
+  pointer-events:none ;
+  & * {
+    pointer-events:all ;
+  }
   @include tablet {
     padding-bottom: 20px;
   }

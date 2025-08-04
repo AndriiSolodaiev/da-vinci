@@ -1,0 +1,62 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'history'
+    var id_page = 'id-page-history'
+    var class_page = 'class-page-history'
+    var headerCustomClass = 'type1' 
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/header.bundle.js')
+  script(defer src='./assets/scripts/footer.bundle.js')
+  script(defer src='./assets/scripts/history.bundle.js')
+block content
+  section.history
+    .svg-layer 
+      <svg  viewBox="0 0 1920 1204" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 161.5V21V0H70H727H1192H1850H1920V21V161.5L1725 356.5V1179H1425L1125 886H795L495 1179H195V356.5L0 161.5Z" fill="url(#paint0_linear_1642_13896)"/>
+        <path d="M1125 589L1260 454V403L1355 337V0H1260H1192H727H660H565V337L660 403V454L795 589V1204H1125V589Z" fill="black" fill-opacity="0.2"/>
+        <path d="M660.5 402.738L660.285 402.59L565.5 336.738V0.5H1354.5V336.738L1259.71 402.59L1259.5 402.738V453.793L1124.5 588.793V1203.5H795.5V588.793L660.5 453.793V402.738Z" stroke="url(#paint1_linear_1642_13896)" stroke-opacity="0.4"/>
+        <defs>
+          <linearGradient id="paint0_linear_1642_13896" x1="960" y1="-64.0354" x2="960" y2="937.501" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1A1818"/>
+            <stop offset="1" stop-color="#111111"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_1642_13896" x1="960" y1="-863.479" x2="960" y2="835.459" gradientUnits="userSpaceOnUse">
+            <stop offset="0.442308" stop-opacity="0"/>
+            <stop offset="0.528846" stop-color="#BE9A68" stop-opacity="0.4"/>
+            <stop offset="1" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    .history-img 
+      img(src="./assets/images/fog.png", alt="fog").fog
+      img(src="./assets/images/soldiers.png", alt="soldiers").soldiers
+    .history-content.container
+      h1.section-title.history-title Історія
+        br
+        | підрозділу
+      .text-frame--border
+        .text-frame
+          p Наш злагоджений колективний організм є підрозділом, що народився в структурі ДУК ПС, пройшов крізь ключові фази АТО/ООС і 2016-го року став хижою бойовою зграєю. Саме тоді на чолі нашого формування опинився молодий і талановитий командир - Да Вінчі.
+          p З початком повномасштабного вторгнення ми інтегрувалися у структури ЗСУ, воювали у лавах ССО, з жовтня 2022 стали одним з батальйонів 67 ОМБр ДУК. Новосформоване утворення бригадного рівня згуртувало окремі бойові колективи ДУК ПС та надало їм нового дихання. Певним часом ми воювали, як 1-й окремий штурмовий батальйон у лавах Сухопутних військ Збройних Сил України. Зараз ми масштабувалися до 1-го окремого штурмового полку СВ ЗСУ.
+          p З 24 лютого 2022 року підрозділ виконував бойові завдання на Київському, Бахмутському, Лиманському, Куп’янському, Запорізькому, Курахівському та інших напрямках, брав участь у визволенні Харківщини та продовжує свій шлях зі знищення російських окупантів на Донецькому напрямку.
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

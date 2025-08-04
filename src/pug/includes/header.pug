@@ -9,12 +9,12 @@ header(class="header "+headerCustomClass)
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M11.293 14.707C11.4805 14.8946 11.7348 15 12 15C12.2652 15 12.5195 14.8946 12.707 14.707L17.4141 10L16 8.58594L12 12.5859L8 8.58594L6.58594 10L11.293 14.707Z" fill="#FFEED7"/>
             </svg>
-        a(href="tel:+380732884610").header-phone.menu-button
-          span.menu-button__inner +380 (73) 288 46 10 
-        a(href="/").header-phone.menu-button
-          span.menu-button__inner +380 (73) 288 46 10 
-        a(href="/").header-phone.menu-button
-          span.menu-button__inner +380 (73) 288 46 10 
+        a(href="tel:+380675497349").header-phone.menu-button
+          span.menu-button__inner +38(067) 549 73 49
+        a(href="https://wa.me/380675497349" target="_blank").header-phone.menu-button
+          span.menu-button__inner WhatsApp
+        a(href="https://t.me/dvunit" target="_blank").header-phone.menu-button
+          span.menu-button__inner Telegram
        
     
     
@@ -35,42 +35,110 @@ header(class="header "+headerCustomClass)
             span.over 
             span.middle
             span.under  
+  .overflow(data-specialty__overflow data-lenis-prevent).hidden
+    .modal-frame(data-specialty-modal)
+      .close-btn(data-specialty-modal-close) 
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <g clip-path="url(#clip0_1185_37622)">
+              <path d="M18.3646 5.63801L5.63665 18.3659M18.364 18.3653L5.63604 5.6374" stroke="#FFEED7" stroke-width="2"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_1185_37622">
+                <rect width="24" height="24" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+      .modal-frame__img-wrap 
+        img(src="./assets/images/specialty/1.png", alt="soldier")
+      .modal-frame__text-wrap
+        h4.modal-frame__title Водій мінометного взводу
+        <svg class="block-line" xmlns="http://www.w3.org/2000/svg" width="734" height="6" viewBox="0 0 734 6" fill="none" preserveAspectRatio="none">
+          <path opacity="0.3" d="M0.113249 3L3 5.88675L5.88675 3L3 0.113249L0.113249 3ZM733.887 3.00006L731 0.113312L728.113 3.00006L731 5.88682L733.887 3.00006ZM3 3L3 3.5L731 3.50006L731 3.00006L731 2.50006L3 2.5L3 3Z" fill="#BE9A68"/>
+        </svg>
+        p Обов'язки:
+        ul.modal-frame__list
+          li.modal-frame__item Виконання бойових завдань в складі мінометних розрахунків мінометної батареї;
+          li.modal-frame__item Досконале знання та відмінні навички експлуатації довірених вогневих засобів та автомобілями;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+          li.modal-frame__item Постійне обслуговування та підтримання вогневих засобів та автомобілів в готовності до застосування;
+        button(data-call-us-btn data-specialty-id="").general-btn 
+          span Долучитися
 
-  .overflow(data-call-us__overflow).hidden
+  .overflow(data-call-us__overflow data-lenis-prevent).hidden
     .modal-form(data-call-us-modal)
       .close-btn(data-call-us-modal-close) 
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.99992 2.79285L4.35348 3.1464L11.9999 10.7928L19.6464 3.1464L19.9999 2.79285L20.707 3.49995L20.3535 3.85351L12.707 11.5L20.3535 19.1464L20.707 19.5L19.9999 20.2071L19.6464 19.8535L11.9999 12.2071L4.35348 19.8535L3.99992 20.2071L3.29282 19.5L3.64637 19.1464L11.2928 11.5L3.64637 3.85351L3.29282 3.49995L3.99992 2.79285Z" fill="#292925"/>
+          <g clip-path="url(#clip0_1185_37620)">
+            <path d="M18.3646 5.63801L5.63665 18.3659M18.364 18.3653L5.63604 5.6374" stroke="#FFEED7" stroke-width="2"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1185_37620">
+              <rect width="24" height="24" fill="white"/>
+            </clipPath>
+          </defs>
         </svg>
-      .form-title Замовити дзвінок
+
+      .form-title Приєднуйся до 1 ОШп
       +form
+  
+  
  
   .menu-overlay.hidden(data-menu)
     .menu-container
-      .menu-list 
-        a(href="/").menu-item 
-          span Головна
-        a(href="/achive").menu-item 
-          span відзнака
-        a(href="/history").menu-item 
-          span історія підрозділу
-        a(href="/vacancy").menu-item 
-          span вакансії
-        a(href="/help").menu-item 
-          span допомогти
-        
-      
-        a(href="/arademy").menu-item 
-          span академія
-        a(href="/location").menu-item 
-          span локація хабу
-        a(href="#contacts").menu-item 
-          span Контакти
-      a(href="tel:+380732884610").header-phone
-        span +380 (73) 288 46 10
-      button.call-us-btn(data-call-us-btn) 
-        span Замовити дзвінок
+      a(href="/").menu-item 
+        span.menu-face.menu-face--front Головна
+        span.menu-face.menu-face--back Головна
 
+      a(href="/honors").menu-item 
+        span.menu-face.menu-face--front відзнака
+        span.menu-face.menu-face--back відзнака
+
+      a(href="/history").menu-item 
+        span.menu-face.menu-face--front історія підрозділу
+        span.menu-face.menu-face--back історія підрозділу
+
+      a(href="/vacancies").menu-item 
+        span.menu-face.menu-face--front вакансії
+        span.menu-face.menu-face--back вакансії
+
+      a(href="/donate").menu-item 
+        span.menu-face.menu-face--front допомогти
+        span.menu-face.menu-face--back допомогти
+
+      a(href="/academy").menu-item 
+        span.menu-face.menu-face--front академія
+        span.menu-face.menu-face--back академія
+
+      a(href="/location").menu-item 
+        span.menu-face.menu-face--front локація хабу
+        span.menu-face.menu-face--back локація хабу
+
+      //- a(href="#contacts").menu-item 
+      //-   span.menu-face.menu-face--front Контакти
+      //-   span.menu-face.menu-face--back Контакти
+      .submit-decor
+      .menu-contacts
+        .menu-socials 
+          a(href="").social-item 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6.27827 9.9088L6.0136 13.2592C6.39227 13.2592 6.55628 13.1128 6.75295 12.937L8.52832 11.41L12.2071 13.8346C12.8818 14.173 13.3571 13.9948 13.5391 13.276L15.9538 3.09284L15.9545 3.09224C16.1685 2.19464 15.5938 1.84364 14.9365 2.06384L0.742803 6.95442C-0.225887 7.29282 -0.21122 7.77881 0.578132 7.99901L4.20689 9.01481L12.6358 4.26823C13.0324 4.03183 13.3931 4.16263 13.0964 4.39903L6.27827 9.9088Z" fill="#B5AA9B"/>
+            </svg>
+            span TELEGRAM
+          a(href="").social-item 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M4.41883 13.4622L4.66072 13.6049C5.67715 14.2055 6.84247 14.523 8.03082 14.5237H8.03341C11.683 14.5237 14.6533 11.5673 14.6546 7.93375C14.6552 6.17279 13.9672 4.51717 12.7171 3.27147C11.4669 2.026 9.80464 1.33962 8.03577 1.33889C4.38346 1.33889 1.41316 4.29482 1.41178 7.92836C1.4113 9.17348 1.76117 10.3861 2.42407 11.4352L2.58163 11.6846L1.91258 14.1163L4.41883 13.4622ZM0 16L1.13016 11.8916C0.433065 10.6892 0.0663412 9.32525 0.0669153 7.92799C0.0686145 3.5565 3.64207 0 8.03357 0C10.1645 0.000914442 12.1647 0.826564 13.6688 2.3252C15.1727 3.82381 16.0007 5.81585 16 7.93439C15.9981 12.3057 12.4239 15.8628 8.03357 15.8628C8.03325 15.8628 8.03373 15.8628 8.03357 15.8628H8.03017C6.69692 15.8624 5.38686 15.5294 4.22331 14.8976L0 16Z" fill="#B5AA9B"/>
+              <path d="M0.0669158 7.92823C0.0664336 9.32547 0.43316 10.6896 1.13026 11.8919L0 16L4.22322 14.8976C5.38684 15.5293 6.69684 15.8623 8.0301 15.8628H8.03351C12.4239 15.8628 15.9982 12.3056 16 7.93438C16.0007 5.81573 15.1727 3.82374 13.6687 2.3252C12.1645 0.826656 10.1645 0.000914441 8.03351 0C3.6422 0 0.0686189 3.55649 0.0667818 7.92798M2.58174 11.6847L2.4241 11.4355C1.76119 10.3862 1.41131 9.17358 1.4118 7.92857C1.41324 4.29527 4.3835 1.33911 8.03584 1.33911C9.80454 1.33979 11.4668 2.02624 12.7172 3.27169C13.9674 4.51723 14.6553 6.17298 14.6549 7.93374C14.6532 11.5673 11.6829 14.5237 8.03334 14.5237H8.03075C6.84241 14.523 5.67699 14.2054 4.66063 13.605L4.41873 13.4622L1.9125 14.1164L2.58174 11.6847ZM8.03351 15.8628H8.03359H8.03351C8.03342 15.8628 8.03334 15.8628 8.03351 15.8628Z" fill="#B5AA9B"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.03394 4.37166C5.88647 4.01822 5.7313 4.01114 5.59104 4.00492C5.47625 3.99966 5.34497 4 5.21383 4C5.08254 4 4.8693 4.05312 4.68898 4.2655C4.5085 4.47789 4 4.9913 4 6.03545C4 7.0797 4.70542 8.0887 4.8037 8.23043C4.90214 8.37191 6.16542 10.5832 8.16594 11.4339C9.82869 12.1408 10.167 12.0002 10.5279 11.9648C10.8888 11.9295 11.6925 11.4516 11.8565 10.956C12.0205 10.4604 12.0205 10.0357 11.9714 9.94698C11.9222 9.85853 11.7909 9.80541 11.5941 9.69935C11.3972 9.5932 10.4295 9.07972 10.2491 9.00889C10.0686 8.93815 9.93738 8.90282 9.80609 9.1153C9.67488 9.32752 9.29791 9.80542 9.18303 9.94698C9.06824 10.0888 8.95337 10.1065 8.75655 10.0004C8.55965 9.89387 7.92569 9.66998 7.17366 8.94705C6.58849 8.38451 6.19348 7.68982 6.07861 7.47732C5.96381 7.26511 6.06635 7.15015 6.16504 7.04433C6.25348 6.94923 6.36194 6.79653 6.46039 6.67267C6.5586 6.54872 6.59136 6.46028 6.65697 6.31871C6.72266 6.17706 6.68982 6.05311 6.64063 5.94695C6.59136 5.8408 6.20885 4.79127 6.03383 4.3716" fill="#B5AA9B"/>
+            </svg>
+            span WHATSAPP
+        a(href="tel:+380732884610").header-phone
+          span +380 (73) 288 46 10
+      
 
 
 

@@ -1,0 +1,242 @@
+.vacancies {
+  position: relative;
+  padding-top: 80px;
+  
+  @include tablet  {
+     padding-top: 100px;
+  
+  }
+  @include laptop {
+ padding-top: 8.8vw;
+  
+  // height: calc(100svh - 20px)
+  }
+
+  .svg-layer {
+    width: 100%;
+    height: 100%;
+    top:0;
+    z-index: -1;
+    background-color: $bg-color;
+    svg{
+      display: block;
+      width: 100%;
+      height: 100%
+    }
+  }
+  .vacancies-title {
+    margin-bottom: 20px;
+    
+    @include laptop {
+      margin-bottom: 40px;
+    }
+    
+  }
+  .vacancies-descr {
+    @include article-title--low;
+    text-align: center;
+    color: $text-color;
+    text-transform: none;
+    &>span {
+      color:$accent-color;
+    }
+    @include tablet {
+      width: 62.5%
+    }
+    @include laptop {
+      width: 47.4%
+    }
+  }
+  .vacancies-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 755px;
+    @include tablet {
+      height: 800px;
+    }
+    @include laptop {
+      height:auto;
+    }
+    .soldiers {
+      
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    @include laptop {
+      height: auto;
+    width: 100%;
+    }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 20%;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, #00000000, $bg-color);
+    }
+
+    &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    filter:blur(20px);
+    -webkit-filter:blur(20px);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse  at center 80% , $accent-color 0% , transparent 70%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+    
+  }
+  }
+  .vacancies-content {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 85%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include laptop {
+      height: 80%;
+    }
+  }
+}
+
+.vacancies-cards{
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  background: linear-gradient(180deg,rgb(23, 27, 21) , $bg-color );
+ @include tablet {
+  padding-top: 130px;
+  padding-bottom: 140px;
+ }
+ @include laptop {
+  padding-top: 10.9vw;
+  padding-bottom: 10.9vw;
+ }
+}
+.section-top-decor{
+  height: 3.6vw;
+  background-color: rgb(23, 27, 21);
+  position: absolute;
+  top: -3.6vw;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  clip-path: polygon(0% 100%,0% 66%, 4% 66%, 8% 0%, 29% 0%, 37% 100%, 62% 100%, 70% 0%, 91% 0%, 95% 66%, 100% 66%, 100% 100%);
+  -webkit-clip-path: polygon(0% 100%,0% 66%, 4% 66%, 8% 0%, 29% 0%, 37% 100%, 62% 100%, 70% 0%, 91% 0%, 95% 66%, 100% 66%, 100% 100%);
+  @include tablet {
+    top: -2.47vw;
+    height: 2.47vw;
+    clip-path: polygon(0% 100%,0% 66%, 17px 66%, 35px 0%, 35% 0%, 40% 100%, 60% 100%, 65% 0%, calc(100% -  35px) 0%, calc(100% -  17px) 66%, 100% 66%, 100% 100%);
+  -webkit-clip-path: polygon(0% 100%,0% 66%, 17px 66%, 35px 0%, 35% 0%, 40% 100%, 60% 100%, 65% 0%, calc(100% -  35px) 0%, calc(100% -  17px) 66%, 100% 66%, 100% 100%);
+  }
+  @include laptop {
+    top: -1.3vw;
+    height: 1.3vw;
+    clip-path: polygon(0% 100%,0% 85%, 1.8% 85%, 3.6% 0%, 37% 0%, 40% 100%, 60% 100%, 63% 0%, 96.4% 0%, 98.2% 85%, 100% 85%, 100% 100%);
+  -webkit-clip-path: polygon(0% 100%,0% 85%, 1.8% 85%, 3.6% 0%, 37% 0%, 40% 100%, 60% 100%, 63% 0%, 96.4% 0%, 98.2% 85%, 100% 85%, 100% 100%);
+  }
+}
+
+.vacancies-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  gap: 20px;
+  @include laptop {
+    gap: 40px;
+  }
+}
+.vacancies-card {
+  width: 100%;
+  @include laptop {
+      width: 65%
+     
+    }
+  .text-frame--border {
+      position: relative;
+      padding: 1px;
+      width: 100%;
+      z-index: 2;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      clip-path: polygon(0% 10px, 20px 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 25px), calc(100% - 30px) calc(100% - 25px), calc(100% - 70px) 100%, 70px 100%, 30px calc(100% - 25px), 0% calc(100% - 25px));
+      -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 25px), calc(100% - 30px) calc(100% - 25px), calc(100% - 70px) 100%, 70px 100%, 30px calc(100% - 25px), 0% calc(100% - 25px));
+      background: linear-gradient(70deg, rgba(190, 154, 104, 0.20) 0% 20%, #00000000 , rgba(190, 154, 104, 0.20) 70% ); 
+    @include laptop {
+      clip-path: polygon(0% 10px, 20px 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 47px), calc(100% - 30px) calc(100% - 47px), calc(100% - 70px) calc(100% - 23px),calc(50%) calc(100% - 23px), calc(50% - 30px) 100%,20% 100%,calc(20% - 30px) calc(100% - 23px), 70px calc(100% - 23px), 30px calc(100% - 47px), 0% calc(100% - 47px));
+      -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 47px), calc(100% - 30px) calc(100% - 47px), calc(100% - 70px) calc(100% - 23px),calc(50%) calc(100% - 23px), calc(50% - 30px) 100%,20% 100%,calc(20% - 30px) calc(100% - 23px), 70px calc(100% - 23px), 30px calc(100% - 47px), 0% calc(100% - 47px));
+      background: linear-gradient(60deg, rgba(190, 154, 104, 0.20) 0% 10%, #00000000 , rgba(190, 154, 104, 0.20) 80% ); 
+    }
+   
+    }
+    .text-frame {
+      
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 40px 20px ;
+      
+      width: 100%;
+      clip-path: inherit;
+      -webkit-clip-path: inherit;
+      background: rgb(20, 22, 19);
+      
+      @include tablet {
+          padding: 40px ;
+        }
+      @include laptop {
+        padding-bottom: 60px ;
+      }
+      
+      }
+
+      &__number {
+        @include title-text;
+        opacity: 0.1;
+      }
+      &__text-wrap{
+        width:224px;
+        @media screen and (min-width:410px) {
+          width: 70%;
+        }
+        @include tablet {
+          display: flex;
+          justify-content: space-between;
+          width: 80%;
+        }
+      }
+      &__text {
+        @include tablet {
+          width: 40%
+        }
+      }
+      h3 {
+        @include article-title--low;
+        text-transform: none;
+        margin-bottom: 12px;
+      }
+      .vacancies-card__descr {
+        @include general-text;
+        color: $accent-color;
+        text-decoration: underline;
+        margin-bottom: 40px;
+        &>span {
+          color: $accent-color;
+        }
+      }
+}

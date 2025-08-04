@@ -8,49 +8,100 @@ mixin form(attr)
 			//- .form-title.text-style-h-3.text-black Замовити дзвінок
 			//- .form-description.text-style-body Залишіть контактні дані і ми обов'язково зв'яжемося з вами
 			.inputs-wrapper.container
-				.relative-wrapper(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-name data-status="field--inactive")
 					.input-title Ім’я та Прізвище 
-					.form-field.form-field-input(data-field-input data-field-name data-status="field--inactive").first-offset
+					.form-field.form-field-input.first-offset
 						input(type='text' name="name" placeholder="Ім’я та прізвище").form-field__input
-						.input-message(data-input-message)
+					.input-message(data-input-message)
 
-				.relative-wrapper(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-age data-status="field--inactive")
 					.input-title Вік
-					.form-field.form-field-input(data-field-input data-field-age data-status="field--inactive")
+					.form-field.form-field-input
 						input.form-field__input(type='number' name="age" placeholder="Вік")
-						.input-message(data-input-message)
+					.input-message(data-input-message)
 
-				.relative-wrapper(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-phone data-status="field--inactive")
 					.input-title Телефон
-					.form-field.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+					.form-field.form-field-input
 						input.form-field__input(type='text' name="phone" placeholder="Телефон:")
-						.input-message(data-input-message)
+					.input-message(data-input-message)
 
-				.relative-wrapper(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-email data-status="field--inactive")
 					.input-title Електронна пошта
-					.form-field.form-field-input(data-field-input data-field-email data-status="field--inactive")
+					.form-field.form-field-input
 						input.form-field__input(type='text' name="email" placeholder="Електронна пошта")
-						.input-message(data-input-message)
+					.input-message(data-input-message)
 
-				.relative-wrapper(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-city data-status="field--inactive")
 					.input-title Ваше місто
-					.form-field.form-field-input(data-field-input data-field-city data-status="field--inactive")
+					.form-field.form-field-input
 						input.form-field__input(type='text' name="city" placeholder="Ваше місто")
-						.input-message(data-input-message)
-				.relative-wrapper(data-field-wrapper)
+					.input-message(data-input-message)
+
+				.relative-wrapper(data-field-wrapper data-field-input data-field-origin data-status="field--inactive")
 					.input-title Ваше місто
-					.form-field.form-field-input(data-field-input data-field-origin data-status="field--inactive")
+					.form-field.form-field-input
 						.form-field__input.select-fake-input
 					select.select
 						option(value hidden selected) Як ви дізналися про нас? 
 						option(value="site") Вебсайт
 						option(value="friends") Друзі
+				
+				.relative-wrapper(data-field-wrapper data-field-input data-field-spcialty data-status="field--inactive")
+					.input-title Спеціальність
+					.form-field.form-field-input
+						.form-field__input.select-fake-input
+					select.select
+						option(value hidden selected) Спеціальність
+						option(value="shturmovyk" data-specialty-id="20") Штурмовик
+						option(value="operator-bpla" data-specialty-id="14") Оператор БПЛА
+						option(value="vodiy-minomet" data-specialty-id="1") Водій мінометного взводу
+						option(value="reb-rer" data-specialty-id="18") Фахівець з РЕБ/РЕР
+						option(value="dilovod-logistyka" data-specialty-id="2") Діловод служби логістики
+						option(value="dilovod-personal" data-specialty-id="3") Діловод групи персоналу штабу
+						option(value="dilovod-pidrozdilu" data-specialty-id="4") Діловод підрозділу
+						option(value="dyzelist" data-specialty-id="5") Дизеліст
+						option(value="elektryk" data-specialty-id="6") Електрик
+						option(value="zastupnyk-mpz" data-specialty-id="7") Заступник ком. роти з МПЗ
+						option(value="zvjazkivets" data-specialty-id="8") Зв’язківець (лінійний наглядач)
+						option(value="likar" data-specialty-id="9") Лікар медичного пункту
+						option(value="montazh-rezhyser" data-specialty-id="10") Режисер монтажу
+						option(value="motoryst" data-specialty-id="11") Моторист
+						option(value="nomer-obsluhy" data-specialty-id="12") Номер обслуги мінометного взводу
+						option(value="operator-bpak" data-specialty-id="13") Оператор БпАК літакового типу
+						
+						option(value="operator-vohneva" data-specialty-id="15") Оператор роти вогневої підтримки
+						option(value="pr" data-specialty-id="16") PR-спеціалст
+						option(value="radist-minomet" data-specialty-id="17") Радіотелефоніст мінометного взводу
+						
+						option(value="sanitar" data-specialty-id="19") Санітар медичного пункту
+						
+						option(value="smm" data-specialty-id="21") SMM-спеціаліст
+						option(value="strilets-sanitar" data-specialty-id="22") Стрілець-санітар
+						option(value="telef-vzvjazku" data-specialty-id="23") Телефоніст взводу зв'язку
+						option(value="feldsher" data-specialty-id="24") Фельдшер медичного пункту
+						
 
-				.relative-wrapper.relative-wrapper--textarea(data-field-wrapper)
+				.relative-wrapper(data-field-wrapper data-field-input data-field-experience data-status="field--inactive")
+					.input-title Досвід
+					.form-field.form-field-input
+						.form-field__input.select-fake-input
+					select.select
+						option(value hidden selected) Ваш досвід 
+						option(value="1") Немає досвіду
+						option(value="2") Є бойовий досвід
+						option(value="3") Маю досвід служби в інших підрозділах
+						option(value="4") Брав(ла) участь у навчаннях ВДК
+						option(value="5") Член добровольчого формування територіальної громади
+						option(value="6") Проходив(ла) строкову або контрактну службу
+						option(value="7") Маю медичний/технічний/логістичний досвід у ЗСУ чи ТРО
+						option(value="8") Інший досвід (вказати в коментарі)
+
+				.relative-wrapper.relative-wrapper--textarea(data-field-wrapper data-field-input data-field-comment data-status="field--inactive")
 					.input-title Додаткова інформація
-					.form-field.form-field-input(data-field-input data-field-comment data-status="field--inactive")
+					.form-field.form-field-input
 						textarea.form-field__input.form-field__input--textarea.text-input(name="comment" placeholder="Додаткова інформація")
-						.input-message(data-input-message)
+					.input-message(data-input-message)
 			.form__button-wrapper
 				.submit-decor
 				button( type="submit" data-btn-submit).general-btn

@@ -4,11 +4,14 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
-  z-index: 1000;
-  transition: all 0.3s ease-in-out 0.2s;
+  z-index: 12;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
+  top: 0;
+  left: 0;
+  pointer-events: all;
+  overflow: auto;
   
-
   &.hidden {
     opacity: 0;
     visibility: hidden;
@@ -17,32 +20,73 @@
   }
 }
 .modal-form{
+  
   position: absolute;
-  top:50%;
+  z-index: 2;
+  top:40px;
   left:50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  background: $bg-color;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  
   border: none;
-  transition: transform 0.3s ease-in-out 0.3s, opacity 0.3s ease 0.3s;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
   opacity: 1;
-  padding: 20px;
+  
+  padding-top: 100px;
   padding-bottom: 28px;
+
+  &::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top:0;
+  left:0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: linear-gradient(180deg, #171B14 -4.38%, #000 107.13%);
+  clip-path: polygon(0% 10px, 20px 0%, calc(50% - 80px) 0%, calc(50% - 60px) 15px, calc(50% + 60px) 15px, calc(50% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+  -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(50% - 80px) 0%, calc(50% - 60px) 15px, calc(50% + 60px) 15px, calc(50% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+  }
   .hidden & {
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, 40px);
     opacity: 0;
   }
   @include tablet {
+    
     padding: 40px;
-    width: 523px;
+    padding-top: 100px;
+    width: calc(100% - 40px);
     top:50%;
     left:50%;
    
     transform: translate(-50%, -50%);
+    clip-path: polygon(0% 10px, 20px 0%, calc(50% - 115px) 0%, calc(50% - 90px) 19px, calc(50% + 90px) 19px, calc(50% + 115px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+  -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(50% - 115px) 0%, calc(50% - 90px) 19px, calc(50% + 90px) 19px, calc(50% + 115px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+    &::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top:0;
+  left:0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: rgba(0, 0, 0, 0.20);;
+  clip-path: polygon(20% 0%, 20% 30%, 28% 38%, 28% 45%, 40% 60%, 40% 80%, 60% 80%, 60% 60%, 72% 45%, 72% 38%, 80% 30%, 80% 0%);
+  -webkit-clip-path: polygon(20% 0%, 20% 30%, 28% 38%, 28% 45%, 40% 60%, 40% 80%, 60% 80%, 60% 60%, 72% 45%, 72% 38%, 80% 30%, 80% 0%);
   }
+
+}
   
-  @include desktop{
-    width: 580px;
+  @include laptop{
+    width: 66%;
+    padding-top: calc(122px / 1920px ) * 100vw;
+    padding-left: calc(122px / 1920px ) * 100vw;
+    padding-right: calc(122px / 1920px ) * 100vw;
+    clip-path: polygon(0% 10px, 20px 0%, calc(50% - 230px) 0%, calc(50% - 200px) 25px, calc(50% + 200px) 25px, calc(50% + 230px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+    -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(50% - 230px) 0%, calc(50% - 200px) 25px, calc(50% + 200px) 25px, calc(50% + 230px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+     &::before{
+      height: calc(100% - 80px);
+     }
   }
 }
 .call-us__container {
@@ -72,33 +116,45 @@
     padding: 100px 120px;
   }
 }
-
+.form-title{
+  @include general-text--title;
+  font-family: $default-font;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 40px;
+}
 .close-btn {
   position: absolute;
+  z-index: 3;
   // border-radius: 50%;
   // background-color: $light-color;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   top: 20px;
   right: 20px;
   
 
   svg {
-    width: 14px;
-    height: 14px;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease-in-out;
   }
 
-  @include laptop {
-    top: 30px;
-    right: 30px;
+  @include tablet {
+    top: 40px;
+    right: 40px;
+  }
+  &:hover {
+    svg {
+      opacity: 0.6;
+    }
   }
 
-  @include desktop {
-    top: 50px;
-    right: 50px;
-  }
+  
 }
 
 .call-us__title-wrap {
@@ -159,17 +215,17 @@
     
   }
 
-  @include laptop {
+  
+
+  
+}
+.footer .inputs-wrapper {
+@include laptop {
   margin-left: auto;
   margin-right: auto;
   width: 55.43%
   }
-
-  @include desktop {
-    gap: 20px;
-  }
 }
-
 
 
 
@@ -203,7 +259,10 @@
     padding: 1px;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 20px) 100%, 20px 100%, 0% calc(100% - 10px));
   }
-  .form-field__input{height:120px;}
+  .form-field__input{height:120px;
+  border: none;
+  outline: none;
+  }
   
 
 }
@@ -225,11 +284,22 @@
 }
 .input-message {
   position: absolute;
-  bottom: -16px;
-  // left: 50%;
+  bottom: -17px;
+  left: 20px;
   // transform: translateX(-50%);
   z-index: 2;
-  color: red;
+  color: rgba(214, 90, 84, 1);
+  @include laptop {
+    left: 40px;
+  }
+}
+[data-status="field--error"] {
+  .form-field {
+    background-color: rgba(214, 90, 84, 1);
+  }
+  .input-title{
+    color: rgba(214, 90, 84, 1)
+  }
 }
 .input-title {
   opacity: 0;
@@ -253,6 +323,7 @@
 }
 .form-field__input {
   @include general-text;
+  border: none;
   color: $text-color;
   width: 100%;
   padding: 20px;
@@ -314,6 +385,12 @@
   justify-content: center;
   position: relative;
   z-index: 2;
+  
+  
+
+ 
+}
+.footer, .menu-container {
   .submit-decor {
     background-color: $bg-color;
     position: absolute;
@@ -326,11 +403,11 @@
     @include laptop {
       width: calc(100% - (170px * 2));
     }
-  }
+  
   &::before {
     content: "";
     position: absolute;
-    left: -25px;
+    right: 100%;
     top: 50%;
     z-index: -1;
     height: 10px;
@@ -338,7 +415,8 @@
     background-color: $bg-color;
     transform: rotate(-36deg) translateY(23px);
      @include laptop {
-      left: -65px;
+      // left: -65px;
+      right: 101.5%;
     top: 50%;
     z-index: -1;
     height: 10px;
@@ -350,7 +428,7 @@
   &::after {
     content: "";
     position: absolute;
-    right: -25px;
+    left: 100%;
     top: 50%;
     z-index: -1;
     height: 10px;
@@ -358,7 +436,7 @@
     background-color: $bg-color;
     transform: rotate(36deg) translateY(23px);
      @include laptop {
-      right: -65px;
+      left: 101.5%;
     top: 50%;
     z-index: -1;
     height: 10px;
@@ -366,18 +444,8 @@
     background-color: $bg-color;
     transform: rotate(36deg) translateY(71px);
      }
-  }
-  @include tablet {
-    
-  }
-
-  @include laptop {}
-
-  @include desktop {}
-
- 
+  }}
 }
-
 .submit-btn__text {
   @include laptop {
     
