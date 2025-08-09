@@ -1,9 +1,9 @@
 .vacancies {
   position: relative;
-  padding-top: 80px;
+  padding-top: 40px;
   
   @include tablet  {
-     padding-top: 100px;
+     padding-top: 190px;
   
   }
   @include laptop {
@@ -14,10 +14,17 @@
 
   .svg-layer {
     width: 100%;
-    height: 100%;
+    height: 80%;
     top:0;
     z-index: -1;
     background-color: $bg-color;
+    @include tablet {
+      height: 50%;
+    }
+    @include laptop {
+      height: 50%;
+    }
+    
     svg{
       display: block;
       width: 100%;
@@ -107,6 +114,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+   @include  tablet {
+height: 80%;
+    }
     @include laptop {
       height: 80%;
     }

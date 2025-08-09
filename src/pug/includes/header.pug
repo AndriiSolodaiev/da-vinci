@@ -19,7 +19,7 @@ header(class="header "+headerCustomClass)
     
     
     a(href="/").header-logo
-      +svg("logo")
+      img(src="./assets/images/logo.png", alt="Logo")
       
     .header_right-block
       //- .language-wrap 
@@ -94,27 +94,27 @@ header(class="header "+headerCustomClass)
         span.menu-face.menu-face--front Головна
         span.menu-face.menu-face--back Головна
 
-      a(href="/honors").menu-item 
+      a(href="/honors.html").menu-item 
         span.menu-face.menu-face--front відзнака
         span.menu-face.menu-face--back відзнака
 
-      a(href="/history").menu-item 
+      a(href="/history.html").menu-item 
         span.menu-face.menu-face--front історія підрозділу
         span.menu-face.menu-face--back історія підрозділу
 
-      a(href="/vacancies").menu-item 
+      a(href="/vacancies.html").menu-item 
         span.menu-face.menu-face--front вакансії
         span.menu-face.menu-face--back вакансії
 
-      a(href="/donate").menu-item 
+      a(href="/donate.html").menu-item 
         span.menu-face.menu-face--front допомогти
         span.menu-face.menu-face--back допомогти
 
-      a(href="/academy").menu-item 
+      a(href="/academy.html").menu-item 
         span.menu-face.menu-face--front академія
         span.menu-face.menu-face--back академія
 
-      a(href="/location").menu-item 
+      a(href="/location.html").menu-item 
         span.menu-face.menu-face--front локація хабу
         span.menu-face.menu-face--back локація хабу
 
@@ -138,7 +138,25 @@ header(class="header "+headerCustomClass)
             span WHATSAPP
         a(href="tel:+380732884610").header-phone
           span +380 (73) 288 46 10
-      
+
+  
+
+  .overflow(data-call-us__overflow data-lenis-prevent).hidden
+    .modal-form(data-call-us-modal)
+      .close-btn(data-call-us-modal-close) 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <g clip-path="url(#clip0_1185_37620)">
+            <path d="M18.3646 5.63801L5.63665 18.3659M18.364 18.3653L5.63604 5.6374" stroke="#FFEED7" stroke-width="2"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1185_37620">
+              <rect width="24" height="24" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+
+      .form-title Приєднуйся до 1 ОШп
+      +form    
 
 
 

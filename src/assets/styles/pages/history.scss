@@ -23,10 +23,18 @@
 
   .svg-layer {
     width: 100%;
-    height: 100%;
+    
     top:0;
     z-index: -1;
     background-color: $bg-color;
+    height: 80%;
+    
+    @include tablet {
+      height: 50%;
+    }
+    @include laptop {
+      height: 50%;
+    }
     svg{
       display: block;
       width: 100%;
@@ -44,7 +52,9 @@
     }
   }
   .history-img {
-    position: relative;
+    position: absolute;
+    bottom:0px;
+    left: 0;
     overflow: hidden;
     width: 100%;
     height: 816px;
@@ -80,13 +90,12 @@
     
   }
   .history-content {
-    position: absolute;
+    position: relative;
     
     z-index: 2;
     width: 100%;
     height: 80%;
-    bottom: 0;
-    left: 0;
+    
     
   }
   .text-frame--border {
@@ -98,10 +107,12 @@
       z-index: 2;
       backdrop-filter: blur(3px);
       -webkit-backdrop-filter: blur(3px);
-      clip-path: polygon(0% 10px, 20px 0%, calc(50% - 80px) 0%, calc(50% - 60px) 15px, calc(50% + 60px) 15px, calc(50% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
-  -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(50% - 80px) 0%, calc(50% - 60px) 15px, calc(50% + 60px) 15px, calc(50% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
-      background: linear-gradient(90deg, rgba(190, 154, 104, 0.4) , #00000000 , rgba(190, 154, 104, 0.4) 50% ); 
+      clip-path: polygon(0% 10px, 20px 0%, calc(100px) 0%, calc(120px) 20px, calc(100% - 120px) 20px, calc(100% - 100px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+  -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(100px) 0%, calc(120px) 20px, calc(100% - 120px) 20px, calc(100% - 100px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+      background: linear-gradient(90deg, rgba(190, 154, 104, 0.2) , #00000000 , rgba(190, 154, 104, 0.2) 50% ); 
     @include tablet {
+      clip-path: polygon(0% 10px, 20px 0%, calc(30% - 80px) 0%, calc(30% - 60px) 20px, calc(70% + 60px) 20px, calc(70% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
+  -webkit-clip-path: polygon(0% 10px, 20px 0%, calc(30% - 80px) 0%, calc(30% - 60px) 20px, calc(70% + 60px) 20px, calc(70% + 80px) 0%, calc(100% - 20px) 0%, 100% 10px, 100% calc(100% - 12px), calc(100% - 15px) calc(100% - 12px), calc(100% - 35px) 100%, 35px 100%, 15px calc(100% - 12px), 0% calc(100% - 12px));
       margin-left: auto;
       margin-right: auto;
       width: 67%;
@@ -123,10 +134,12 @@
       clip-path: inherit;
       background: #000000c7;
       
-      
-      // @include laptop {
-      //   width: 445px;
-      // }
+      @include tablet {
+        padding: 80px ;
+      }
+      @include laptop {
+        padding: 60px 100px 120px;
+      }
       &>p {
         @include general-text;
         

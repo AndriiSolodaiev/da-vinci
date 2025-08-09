@@ -120,7 +120,7 @@ function createSwiper() {
     effect: getInitialEffect(),
     grabCursor: true,
     cubeEffect: {
-      shadow: false,
+      // shadow: false,
       slideShadows: true,
       shadowOffset: 20,
       shadowScale: 0.94,

@@ -1,5 +1,8 @@
 .donate.honors{
   position: relative;
+  @include laptop {
+    padding-bottom: 210px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -10,7 +13,7 @@
     transform: translate(-50%, 50%);
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse  at center 50%, $accent-color 0% , transparent 40%);
+    background: radial-gradient(ellipse  at center 50%, $accent-color 0% , transparent 30%);
     
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 1;
@@ -76,10 +79,41 @@
  .swiper-slide .gen-btn-wrap.mobile {
 bottom: 0px;
 }
+.swiper-slide .gen-btn-wrap.tablet {
+margin-top: auto;
+}
 .swiper-leaders .swiper-slide .text-frame > p {
   margin-bottom: 12px;
   @include laptop {
     margin-bottom: 20px;
+  }
+}
+.swiper-leaders{
+  margin-left: 14.6vw;
+  margin-right: 14.6vw;
+  @include tablet {
+    overflow: visible;
+    margin-left: 6.7vw;
+    margin-right: 6.7vw;
+  }
+  @include laptop {
+    margin-left: 9.8vw;
+    margin-right: 9.8vw;
+  }
+  .swiper-slide .direction-btn{
+    aspect-ratio: 1/0.87;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include tablet {
+      aspect-ratio: 1/1.37;
+    }
+    @include laptop {
+      aspect-ratio: 1 / 0.625;
+    }
+    
   }
 }
 }

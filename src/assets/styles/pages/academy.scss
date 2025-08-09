@@ -1,4 +1,6 @@
 .academy{
+  max-width: 100vw;
+  overflow: hidden;
   padding-bottom: 0 !important;
   padding-top: 0 !important;
   @include laptop {
@@ -121,7 +123,11 @@
       );
       width: 149px;
       height: 25px;
+      @include laptop {
+        clip-path: polygon( 10.07% 0% , 0% 0%, 0% 100%, 100% 100%, 92.88% 40%, 8.82% 40%,4.07% 0%);
+        -webkit-clip-path: polygon( 10.07% 0% , 0% 0%, 0% 100%, 100% 100%, 92.88% 40%, 8.82% 40%,4.07% 0%);
 
+      }
     }
     &::after {
       content: "";
@@ -139,8 +145,14 @@
         77.18% 40%,
         89.93% 0%
       );
+      -webkit-clip-path: polygon(89.93% 0%,100% 0%, 100% 100%, 0% 100%, 18.12% 40%, 77.18% 40%, 89.93% 0%);
       width: 149px;
       height: 25px;
+      @include laptop {
+        clip-path: polygon( 89.93% 0%,100% 0%, 100% 100%, 0% 100%, 7.12% 40%, 91.18% 40%, 95.93% 0%);
+        -webkit-clip-path: polygon( 89.93% 0%,100% 0%, 100% 100%, 0% 100%, 7.12% 40%, 91.18% 40%, 95.93% 0%);
+
+      }
     }
     @include tablet {
       
@@ -153,8 +165,12 @@
     &::before, &::after {
       width: 40.4vw;
       height: 2.4vw;
+      
     }
     }
+  }
+  &#contract {
+    background:  linear-gradient(180deg,rgb(23, 27, 21) , #000 );
   }
   &#how , &#bzvp, &#transfer{
     position: relative;
@@ -209,9 +225,10 @@
           
         @include tablet {
           width: 50%;
-          gap:20px;
+          gap:12px;
         }
         @include laptop {
+          gap:20px;
           width: 40%;
         }
         &>p{
@@ -223,6 +240,16 @@
         .text--subtitle{
           @include article-title--low;
           text-transform: none;
+          margin-top: 8px;
+          &:first-child {
+            margin-top: 0px;
+          }
+          @include laptop {
+            margin-top: 40px;
+          &:first-child {
+            margin-top: 0px;
+          }
+          }
         }
       }
       .light-text{
@@ -255,7 +282,7 @@
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
    
-    padding-left: 20px;
+    // padding-left: 20px;
     counter-reset: number;
 
     li {
@@ -273,6 +300,7 @@
     &.open {
       max-height: 1000px;
       opacity: 1;
+      padding-top: 16px;
     }
   }
 
@@ -282,7 +310,7 @@
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
-    
+      @include general-text;
     svg {
       transition: transform 0.3s ease;
     }
@@ -299,6 +327,11 @@
       
       .swiper-slide{
         height: auto;
+        &:last-child{
+          .transition-elem {
+            visibility: hidden;
+          }
+        }
       }
       .text-frame--border {
       height: 100%;
@@ -364,6 +397,11 @@
       .swiper-slide{
         height: auto;
         display: flex;
+         &:last-child{
+          .transition-elem {
+            visibility: hidden;
+          }
+        }
       }
       .text-frame--border {
       height: 100%;

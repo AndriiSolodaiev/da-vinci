@@ -455,7 +455,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     applyBtn.setAttribute("data-specialty-id", data.id);
     modal.classList.remove("hidden");
-    document.body.classList.add("modal-open"); // якщо потрібно заблокувати прокрутку
+    window.dispatchEvent(new Event('stop-scroll'));
+    console.log("стоп-скрол")
+    document.body.classList.add("modal-open-g"); // якщо потрібно заблокувати прокрутку
   }
 
   // 🧠 Отримання даних з локального json
@@ -488,14 +490,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let data;
 
-    if (isLocal) {
+    if (true) {
       data = getLocalData(id);
     } else {
       data = await fetchData(id);
     }
 
     if (data) {
-      fillModal(data.data);
+      fillModal(data);
     }
   });
 
@@ -513,6 +515,7 @@ closeBtn.addEventListener("click", () => {
 // 🔁 Універсальна функція закриття
 function closeModal() {
   modal.classList.add("hidden");
-  document.body.classList.remove("modal-open");
+   window.dispatchEvent(new Event('start-scroll'));
+  document.body.classList.remove("modal-open-g");
 }
 });
