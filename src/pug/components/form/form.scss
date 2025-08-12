@@ -251,7 +251,7 @@
       opacity: 1;
     }
   }
-  &[data-field-name], &[data-field-phone] {
+  &[data-field-name], &[data-field-phone], &[data-field-age],&[data-field-experience],&[data-field-spcialty],&[data-field-email] {
     position: relative;
     &::after {
       content: "*";

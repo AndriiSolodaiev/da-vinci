@@ -410,6 +410,13 @@ pointer-events: none;}
     margin-top: auto;
   margin-bottom: 40px ;
   // position: static;
+  @include laptop {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 200px);
+  }
 }
 
 .menu-contacts {

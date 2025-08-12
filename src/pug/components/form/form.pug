@@ -26,17 +26,19 @@ mixin form(attr)
 						input.form-field__input(type='text' name="phone" placeholder="Телефон:")
 					.input-message(data-input-message)
 
+				.relative-wrapper(data-field-wrapper data-field-input data-field-city data-status="field--inactive")
+					.input-title Ваше місто
+					.form-field.form-field-input
+						input.form-field__input(type='text' name="city" placeholder="Ваше місто")
+					.input-message(data-input-message)
+
 				.relative-wrapper(data-field-wrapper data-field-input data-field-email data-status="field--inactive")
 					.input-title Електронна пошта
 					.form-field.form-field-input
 						input.form-field__input(type='text' name="email" placeholder="Електронна пошта")
 					.input-message(data-input-message)
 
-				.relative-wrapper(data-field-wrapper data-field-input data-field-city data-status="field--inactive")
-					.input-title Ваше місто
-					.form-field.form-field-input
-						input.form-field__input(type='text' name="city" placeholder="Ваше місто")
-					.input-message(data-input-message)
+				
 
 				.relative-wrapper(data-field-wrapper data-field-input data-field-origin data-status="field--inactive")
 					.input-title Ваше місто

@@ -76,3 +76,34 @@ const swiperDirection = new Swiper('[data-swiper="direction"]', {
     }
    
   });
+
+  document.querySelectorAll("button.nav-item").forEach(btn => {
+  btn.addEventListener("click", () => {
+    // btn.classList.toggle("active");
+
+    // let subMenu = btn.nextElementSibling;
+    // if (subMenu && subMenu.classList.contains("sub-menu")) {
+    //   subMenu.classList.toggle("open");
+    // }
+    const submenu = btn.nextElementSibling;
+    if (!submenu) return;
+
+    const isOpen = submenu.classList.contains('open');
+
+    if (isOpen) {
+      // Закриття
+      // submenu.style.height = submenu.scrollHeight + 'px';
+      // requestAnimationFrame(() => {
+      //   submenu.style.height = '0px';
+      // });
+      submenu.style.height = '0px';
+      submenu.classList.remove('open');
+      btn.classList.remove('active');
+    } else {
+      // Відкриття
+      submenu.style.height = submenu.scrollHeight + 'px';
+      submenu.classList.add('open');
+      btn.classList.add('active');
+    }
+  });
+});

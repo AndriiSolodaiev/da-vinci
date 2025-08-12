@@ -658,6 +658,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   overflow: hidden;
   margin-left: calc((75px / 414px) * 100vw);
   margin-right: calc((75px / 414px) * 100vw);
+  transform: translateZ(1px);
   @include tablet {
     margin-left: 14.3vw;
     margin-right: 14.3vw;
@@ -671,13 +672,12 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     align-items: stretch;
   }
   .swiper-slide {
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    transform: translateZ(0%);
+    
+    transform: translateZ(1px);
     transition: all 0.6s ease-out;
     display: flex;
     flex-direction: column;
-
+    transform: translateZ(1px);
     position: relative;
     height: auto;
     .direction-btn:hover{
@@ -778,7 +778,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         z-index: 5;
         padding-right: 20px;
         padding-left: 20px;
-        
+        transform: translateZ(1px);
         @include laptop {
           
           padding-right: 3.2vw;
@@ -1022,7 +1022,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     flex-direction: column;
     position: relative;
     height: auto;
-    transform: translateZ(0%);
+    transform: translateZ(1px);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     @include tablet {
@@ -1164,7 +1164,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         bottom: 60px;
         padding-right: 20px;
         padding-left: 20px;
-        transform: translateZ(1%);
+        transform: translateZ(1px);
         &.tablet {
           display: none;
         }
@@ -1271,7 +1271,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     margin-top: auto;
     margin-left: -40px;
     width: 80%;
-    // transform: translateZ(0);
+    
     &::before {
     content: "";
     position: absolute;
@@ -1392,6 +1392,7 @@ margin-bottom: 20px;
     }
     @include laptop {
 margin-bottom: 28px;
+max-width: 30vw;
     }
   }
 
@@ -1410,7 +1411,7 @@ margin-bottom: 28px;
   }
 
   &__item{
-    
+    transform: translateZ(1px);
     display: flex;
     width: 48px;
     height: 48px;

@@ -175,7 +175,7 @@ function animateMenuOut(menu, onComplete) {
 
  customSelect('.select');
 
-document.querySelectorAll('.custom-select-container').forEach(el => {
+document.querySelectorAll('.custom-select-panel').forEach(el => {
   el.setAttribute('data-lenis-prevent', '')
 })
 
