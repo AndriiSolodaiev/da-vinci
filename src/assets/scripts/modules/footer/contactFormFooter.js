@@ -45,6 +45,30 @@ export const contactFormFooter = (formRef, onSuccess) => {
           valid: false,
           error: [],
         },
+        age: {
+          inputWrapper: new SexyInput({
+            animation: 'none',
+            $field: formRef.querySelector('[data-field-age]'),
+            typeInput: 'number',
+          }),
+          rule: yup
+            .number()
+            .typeError(i18next.t('field_must_be_number')) // якщо ввели не число
+            .required(i18next.t('required')) // обов’язкове поле
+            .test(
+              'positive-number',
+              i18next.t('must_be_positive'), // наприклад: "Введіть додатнє число"
+              value => value > 0,
+            )
+            .test(
+              'reasonable-age',
+              i18next.t('invalid_age_range', { min: 17, max: 67 }), // опціонально
+              value => value >= 17 && value <= 67,
+            ),
+          defaultMessage: i18next.t('age'),
+          valid: false,
+          error: [],
+        },
       },
     },
   });

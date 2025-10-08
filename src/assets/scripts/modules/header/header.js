@@ -1,12 +1,13 @@
 import customSelect from 'custom-select';
 import gsap from 'gsap';
 import { initSmoothScrolling } from '../scroll/leniscroll';
-import device from "current-device"
+
+import device from 'current-device';
+import axios from 'axios';
 initSmoothScrolling();
 const header = document.querySelector('.header-bg');
 
 window.addEventListener('scroll', function headerSquosh() {
-
   const scrollPosition = window.scrollY;
   if (scrollPosition > 20) {
     header.classList.add('scroll-down');
@@ -16,7 +17,6 @@ window.addEventListener('scroll', function headerSquosh() {
 });
 
 document.body.addEventListener('click', function(evt) {
-  
   const close = evt.target.closest('[data-call-us-modal-close]');
   const form = evt.target.closest('[data-call-us-modal]');
   const btn = evt.target.closest('[data-call-us-btn]');
@@ -26,17 +26,17 @@ document.body.addEventListener('click', function(evt) {
   const contactsContainer = document.querySelector('.header-contacts');
   const countryList = evt.target.closest('.iti__country-list');
 
-  const btnUp = evt.target.closest("[data-btn-up]");
+  const btnUp = evt.target.closest('[data-btn-up]');
 
   const btnMenuTarget = evt.target.closest('[data-menu-button]');
-  const btnMenu =document.querySelector('[data-menu]')
-  const menu =document.querySelector('[data-menu]')
- const header = document.querySelector('header'); // переконайся, що header є
-const specialtyModal = document.querySelector('[data-specialty__overflow]');
+  const btnMenu = document.querySelector('[data-menu]');
+  const menu = document.querySelector('[data-menu]');
+  const header = document.querySelector('header'); // переконайся, що header є
+  const specialtyModal = document.querySelector('[data-specialty__overflow]');
   const select = document.querySelector('[data-field-spcialty] select');
   if (btnMenuTarget) {
     const isHidden = menu.classList.contains('hidden');
-    
+
     if (isHidden) {
       menu.classList.remove('hidden');
       header.classList.add('menu-is-open');
@@ -52,12 +52,16 @@ const specialtyModal = document.querySelector('[data-specialty__overflow]');
 
     return;
   }
-  if(btnUp){
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (btnUp) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   if (btn) {
     const id = btn.dataset.specialtyId;
-
+    grecaptcha
+      .execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', { action: 'contact_submit' })
+      .then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+      });
     // Закриваємо попередню модалку (specialty)
     if (specialtyModal && !specialtyModal.classList.contains('hidden')) {
       specialtyModal.classList.add('hidden');
@@ -72,7 +76,7 @@ const specialtyModal = document.querySelector('[data-specialty__overflow]');
 
     // Підставляємо значення в селект (тільки якщо id є і поле знайдено)
     if (id && select) {
-      console.log("Заходить ")
+      console.log('Заходить ');
       const valueToSelect = select.querySelector(`[data-specialty-id="${id}"]`).value;
       select.customSelect.value = valueToSelect;
       select.setAttribute('data-selected', id); // або як працює твій кастомний селект
@@ -87,12 +91,12 @@ const specialtyModal = document.querySelector('[data-specialty__overflow]');
   }
   if (close) {
     window.dispatchEvent(new Event('start-scroll'));
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = 'visible';
     return overflow.classList.add('hidden');
   }
-  if ( evt.target === overflow) {
+  if (evt.target === overflow) {
     window.dispatchEvent(new Event('start-scroll'));
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = 'visible';
     return overflow.classList.add('hidden');
   }
 
@@ -116,13 +120,13 @@ function animateMenuIn(menu) {
   gsap.set(menu, { opacity: 0 });
   gsap.set(container, { scale: 0.95, opacity: 0 });
 
-  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
   tl.to(menu, { opacity: 1, duration: 0.2 })
-    .to(container, { scale: 1, opacity: 1, duration: 0.3 }, "<")
-    .to(items, { opacity: 1, y: 0, stagger: 0.05, duration: 0.35 }, "-=0.2")
-    .to(socials, { opacity: 1, y: 0, stagger: 0.1, duration: 0.3 }, "-=0.3")
-    .to(phone, { opacity: 1, y: 0, duration: 0.3 }, "-=0.25");
+    .to(container, { scale: 1, opacity: 1, duration: 0.3 }, '<')
+    .to(items, { opacity: 1, y: 0, stagger: 0.05, duration: 0.35 }, '-=0.2')
+    .to(socials, { opacity: 1, y: 0, stagger: 0.1, duration: 0.3 }, '-=0.3')
+    .to(phone, { opacity: 1, y: 0, duration: 0.3 }, '-=0.25');
 }
 
 function animateMenuOut(menu, onComplete) {
@@ -132,13 +136,13 @@ function animateMenuOut(menu, onComplete) {
   const container = menu.querySelector('.menu-container');
 
   const tl = gsap.timeline({
-    defaults: { ease: "power3.in" },
-    onComplete
+    defaults: { ease: 'power3.in' },
+    onComplete,
   });
 
   tl.to([phone, ...socials, ...items], { opacity: 0, y: 30, stagger: 0.04, duration: 0.2 })
-    .to(container, { scale: 0.95, opacity: 0, duration: 0.2 }, "-=0.2")
-    .to(menu, { opacity: 0, duration: 0.2 }, "-=0.1");
+    .to(container, { scale: 0.95, opacity: 0, duration: 0.2 }, '-=0.2')
+    .to(menu, { opacity: 0, duration: 0.2 }, '-=0.1');
 }
 
 // const loader = document.querySelector(".loader-wrap");
@@ -151,41 +155,57 @@ function animateMenuOut(menu, onComplete) {
 //     }
 //   })
 
-  const inputs = document.querySelectorAll('[data-field-wrapper]')
-  
-  if(inputs.length) {
+const inputs = document.querySelectorAll('[data-field-wrapper]');
+
+if (inputs.length) {
   inputs.forEach(field => {
-   
-  const input = field.querySelector('.form-field__input');
- if (!input) {
+    const input = field.querySelector('.form-field__input');
+    if (!input) {
       console.warn('Поле не містить <input>', field);
       return;
     }
-  input.addEventListener('focus', () => {
-    field.classList.add('is-focused');
-  });
+    input.addEventListener('focus', () => {
+      field.classList.add('is-focused');
+    });
 
-  input.addEventListener('blur', () => {
-    // прибирати фокус тільки якщо поле порожнє
-    if (!input.value) {
-      field.classList.remove('is-focused');
-    }
+    input.addEventListener('blur', () => {
+      // прибирати фокус тільки якщо поле порожнє
+      if (!input.value) {
+        field.classList.remove('is-focused');
+      }
+    });
   });
-});}
+}
 
- customSelect('.select');
+customSelect('.select');
+
+// document.querySelectorAll('.select').forEach(select => {
+//   select.addEventListener('change', e => {
+//     const value = e.target.value;
+
+//     // шукаємо прихований input всередині або поряд
+//     let hidden = select.parentElement.querySelector('input[type="hidden"][data-hidden-input]');
+
+//     // якщо прихованого інпуту немає — створюємо
+//     if (!hidden) {
+//       hidden = document.createElement('input');
+//       hidden.type = 'hidden';
+//       hidden.name = select.name || 'custom_select'; // щоб передавалося у форму
+//       hidden.setAttribute('data-hidden-input', '');
+//       select.parentElement.appendChild(hidden);
+//     }
+
+//     // записуємо значення
+//     hidden.value = value;
+//   });
+// });
 
 document.querySelectorAll('.custom-select-panel').forEach(el => {
-  el.setAttribute('data-lenis-prevent', '')
-})
+  el.setAttribute('data-lenis-prevent', '');
+});
 
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const isLocal = location.hostname === "localhost"; // або твоя умова
+document.addEventListener('DOMContentLoaded', () => {
+  const isLocal = location.hostname === 'localhost'; // або твоя умова
   const modal = document.querySelector('[data-specialty__overflow]');
   const closeBtn = modal.querySelector('[data-specialty-modal-close]');
   const imgEl = modal.querySelector('.modal-frame__img-wrap img');
@@ -195,269 +215,249 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 🔁 Дані з локального JSON, якщо потрібно
   const localData = [
-  {
-    id: "20",
-    title: "Штурмовик",
-    img: "./assets/images/soldiers/20.png",
-    description: [
-      "Ведення наступальних операцій",
-      "Тактична підготовка",
-      "Виконання бойових завдань"
-    ]
-  },
-  {
-    id: "14",
-    title: "Оператор БПЛА",
-    img: "./assets/images/soldiers/14.png",
-    description: [
-      "Управління безпілотними літальними апаратами",
-      "Збір розвідувальної інформації",
-      "Аналіз відео та фото даних"
-    ]
-  },
-  {
-    id: "1",
-    title: "Водій мінометного взводу",
-    img: "./assets/images/soldiers/1.png",
-    description: [
-      "Керування технікою",
-      "Допомога підрозділу",
-      "Забезпечення мобільності"
-    ]
-  },
-  {
-    id: "18",
-    title: "Фахівець з РЕБ/РЕР",
-    img: "./assets/images/soldiers/18.png",
-    description: [
-      "Електронна боротьба",
-      "Протидія радіоелектронним загрозам",
-      "Підтримка безпеки зв’язку"
-    ]
-  },
-  {
-    id: "2",
-    title: "Діловод служби логістики",
-    img: "./assets/images/soldiers/2.png",
-    description: [
-      "Організація документообігу",
-      "Планування логістики",
-      "Ведення обліку ресурсів"
-    ]
-  },
-  {
-    id: "3",
-    title: "Діловод групи персоналу штабу",
-    img: "./assets/images/soldiers/3.png",
-    description: [
-      "Ведення кадрової документації",
-      "Підтримка зв’язку з персоналом",
-      "Організація внутрішньої комунікації"
-    ]
-  },
-  {
-    id: "4",
-    title: "Діловод підрозділу",
-    img: "./assets/images/soldiers/4.png",
-    description: [
-      "Обробка документації підрозділу",
-      "Забезпечення зв’язку з вищим штабом",
-      "Контроль за дотриманням регламентів"
-    ]
-  },
-  {
-    id: "5",
-    title: "Дизеліст",
-    img: "./assets/images/soldiers/5.png",
-    description: [
-      "Обслуговування дизельної техніки",
-      "Ремонт та діагностика двигунів",
-      "Забезпечення надійності техніки"
-    ]
-  },
-  {
-    id: "6",
-    title: "Електрик",
-    img: "./assets/images/soldiers/6.png",
-    description: [
-      "Обслуговування електрообладнання",
-      "Встановлення електропроводки",
-      "Ремонт електросистем"
-    ]
-  },
-  {
-    id: "7",
-    title: "Заступник ком. роти з МПЗ",
-    img: "./assets/images/soldiers/7.png",
-    description: [
-      "Координація бойової підготовки",
-      "Організація матеріально-технічного забезпечення",
-      "Підтримка дисципліни"
-    ]
-  },
-  {
-    id: "8",
-    title: "Зв’язківець (лінійний наглядач)",
-    img: "./assets/images/soldiers/8.png",
-    description: [
-      "Забезпечення зв’язку в підрозділі",
-      "Моніторинг ліній зв’язку",
-      "Ремонт та обслуговування обладнання"
-    ]
-  },
-  {
-    id: "9",
-    title: "Лікар медичного пункту",
-    img: "./assets/images/soldiers/9.png",
-    description: [
-      "Надання першої медичної допомоги",
-      "Проведення медичних оглядів",
-      "Підтримка здоров’я особового складу"
-    ]
-  },
-  {
-    id: "10",
-    title: "Режисер монтажу",
-    img: "./assets/images/soldiers/10.png",
-    description: [
-      "Монтаж відео- та аудіоматеріалів",
-      "Обробка медіадокументів",
-      "Підготовка контенту для звітності"
-    ]
-  },
-  {
-    id: "11",
-    title: "Моторист",
-    img: "./assets/images/soldiers/11.png",
-    description: [
-      "Обслуговування моторної техніки",
-      "Ремонт двигунів",
-      "Підтримка технічної справності"
-    ]
-  },
-  {
-    id: "12",
-    title: "Номер обслуги мінометного взводу",
-    img: "./assets/images/soldiers/12.png",
-    description: [
-      "Участь у мінометній службі",
-      "Підготовка і обслуговування зброї",
-      "Виконання бойових завдань"
-    ]
-  },
-  {
-    id: "13",
-    title: "Оператор БпАК літакового типу",
-    img: "./assets/images/soldiers/13.png",
-    description: [
-      "Управління безпілотними апаратами",
-      "Збір та аналіз розвідувальної інформації",
-      "Підтримка авіаційних операцій"
-    ]
-  },
-  {
-    id: "15",
-    title: "Оператор роти вогневої підтримки",
-    img: "./assets/images/soldiers/15.png",
-    description: [
-      "Координація вогневої підтримки",
-      "Управління вогнепальною зброєю",
-      "Підтримка бойових операцій"
-    ]
-  },
-  {
-    id: "16",
-    title: "PR-спеціаліст",
-    img: "./assets/images/soldiers/16.png",
-    description: [
-      "Побудова іміджу підрозділу",
-      "Організація комунікацій",
-      "Взаємодія зі ЗМІ"
-    ]
-  },
-  {
-    id: "17",
-    title: "Радіотелефоніст мінометного взводу",
-    img: "./assets/images/soldiers/17.png",
-    description: [
-      "Забезпечення зв’язку мінометного взводу",
-      "Обслуговування радіообладнання",
-      "Підтримка комунікації в бою"
-    ]
-  },
-  {
-    id: "19",
-    title: "Санітар медичного пункту",
-    img: "./assets/images/soldiers/19.png",
-    description: [
-      "Допомога лікарю",
-      "Підтримка санітарного порядку",
-      "Надання першої допомоги"
-    ]
-  },
-  {
-    id: "21",
-    title: "SMM-спеціаліст",
-    img: "./assets/images/soldiers/21.png",
-    description: [
-      "Просування в соцмережах",
-      "Створення контенту",
-      "Аналіз аудиторії"
-    ]
-  },
-  {
-    id: "22",
-    title: "Стрілець-санітар",
-    img: "./assets/images/soldiers/22.png",
-    description: [
-      "Ведення бойових дій",
-      "Надання медичної допомоги",
-      "Підтримка поранених"
-    ]
-  },
-  {
-    id: "23",
-    title: "Телефоніст взводу зв'язку",
-    img: "./assets/images/soldiers/23.png",
-    description: [
-      "Обслуговування телефонного зв’язку",
-      "Передача інформації",
-      "Підтримка комунікації"
-    ]
-  },
-  {
-    id: "24",
-    title: "Фельдшер медичного пункту",
-    img: "./assets/images/soldiers/24.png",
-    description: [
-      "Надання медичної допомоги",
-      "Обробка поранень",
-      "Підтримка здоров’я особового складу"
-    ]
-  }
-];
+    {
+      id: '20',
+      title: 'Штурмовик',
+      img: './assets/images/soldiers/20.png',
+      description: [
+        'Ведення наступальних операцій',
+        'Тактична підготовка',
+        'Виконання бойових завдань',
+      ],
+    },
+    {
+      id: '14',
+      title: 'Оператор БПЛА',
+      img: './assets/images/soldiers/14.png',
+      description: [
+        'Управління безпілотними літальними апаратами',
+        'Збір розвідувальної інформації',
+        'Аналіз відео та фото даних',
+      ],
+    },
+    {
+      id: '1',
+      title: 'Водій мінометного взводу',
+      img: './assets/images/soldiers/1.png',
+      description: ['Керування технікою', 'Допомога підрозділу', 'Забезпечення мобільності'],
+    },
+    {
+      id: '18',
+      title: 'Фахівець з РЕБ/РЕР',
+      img: './assets/images/soldiers/18.png',
+      description: [
+        'Електронна боротьба',
+        'Протидія радіоелектронним загрозам',
+        'Підтримка безпеки зв’язку',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Діловод служби логістики',
+      img: './assets/images/soldiers/2.png',
+      description: [
+        'Організація документообігу',
+        'Планування логістики',
+        'Ведення обліку ресурсів',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Діловод групи персоналу штабу',
+      img: './assets/images/soldiers/3.png',
+      description: [
+        'Ведення кадрової документації',
+        'Підтримка зв’язку з персоналом',
+        'Організація внутрішньої комунікації',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Діловод підрозділу',
+      img: './assets/images/soldiers/4.png',
+      description: [
+        'Обробка документації підрозділу',
+        'Забезпечення зв’язку з вищим штабом',
+        'Контроль за дотриманням регламентів',
+      ],
+    },
+    {
+      id: '5',
+      title: 'Дизеліст',
+      img: './assets/images/soldiers/5.png',
+      description: [
+        'Обслуговування дизельної техніки',
+        'Ремонт та діагностика двигунів',
+        'Забезпечення надійності техніки',
+      ],
+    },
+    {
+      id: '6',
+      title: 'Електрик',
+      img: './assets/images/soldiers/6.png',
+      description: [
+        'Обслуговування електрообладнання',
+        'Встановлення електропроводки',
+        'Ремонт електросистем',
+      ],
+    },
+    {
+      id: '7',
+      title: 'Заступник ком. роти з МПЗ',
+      img: './assets/images/soldiers/7.png',
+      description: [
+        'Координація бойової підготовки',
+        'Організація матеріально-технічного забезпечення',
+        'Підтримка дисципліни',
+      ],
+    },
+    {
+      id: '8',
+      title: 'Зв’язківець (лінійний наглядач)',
+      img: './assets/images/soldiers/8.png',
+      description: [
+        'Забезпечення зв’язку в підрозділі',
+        'Моніторинг ліній зв’язку',
+        'Ремонт та обслуговування обладнання',
+      ],
+    },
+    {
+      id: '9',
+      title: 'Лікар медичного пункту',
+      img: './assets/images/soldiers/9.png',
+      description: [
+        'Надання першої медичної допомоги',
+        'Проведення медичних оглядів',
+        'Підтримка здоров’я особового складу',
+      ],
+    },
+    {
+      id: '10',
+      title: 'Режисер монтажу',
+      img: './assets/images/soldiers/10.png',
+      description: [
+        'Монтаж відео- та аудіоматеріалів',
+        'Обробка медіадокументів',
+        'Підготовка контенту для звітності',
+      ],
+    },
+    {
+      id: '11',
+      title: 'Моторист',
+      img: './assets/images/soldiers/11.png',
+      description: [
+        'Обслуговування моторної техніки',
+        'Ремонт двигунів',
+        'Підтримка технічної справності',
+      ],
+    },
+    {
+      id: '12',
+      title: 'Номер обслуги мінометного взводу',
+      img: './assets/images/soldiers/12.png',
+      description: [
+        'Участь у мінометній службі',
+        'Підготовка і обслуговування зброї',
+        'Виконання бойових завдань',
+      ],
+    },
+    {
+      id: '13',
+      title: 'Оператор БпАК літакового типу',
+      img: './assets/images/soldiers/13.png',
+      description: [
+        'Управління безпілотними апаратами',
+        'Збір та аналіз розвідувальної інформації',
+        'Підтримка авіаційних операцій',
+      ],
+    },
+    {
+      id: '15',
+      title: 'Оператор роти вогневої підтримки',
+      img: './assets/images/soldiers/15.png',
+      description: [
+        'Координація вогневої підтримки',
+        'Управління вогнепальною зброєю',
+        'Підтримка бойових операцій',
+      ],
+    },
+    {
+      id: '16',
+      title: 'PR-спеціаліст',
+      img: './assets/images/soldiers/16.png',
+      description: ['Побудова іміджу підрозділу', 'Організація комунікацій', 'Взаємодія зі ЗМІ'],
+    },
+    {
+      id: '17',
+      title: 'Радіотелефоніст мінометного взводу',
+      img: './assets/images/soldiers/17.png',
+      description: [
+        'Забезпечення зв’язку мінометного взводу',
+        'Обслуговування радіообладнання',
+        'Підтримка комунікації в бою',
+      ],
+    },
+    {
+      id: '19',
+      title: 'Санітар медичного пункту',
+      img: './assets/images/soldiers/19.png',
+      description: ['Допомога лікарю', 'Підтримка санітарного порядку', 'Надання першої допомоги'],
+    },
+    {
+      id: '21',
+      title: 'SMM-спеціаліст',
+      img: './assets/images/soldiers/21.png',
+      description: ['Просування в соцмережах', 'Створення контенту', 'Аналіз аудиторії'],
+    },
+    {
+      id: '22',
+      title: 'Стрілець-санітар',
+      img: './assets/images/soldiers/22.png',
+      description: ['Ведення бойових дій', 'Надання медичної допомоги', 'Підтримка поранених'],
+    },
+    {
+      id: '23',
+      title: "Телефоніст взводу зв'язку",
+      img: './assets/images/soldiers/23.png',
+      description: [
+        'Обслуговування телефонного зв’язку',
+        'Передача інформації',
+        'Підтримка комунікації',
+      ],
+    },
+    {
+      id: '24',
+      title: 'Фельдшер медичного пункту',
+      img: './assets/images/soldiers/24.png',
+      description: [
+        'Надання медичної допомоги',
+        'Обробка поранень',
+        'Підтримка здоров’я особового складу',
+      ],
+    },
+  ];
 
   // 📦 Функція підставляння даних у попап
   function fillModal(data) {
-    imgEl.src = data.img || "";
-    imgEl.alt = data.title || "specialty";
-    titleEl.textContent = data.title || "";
-    listEl.innerHTML = "";
+    imgEl.src = data.img || '';
+    imgEl.alt = data.name || 'specialty';
+    titleEl.textContent = data.name || '';
+    listEl.innerHTML = '';
 
     if (Array.isArray(data.description)) {
       data.description.forEach(item => {
-        const li = document.createElement("li");
-        li.className = "modal-frame__item";
+        const li = document.createElement('li');
+        li.className = 'modal-frame__item';
         li.textContent = item;
         listEl.appendChild(li);
       });
     }
 
-    applyBtn.setAttribute("data-specialty-id", data.id);
-    modal.classList.remove("hidden");
+    applyBtn.setAttribute('data-specialty-id', data.id);
+    modal.classList.remove('hidden');
     window.dispatchEvent(new Event('stop-scroll'));
-    console.log("стоп-скрол")
-    document.body.classList.add("modal-open-g"); // якщо потрібно заблокувати прокрутку
+    console.log('стоп-скрол');
+    document.body.classList.add('modal-open-g'); // якщо потрібно заблокувати прокрутку
   }
 
   // 🧠 Отримання даних з локального json
@@ -468,29 +468,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // 📤 Отримання даних із сервера
   function fetchData(id) {
     const fd = new FormData();
-    fd.append("action", "specialty");
-    fd.append("id", id);
+    fd.append('action', 'specialty');
+    fd.append('id', id);
 
     return axios
-      .post("/wp-admin/admin-ajax.php", fd)
-      .then(res => res.data)
+      .post('/wp-admin/admin-ajax.php', fd)
+      .then(res => res.data[0])
       .catch(err => {
-        console.error("AJAX error", err);
+        console.error('AJAX error', err);
         return null;
       });
   }
 
   // 🧩 Обробка натискання на спеціальність
-  document.addEventListener("click", async (e) => {
-    const btn = e.target.closest("[data-specialty__btn]");
+  document.addEventListener('click', async e => {
+    const btn = e.target.closest('[data-specialty__btn]');
     if (!btn) return;
 
-    const id = btn.getAttribute("data-specialty-id");
+    const id = btn.getAttribute('data-specialty-id');
     if (!id) return;
 
     let data;
 
-    if (true) {
+    if (isLocal) {
       data = getLocalData(id);
     } else {
       data = await fetchData(id);
@@ -501,21 +501,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
- modal.addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) {
+  modal.addEventListener('click', e => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  });
+
+  // ❌ Закриття по кнопці
+  closeBtn.addEventListener('click', () => {
     closeModal();
+  });
+
+  // 🔁 Універсальна функція закриття
+  function closeModal() {
+    modal.classList.add('hidden');
+    window.dispatchEvent(new Event('start-scroll'));
+    document.body.classList.remove('modal-open-g');
   }
-});
-
-// ❌ Закриття по кнопці
-closeBtn.addEventListener("click", () => {
-  closeModal();
-});
-
-// 🔁 Універсальна функція закриття
-function closeModal() {
-  modal.classList.add("hidden");
-   window.dispatchEvent(new Event('start-scroll'));
-  document.body.classList.remove("modal-open-g");
-}
 });
