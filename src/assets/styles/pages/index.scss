@@ -3,21 +3,19 @@
   width: 100%;
   position: relative;
   z-index: 2;
-   @include tablet {
+  @include tablet {
     height: calc(100svh - 60px);
-   }
+  }
 }
 .video-frame {
-  
   width: 100%;
   height: 100%;
   overflow: hidden;
-  
+
   video {
-   width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-   
   }
 }
 .hero__content {
@@ -30,30 +28,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%);
   // background-color: $text-color;
   @include laptop {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    align-items: flex-end;
+  }
 
+  .hero__text {
+    @include laptop {
+      align-self: center;
     }
-  .hero__title{
+  }
+  .hero__title {
     @include title-text;
     text-align: center;
     margin-bottom: 20px;
     @include tablet {
-      
       margin-bottom: 12px;
-      
     }
     @include laptop {
       text-align: start;
       margin-bottom: 40px;
-
     }
-   
   }
-  .hero__descr{
+  .hero__descr {
     @include general-text--title;
     color: $text-color;
     text-align: center;
@@ -66,11 +67,11 @@
     }
   }
 }
-.white-space{
+.white-space {
   white-space: nowrap;
 }
-.accent{
-color: $accent-color
+.accent {
+  color: $accent-color;
 }
 
 .decor-frame {
@@ -83,7 +84,7 @@ color: $accent-color
   align-items: flex-end;
   width: 100%;
   &::before {
-    content: "";
+    content: '';
     width: 34px;
     height: 10px;
     background-color: $bg-color;
@@ -94,42 +95,47 @@ color: $accent-color
     }
   }
   &::after {
-    content: "";
+    content: '';
     width: 34px;
     height: 10px;
     background-color: $bg-color;
     clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
-     @include laptop {
+    @include laptop {
       width: 70px;
       height: 21px;
     }
   }
 
-  .btn-frame{
+  .btn-frame {
     width: 276px;
     height: 41px;
     background-color: $bg-color;
     clip-path: polygon(
-    7.3% 75.6%, 0% 100%, 100% 100%, 92.7% 75.6%,
-    92.7% 24.4%, 85.4% 0%, 14.6% 0%, 7.3% 24.4%
-  );
-  @include laptop {
-    width: 410px;
-    height: 55px;
-  }
+      7.3% 75.6%,
+      0% 100%,
+      100% 100%,
+      92.7% 75.6%,
+      92.7% 24.4%,
+      85.4% 0%,
+      14.6% 0%,
+      7.3% 24.4%
+    );
+    @include laptop {
+      width: 410px;
+      height: 55px;
+    }
   }
   .general-btn {
     position: absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-20%);
-
+    transform: translate(-50%, -20%);
   }
 }
 .general-btn {
   @include gen-btn-text;
- 
+
   width: 224px;
   height: 70px;
   display: flex;
@@ -140,7 +146,24 @@ color: $accent-color
   overflow: hidden;
   background-color: $text-color;
   transition: background-color 0.3s;
-  clip-path: polygon(0% 15%, 9% 0%, 33% 0%, 34% 6%, 66% 6%, 67% 0%, 91% 0%, 100% 15%, 100% 85%, 91% 100%, 58% 100%, 57% 94%, 43% 94%, 42% 100%, 9% 100%, 0% 85%);
+  clip-path: polygon(
+    0% 15%,
+    9% 0%,
+    33% 0%,
+    34% 6%,
+    66% 6%,
+    67% 0%,
+    91% 0%,
+    100% 15%,
+    100% 85%,
+    91% 100%,
+    58% 100%,
+    57% 94%,
+    43% 94%,
+    42% 100%,
+    9% 100%,
+    0% 85%
+  );
   &::before,
   &::after {
     content: '';
@@ -158,12 +181,11 @@ color: $accent-color
 
   &::before {
     transform: rotate(45deg) translate(0%, -140%);
-   background-color: rgba(29, 35, 26, 0.705);
+    background-color: rgba(29, 35, 26, 0.705);
   }
 
   &::after {
     transform: rotate(45deg) translate(0%, 140%);
-  
   }
 
   span {
@@ -175,18 +197,17 @@ color: $accent-color
 
   &:hover {
     // border-color: #9691912d;
-    
+
     &::before {
       opacity: 1;
       transform: rotate(45deg) translate(-10%, -39.5%);
     }
 
     &::after {
-     opacity: 1;
+      opacity: 1;
       transform: rotate(45deg) translate(-10%, 58%);
     }
     span {
-      
       color: $text-color2;
     }
   }
@@ -195,7 +216,6 @@ color: $accent-color
     width: 332px;
     height: 90px;
   }
-
 }
 
 .swiper-directions {
@@ -205,6 +225,13 @@ color: $accent-color
   width: 445px;
   @include laptop {
     display: initial;
+    align-self: flex-end;
+    max-height: 490px;
+  }
+
+  @include desktop {
+    max-height: auto;
+    align-self: center;
   }
   .swiper-slide {
     img {
@@ -214,19 +241,52 @@ color: $accent-color
     }
     .text-frame--border {
       position: relative;
-     
+
       padding: 1px;
-      
+
       top: -50px;
       z-index: 2;
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
-      clip-path: polygon(0% 4%, 5% 0%, 28% 0%, 31% 9%, 68% 9%, 72% 0%, 95% 0%, 100% 4%, 100% 96%, 95% 100%, 75% 100%, 72% 91%, 28% 91%, 25% 100%, 5% 100%, 0% 96%);
-      -webkit-clip-path: polygon(0% 4%, 5% 0%, 28% 0%, 31% 9%, 68% 9%, 72% 0%, 95% 0%, 100% 4%, 100% 96%, 95% 100%, 75% 100%, 72% 91%, 28% 91%, 25% 100%, 5% 100%, 0% 96%);
-      background-color: rgba(91, 80, 60, 0.315) ;
+      clip-path: polygon(
+        0% 4%,
+        5% 0%,
+        28% 0%,
+        31% 9%,
+        68% 9%,
+        72% 0%,
+        95% 0%,
+        100% 4%,
+        100% 96%,
+        95% 100%,
+        75% 100%,
+        72% 91%,
+        28% 91%,
+        25% 100%,
+        5% 100%,
+        0% 96%
+      );
+      -webkit-clip-path: polygon(
+        0% 4%,
+        5% 0%,
+        28% 0%,
+        31% 9%,
+        68% 9%,
+        72% 0%,
+        95% 0%,
+        100% 4%,
+        100% 96%,
+        95% 100%,
+        75% 100%,
+        72% 91%,
+        28% 91%,
+        25% 100%,
+        5% 100%,
+        0% 96%
+      );
+      background-color: rgba(91, 80, 60, 0.315);
     }
     .text-frame {
-      
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -236,83 +296,84 @@ color: $accent-color
       width: 445px;
       height: 235px;
       clip-path: inherit;
-      
       background-color: #00000041;
-      &>p {
+
+      @include laptop {
+        height: 180px;
+      }
+
+      @include desktop {
+        height: 235px;
+      }
+      & > p {
         @include general-text;
         color: $text-color2;
         margin-bottom: 12px;
-        text-align: center
-        }
-      }
-      .direction-title {
-        @include article-title;
-        
-        font-family: $default-font2;
-        text-transform: none;
-        font-weight: 500;
         text-align: center;
       }
+    }
+    .direction-title {
+      @include article-title;
 
+      font-family: $default-font2;
+      text-transform: none;
+      font-weight: 500;
+      text-align: center;
+    }
   }
-
 }
 .swiper-button-next {
   svg {
-    transform: rotate(180deg) ;
+    transform: rotate(180deg);
   }
 }
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   cursor: pointer;
   position: relative;
   svg {
     width: 24px;
     height: 24px;
-    path{
+    path {
       fill: $text-color;
       transition: all 0.3s ease-in-out;
     }
-    
   }
 }
 .desktop {
   .swiper-button-next:hover {
-  svg {
-    transform: rotate(180deg) scale(1.2) ;
-    
-    transition: all 0.3s ease-in-out;
-    path{
-     fill: $accent-color;
-      
+    svg {
+      transform: rotate(180deg) scale(1.2);
+
+      transition: all 0.3s ease-in-out;
+      path {
+        fill: $accent-color;
+      }
     }
   }
-  
-}
-.swiper-button-prev:hover {
-  svg {
-    transform: scale(1.2) ;
-    fill: $accent-color;
-    transition: all 0.3s ease-in-out;
-     path{
-     fill: $accent-color;
-      
+  .swiper-button-prev:hover {
+    svg {
+      transform: scale(1.2);
+      fill: $accent-color;
+      transition: all 0.3s ease-in-out;
+      path {
+        fill: $accent-color;
+      }
     }
   }
-  
-}
 }
 
-.swiper-controls{
+.swiper-controls {
   display: flex;
-  gap:25px;
+  gap: 25px;
   align-items: center;
   justify-content: center;
-  width:100%;
+  width: 100%;
   position: relative;
   bottom: 45px;
   z-index: 2;
 }
-.swiper-button-disabled{
+.swiper-button-disabled {
   pointer-events: none;
   opacity: 0.5;
 }
@@ -321,37 +382,35 @@ color: $accent-color
   position: relative;
   z-index: 1; // важливо для того, щоб псевдоелемент був ззаду
   cursor: pointer;
-  &>img {
+  & > img {
     transition: transform 0.5s ease-in-out;
   }
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    filter:blur(20px);
-      -webkit-filter:blur(20px);
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
     transform: translate(-50%, -50%) scale(0.8);
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse  at center 70%, $accent-color 0% , transparent 70%);
+    background: radial-gradient(ellipse at center 70%, $accent-color 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: -1;
-    
+
     pointer-events: none;
   }
 
-  &:hover{
+  &:hover {
     &::before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
     }
-    &>img {
+    & > img {
       transform: scale(1.08);
     }
-
   }
 }
 
@@ -366,15 +425,15 @@ color: $accent-color
 }
 
 .values {
-  padding-top:134px;
+  padding-top: 134px;
   padding-bottom: 100px;
   @include tablet {
-    padding-top:175px;
+    padding-top: 175px;
     padding-bottom: 0px;
     margin-bottom: -80px;
   }
   @include laptop {
-    padding-top:255px;
+    padding-top: 255px;
     margin-bottom: 0px;
   }
 }
@@ -391,13 +450,13 @@ color: $accent-color
     position: relative;
     z-index: 3;
     display: grid;
-grid-template-columns: 1fr 1fr; // 2 колонки
-  grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr; // 2 колонки
+    grid-template-rows: auto auto;
     grid-row-gap: 6.7vw;
   }
 }
 
-.values-block{
+.values-block {
   width: 100%;
   // border: 1px solid rgba(190, 154, 104, 0.40);
   padding: 1px;
@@ -407,14 +466,18 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   filter: blur(4px);
   transition: all 0.3s ease;
   // for animation
-  background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 60%, rgba(190, 154, 104, 0.40) 70%);
+  background: linear-gradient(
+    50deg,
+    rgba(190, 154, 104, 0.4),
+    rgba(190, 154, 104, 0) 60%,
+    rgba(190, 154, 104, 0.4) 70%
+  );
   @include tablet {
     width: calc((100% - 20px) / 2);
     clip-path: polygon(89% 0, 100% 14%, 100% 100%, 0 100%, 0 0);
     &:nth-child(2n) {
       clip-path: polygon(11% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
     }
-    
   }
   @include laptop {
     width: 26vw;
@@ -429,7 +492,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     }
   }
   &__text-wrap {
-    padding:40px;
+    padding: 40px;
     background-color: #111111;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -437,7 +500,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     -webkit-clip-path: inherit;
     height: 100%;
     @include tablet {
-      padding:40px 20px;
+      padding: 40px 20px;
     }
     @include laptop {
       padding: 57px 40px;
@@ -448,7 +511,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     width: 100%;
     text-align: center;
     margin-bottom: 12px;
-   
+
     @include laptop {
       margin-bottom: 1.04vw;
     }
@@ -458,51 +521,47 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     color: $accent-color;
     text-align: center;
   }
-
-
 }
-  .values__img-wrap {
-    display: none;
-    @include tablet {
+.values__img-wrap {
+  display: none;
+  @include tablet {
     display: initial;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     top: -80px;
     &::before {
-      content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) ;
-    width: 100%;
-    height: 100%;
-    filter: blur(30px);
-    background: radial-gradient(circle  at center 50%, $accent-color 20% , transparent 50%);
-    z-index: 1;
-    pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      filter: blur(30px);
+      background: radial-gradient(circle at center 50%, $accent-color 20%, transparent 50%);
+      z-index: 1;
+      pointer-events: none;
     }
     &::after {
-      content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    
-    width: 100%;
-    height: 30%;
-    background: linear-gradient(180deg, rgba(17, 17, 17, 0.00) 0%, #111 100%);
-    z-index: 3;
-    pointer-events: none;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, #111 100%);
+      z-index: 3;
+      pointer-events: none;
     }
-    &>img {
+    & > img {
       position: relative;
       z-index: 2;
       width: 70%;
       height: auto;
       margin-left: auto;
-    margin-right: auto;
-      
-    
+      margin-right: auto;
     }
   }
   @include laptop {
@@ -511,41 +570,37 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     z-index: 2;
     bottom: 0;
     top: auto;
-     &>img {
+    & > img {
       width: 43%;
       height: auto;
-      
     }
     &::before {
-      
-    background: radial-gradient(circle  at center 50%, $accent-color 10% , transparent 40%);
-    
+      background: radial-gradient(circle at center 50%, $accent-color 10%, transparent 40%);
     }
   }
 }
 .values__help-wrap {
   position: relative;
-   
+
   @include laptop {
-    padding-bottom:9.6vw;
-    
+    padding-bottom: 9.6vw;
   }
 }
 
-.values__svg-wrap{
+.values__svg-wrap {
   display: none;
-  @include laptop{
+  @include laptop {
     display: grid;
-    width:100%;
-  grid-template-columns: 1fr 1fr; // 2 колонки
-  grid-template-rows: auto auto;
-  grid-row-gap: 4.16vw;
-  position: absolute;
-  z-index: 1;
-  top: -2.08vw;
-  &>svg {
-    opacity: 0.3;
-  }
+    width: 100%;
+    grid-template-columns: 1fr 1fr; // 2 колонки
+    grid-template-rows: auto auto;
+    grid-row-gap: 4.16vw;
+    position: absolute;
+    z-index: 1;
+    top: -2.08vw;
+    & > svg {
+      opacity: 0.3;
+    }
     & svg:nth-child(1) {
       width: 35.83vw;
       height: 15.1vw;
@@ -559,100 +614,98 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     }
     & svg:nth-child(3) {
       width: 27.5vw;
-      
+
       margin-left: auto;
     }
     & svg:nth-child(4) {
       width: 27.5vw;
-      
+
       margin-right: auto;
       transform: rotateY(180deg);
     }
     path {
-  stroke: #BE9A68;
-  stroke-width: 0.5px;
-  fill: none;
-  opacity: 1;
-  
-}
+      stroke: #be9a68;
+      stroke-width: 0.5px;
+      fill: none;
+      opacity: 1;
+    }
   }
 }
 
 .offset {
   position: relative;
   z-index: -1;
-  height:20px;
+  height: 20px;
   @include tablet {
     height: 80px;
   }
 }
 
-.interest{
+.interest {
   position: relative;
   z-index: 3;
   padding-top: 100px;
-    padding-bottom: 100px;
-    @include tablet {
-      padding-top: 120px;
+  padding-bottom: 100px;
+  @include tablet {
+    padding-top: 120px;
     padding-bottom: 140px;
-    }
-    @include laptop {
-      padding-top: 190px;
+  }
+  @include laptop {
+    padding-top: 190px;
     padding-bottom: 210px;
-    }}
-  .svg-layer {
+  }
+}
+.svg-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  @include tablet {
+    top: -30px;
+  }
+  // @include laptop {
+  //   top: -20px;
+  // }
+  svg {
     position: absolute;
-    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: auto;
-    @include tablet {
-      top: -30px;
-    }
-    // @include laptop {
-    //   top: -20px;
-    // }
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      display: none;
-      
-    }
+    display: none;
+  }
 
-    // MOBILE by default
+  // MOBILE by default
+  .icon--svg-layout-mobile {
+    display: block;
+  }
+
+  // TABLET ≥768px
+  @include tablet {
     .icon--svg-layout-mobile {
+      display: none;
+    }
+    .icon--svg-layout-tablet {
       display: block;
     }
+  }
 
-    // TABLET ≥768px
-    @include tablet {
-      .icon--svg-layout-mobile {
-        display: none;
-      }
-      .icon--svg-layout-tablet {
-        display: block;
-      }
+  // DESKTOP ≥1366px
+  @include laptop {
+    .icon--svg-layout-tablet {
+      display: none;
     }
-
-    // DESKTOP ≥1366px
-    @include laptop {
-      .icon--svg-layout-tablet {
-        display: none;
-      }
-      .icon--svg-layout-desktop {
-        display: block;
-      }
+    .icon--svg-layout-desktop {
+      display: block;
     }
   }
-  
-  .interest-title{
-    margin-bottom: 40px ;
-    
-  }
+}
+
+.interest-title {
+  margin-bottom: 40px;
+}
 
 .swiper-interest {
   overflow: hidden;
@@ -672,7 +725,6 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     align-items: stretch;
   }
   .swiper-slide {
-    
     transform: translateZ(1px);
     transition: all 0.6s ease-out;
     display: flex;
@@ -680,25 +732,23 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     transform: translateZ(1px);
     position: relative;
     height: auto;
-    .direction-btn:hover{
-      cursor:grab;
+    .direction-btn:hover {
+      cursor: grab;
     }
     &:hover {
-      
       .direction-btn::before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    
-    }
-    .direction-btn>img {
-      transform: scale(1.08);
-    }
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .direction-btn > img {
+        transform: scale(1.08);
+      }
     }
     @include laptop {
-
-    &.swiper-slide-next {
-      transform: translateY(80px);
-    }}
+      &.swiper-slide-next {
+        transform: translateY(80px);
+      }
+    }
     img {
       width: 90%;
       margin-left: auto;
@@ -717,11 +767,45 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       z-index: 2;
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
-      clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
-      -webkit-clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
-      background-color: rgba(91, 80, 60, 0.315) ;
+      clip-path: polygon(
+        0px 8px,
+        12px 0px,
+        70px 0px,
+        85px 15px,
+        calc(100% - 85px) 15px,
+        calc(100% - 70px) 0px,
+        calc(100% - 12px) 0px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 12px) 100%,
+        calc(100% - 70px) 100%,
+        calc(100% - 85px) calc(100% - 15px),
+        85px calc(100% - 15px),
+        70px 100%,
+        12px 100%,
+        0px calc(100% - 8px)
+      );
+      -webkit-clip-path: polygon(
+        0px 8px,
+        12px 0px,
+        70px 0px,
+        85px 15px,
+        calc(100% - 85px) 15px,
+        calc(100% - 70px) 0px,
+        calc(100% - 12px) 0px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 12px) 100%,
+        calc(100% - 70px) 100%,
+        calc(100% - 85px) calc(100% - 15px),
+        85px calc(100% - 15px),
+        70px 100%,
+        12px 100%,
+        0px calc(100% - 8px)
+      );
+      background-color: rgba(91, 80, 60, 0.315);
       @include tablet {
-        top:-30px
+        top: -30px;
       }
     }
     .text-frame {
@@ -744,52 +828,50 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         padding-bottom: 85px;
       }
       background-color: #0000008a;
-      &>p {
+      & > p {
         @include general-text;
         color: $text-color2;
         text-align: center;
         color: $accent-color;
         //  margin-top: auto;
-         
-        }
       }
-      .inerest-slide-title {
-        @include general-text;
-       
-        text-align: center;
-        font-size: 20px;
-        margin-bottom: 12px;
-        color: $text-color;
-        @include tablet {
-          font-size: 2.3vw;
-        }
-        @include laptop {
-          font-size: 1.66vw;
-        }
+    }
+    .inerest-slide-title {
+      @include general-text;
+
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: $text-color;
+      @include tablet {
+        font-size: 2.3vw;
       }
-      .gen-btn-wrap {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        position: absolute;
-        z-index: 5;
-        bottom: 0px;
-        
-        z-index: 5;
-        padding-right: 20px;
-        padding-left: 20px;
-        transform: translateZ(1px);
-        @include laptop {
-          
-          padding-right: 3.2vw;
+      @include laptop {
+        font-size: 1.66vw;
+      }
+    }
+    .gen-btn-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      position: absolute;
+      z-index: 5;
+      bottom: 0px;
+
+      z-index: 5;
+      padding-right: 20px;
+      padding-left: 20px;
+      transform: translateZ(1px);
+      @include laptop {
+        padding-right: 3.2vw;
         padding-left: 3.2vw;
-        }
       }
-      .general-btn {
-       width: 100%;
-       padding-bottom: 27%;
-       position: relative;
-       span {
+    }
+    .general-btn {
+      width: 100%;
+      padding-bottom: 27%;
+      position: relative;
+      span {
         font-size: calc((16px / 414px) * 100vw);
         position: absolute;
         top: 50%;
@@ -801,183 +883,197 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         @include laptop {
           font-size: calc((20px / 1920px) * 100vw);
         }
-       }
-
+      }
     }
   }
-
 }
 .swiper-main-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: none;
-  position:absolute;
+  position: absolute;
   z-index: 3;
   top: 50%;
   left: 0;
   width: 100%;
   transform: translateY(-50%);
 }
-.swiper-btn-prev, .swiper-btn-next{
+.swiper-btn-prev,
+.swiper-btn-next {
   pointer-events: all;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(0% 0%, 77% 0%, 100% 15%, 100% 83%,77% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 77% 0%, 100% 15%, 100% 83%, 77% 100%, 0% 100%);
   background-color: $text-color;
   width: 40px;
   height: 40px;
   transition: all 0.3s ease-out;
- 
+
   @include laptop {
- padding-right: 12px;
+    padding-right: 12px;
   }
   &.swiper-button-disabled {
     opacity: 0.6;
-    
+
     pointer-events: none;
   }
- 
-
 
   @include laptop {
     width: 90px;
     height: 90px;
   }
-  color: #171B14
+  color: #171b14;
 }
 .desktop {
-  .swiper-btn-prev, .swiper-btn-next {
-     transition: background-color 0.2s ease;
-
-  svg {
-    font-size: 24px;
-    transition: transform 0.3s ease-in-out;
-    path {
-      transition: fill 0.3s ease-in-out;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    background: rgba(190, 154, 104, 0.8);
+  .swiper-btn-prev,
+  .swiper-btn-next {
+    transition: background-color 0.2s ease;
 
     svg {
-      path{
-        fill: $text-color;
+      font-size: 24px;
+      transition: transform 0.3s ease-in-out;
+      path {
+        transition: fill 0.3s ease-in-out;
       }
-      animation: arrow-warp 0.4s ease-in-out forwards;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px dashed $text-color;
-      clip-path: inherit;
-      animation: targeting-border 1s linear infinite;
-      pointer-events: none;
+    &:hover,
+    &:focus {
+      background: rgba(190, 154, 104, 0.8);
+
+      svg {
+        path {
+          fill: $text-color;
+        }
+        animation: arrow-warp 0.4s ease-in-out forwards;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 1px dashed $text-color;
+        clip-path: inherit;
+        animation: targeting-border 1s linear infinite;
+        pointer-events: none;
+      }
     }
   }
-}
 
-@keyframes arrow-warp {
-  0% {
-    transform: scale(1) translateX(0) skewX(0deg);
+  @keyframes arrow-warp {
+    0% {
+      transform: scale(1) translateX(0) skewX(0deg);
+    }
+    50% {
+      transform: scale(1.2) translateX(-2px) skewX(10deg);
+    }
+    100% {
+      transform: scale(1) translateX(0) skewX(0deg);
+    }
   }
-  50% {
-    transform: scale(1.2) translateX(-2px) skewX(10deg);
-  }
-  100% {
-    transform: scale(1) translateX(0) skewX(0deg);
-  }
-}
 
-@keyframes targeting-border {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  @keyframes targeting-border {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.03);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
 .swiper-btn-next {
   clip-path: polygon(0 17%, 23% 0%, 100% 0, 100% 100%, 23% 100%, 0 83%);
-  
+
   padding-right: 0px;
   @include laptop {
     padding-left: 12px;
   }
 }
-.interest-content{
+.interest-content {
   position: relative;
   z-index: 2;
 }
 
-.leaders{
+.leaders {
   position: relative;
   z-index: 3;
   background-color: $bg-color;
   padding-top: 100px;
-    // padding-bottom: 100px;
-    &::before {
-      content: "";
-      position: absolute;
-      background-color: $bg-color;
-      top: 0;
-      transform: translateY(-100%);
-      left: 0;
-      clip-path: polygon( 10.07% 0% , 0% 0%, 0% 100%, 100% 100%, 81.88% 40%, 22.82% 40%,10.07% 0%);
-      width: 149px;
-      height: 25px;
-       @include laptop {
-        clip-path: polygon( 10.07% 0% , 0% 0%, 0% 100%, 100% 100%, 92.88% 40%, 8.82% 40%,4.07% 0%);
-        -webkit-clip-path: polygon( 10.07% 0% , 0% 0%, 0% 100%, 100% 100%, 92.88% 40%, 8.82% 40%,4.07% 0%);
-
-      }
+  // padding-bottom: 100px;
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: $bg-color;
+    top: 0;
+    transform: translateY(-100%);
+    left: 0;
+    clip-path: polygon(10.07% 0%, 0% 0%, 0% 100%, 100% 100%, 81.88% 40%, 22.82% 40%, 10.07% 0%);
+    width: 149px;
+    height: 25px;
+    @include laptop {
+      clip-path: polygon(10.07% 0%, 0% 0%, 0% 100%, 100% 100%, 92.88% 40%, 8.82% 40%, 4.07% 0%);
+      -webkit-clip-path: polygon(
+        10.07% 0%,
+        0% 0%,
+        0% 100%,
+        100% 100%,
+        92.88% 40%,
+        8.82% 40%,
+        4.07% 0%
+      );
     }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $bg-color;
+    top: 0;
+    transform: translateY(-100%);
+    right: 0;
+    clip-path: polygon(89.93% 0%, 100% 0%, 100% 100%, 0% 100%, 18.12% 40%, 77.18% 40%, 89.93% 0%);
+    // -webkit-clip-path: polygon(89.93% 0%,100% 0%, 100% 100%, 0% 100%, 18.12% 40%, 77.18% 40%, 89.93% 0%);
+    width: 149px;
+    height: 25px;
+    @include laptop {
+      clip-path: polygon(89.93% 0%, 100% 0%, 100% 100%, 0% 100%, 7.12% 40%, 91.18% 40%, 95.93% 0%);
+      -webkit-clip-path: polygon(
+        89.93% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%,
+        7.12% 40%,
+        91.18% 40%,
+        95.93% 0%
+      );
+    }
+  }
+  @include tablet {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    &::before,
     &::after {
-      content: "";
-      position: absolute;
-      background-color: $bg-color;
-      top: 0;
-      transform: translateY(-100%);
-      right: 0;
-      clip-path: polygon( 89.93% 0%,100% 0%, 100% 100%, 0% 100%, 18.12% 40%, 77.18% 40%, 89.93% 0%);
-      // -webkit-clip-path: polygon(89.93% 0%,100% 0%, 100% 100%, 0% 100%, 18.12% 40%, 77.18% 40%, 89.93% 0%);
-      width: 149px;
-      height: 25px;
-      @include laptop {
-        clip-path: polygon( 89.93% 0%,100% 0%, 100% 100%, 0% 100%, 7.12% 40%, 91.18% 40%, 95.93% 0%);
-        -webkit-clip-path: polygon( 89.93% 0%,100% 0%, 100% 100%, 0% 100%, 7.12% 40%, 91.18% 40%, 95.93% 0%);
-
-      }
-    }
-    @include tablet {
-      padding-top: 120px;
-      padding-bottom: 120px;
-    &::before, &::after  {
       width: 39.84vw;
       height: 3.77vw;
     }
-    }
-    @include laptop {
-      padding-top: 190px;
-      padding-bottom: 190px;
-    &::before, &::after {
+  }
+  @include laptop {
+    padding-top: 190px;
+    padding-bottom: 190px;
+    &::before,
+    &::after {
       width: 40.4vw;
       height: 2.4vw;
     }
-    }
+  }
   .direction-btn {
     &::before {
       opacity: 1;
@@ -985,19 +1081,17 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       -webkit-filter: blur(30px);
     }
   }
+}
+
+.leaders-title {
+  margin-bottom: 40px;
+  @include tablet {
+    margin-bottom: 80px;
   }
-  
-  
-  .leaders-title{
-    margin-bottom: 40px ;
-    @include tablet {
-      margin-bottom: 80px ;
-    }
-    @include laptop {
-      margin-bottom: 13.02vw ;
-    }
-    
+  @include laptop {
+    margin-bottom: 13.02vw;
   }
+}
 
 .swiper-leaders {
   overflow: hidden;
@@ -1031,46 +1125,45 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     .direction-btn {
       pointer-events: none;
       img {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    &::before {
-      height: 120%;
-    }
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      &::before {
+        height: 120%;
+      }
       @include tablet {
         width: 50%;
         &::before {
-      transform: translate(-50%, -50%) scale(1);
-    
-    background: radial-gradient(ellipse  at center 50%, $accent-color 0% , transparent 80%);
-    opacity: 1;
-    }
+          transform: translate(-50%, -50%) scale(1);
+
+          background: radial-gradient(ellipse at center 50%, $accent-color 0%, transparent 80%);
+          opacity: 1;
+        }
         img {
           position: absolute;
           bottom: 0;
           left: 0px;
-          width:115%;
+          width: 115%;
           max-width: none;
           object-position: bottom;
         }
-        
       }
-       @include laptop {
+      @include laptop {
         width: 40%;
         &::before {
-          transform: translate(-30%, -65%) ;
-          
-    background: radial-gradient(ellipse  at 50% 50%, $accent-color 0% , transparent 90%);
-    }
+          transform: translate(-30%, -65%);
+
+          background: radial-gradient(ellipse at 50% 50%, $accent-color 0%, transparent 90%);
+        }
         img {
-          width:100%;
+          width: 100%;
           max-width: 100%;
           left: 80px;
         }
-       }
+      }
     }
-    
+
     .text-frame--border {
       position: relative;
       display: flex;
@@ -1081,8 +1174,42 @@ grid-template-columns: 1fr 1fr; // 2 колонки
       z-index: 2;
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
-      clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
-      -webkit-clip-path:polygon(0px 8px, 12px 0px, 70px 0px, 85px 15px, calc(100% - 85px) 15px, calc(100% - 70px) 0px, calc(100% - 12px) 0px, 100% 8px, 100% calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 70px) 100%, calc(100% - 85px) calc(100% - 15px), 85px calc(100% - 15px), 70px 100%, 12px 100%, 0px calc(100% - 8px));
+      clip-path: polygon(
+        0px 8px,
+        12px 0px,
+        70px 0px,
+        85px 15px,
+        calc(100% - 85px) 15px,
+        calc(100% - 70px) 0px,
+        calc(100% - 12px) 0px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 12px) 100%,
+        calc(100% - 70px) 100%,
+        calc(100% - 85px) calc(100% - 15px),
+        85px calc(100% - 15px),
+        70px 100%,
+        12px 100%,
+        0px calc(100% - 8px)
+      );
+      -webkit-clip-path: polygon(
+        0px 8px,
+        12px 0px,
+        70px 0px,
+        85px 15px,
+        calc(100% - 85px) 15px,
+        calc(100% - 70px) 0px,
+        calc(100% - 12px) 0px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 12px) 100%,
+        calc(100% - 70px) 100%,
+        calc(100% - 85px) calc(100% - 15px),
+        85px calc(100% - 15px),
+        70px 100%,
+        12px 100%,
+        0px calc(100% - 8px)
+      );
       background-color: rgba(91, 80, 60, 0.315);
       @include tablet {
         clip-path: none;
@@ -1090,7 +1217,7 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         width: 50%;
         top: 0;
         backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
       @include laptop {
         width: 40%;
@@ -1119,58 +1246,58 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         width: 80%;
       }
       background-color: #0000008a;
-      &>p {
+      & > p {
         @include general-text;
         color: $text-color2;
         text-align: center;
         color: $accent-color;
         margin-bottom: 12px;
         @include tablet {
-        margin-bottom: 40px;
-        text-align: start;
-      }
-      @include laptop {
-        margin-bottom: 60px
-      }
-        }
-      }
-      .leaders-slide-title {
-        @include general-text;
-        text-align: center;
-        font-size: 20px;
-        margin-bottom: 4px;
-        color: $text-color;
-        @include tablet {
-          font-size: 2.3vw;
+          margin-bottom: 40px;
           text-align: start;
         }
         @include laptop {
-          font-size: 1.66vw;
+          margin-bottom: 60px;
         }
       }
-      .sign-call{
-        @include article-title;
-        margin-bottom: 12px;
-        @include tablet {
-          text-align: start;
-        }
+    }
+    .leaders-slide-title {
+      @include general-text;
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: $text-color;
+      @include tablet {
+        font-size: 2.3vw;
+        text-align: start;
       }
-      .gen-btn-wrap {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        position: absolute;
-        z-index: 5;
-        bottom: 60px;
-        padding-right: 20px;
-        padding-left: 20px;
-        transform: translateZ(1px);
-        &.tablet {
-          display: none;
-        }
-       
-        @include tablet {
-          justify-content: flex-start;
+      @include laptop {
+        font-size: 1.66vw;
+      }
+    }
+    .sign-call {
+      @include article-title;
+      margin-bottom: 12px;
+      @include tablet {
+        text-align: start;
+      }
+    }
+    .gen-btn-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      position: absolute;
+      z-index: 5;
+      bottom: 60px;
+      padding-right: 20px;
+      padding-left: 20px;
+      transform: translateZ(1px);
+      &.tablet {
+        display: none;
+      }
+
+      @include tablet {
+        justify-content: flex-start;
         position: static;
         padding-right: 0;
         padding-left: 0;
@@ -1181,15 +1308,14 @@ grid-template-columns: 1fr 1fr; // 2 колонки
           display: flex;
         }
       }
-        @include laptop {
-          
-        }
+      @include laptop {
       }
-      .general-btn {
-       width: 100%;
-       padding-bottom: 27%;
-       position: relative;
-       span {
+    }
+    .general-btn {
+      width: 100%;
+      padding-bottom: 27%;
+      position: relative;
+      span {
         font-size: calc((16px / 414px) * 100vw);
         position: absolute;
         top: 50%;
@@ -1197,22 +1323,19 @@ grid-template-columns: 1fr 1fr; // 2 колонки
         transform: translate(-50%, -50%);
         @include tablet {
           font-size: 14px;
-          
         }
         @include laptop {
           font-size: 18px;
-          
         }
-       }
-       @include tablet {
-          width: 282px;
-         padding-bottom: 70px;
-        }
-        @include laptop {
-          width: 332px;
-          padding-bottom: 90px;
-        }
-
+      }
+      @include tablet {
+        width: 282px;
+        padding-bottom: 70px;
+      }
+      @include laptop {
+        width: 332px;
+        padding-bottom: 90px;
+      }
     }
   }
   .tablet-frame {
@@ -1220,39 +1343,38 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     @include tablet {
       display: block;
       position: absolute;
-      z-index:-1;
+      z-index: -1;
       width: 100%;
       height: 100%;
       bottom: 0;
       left: 0;
     }
-     @include laptop {
-    display: none;
-  }
+    @include laptop {
+      display: none;
+    }
   }
   .desktop-frame {
     display: none;
-    
-     @include laptop {
-    display: block;
+
+    @include laptop {
+      display: block;
       position: absolute;
-      z-index:-1;
+      z-index: -1;
       width: 100%;
       height: 100%;
       bottom: 0;
       left: 0;
+    }
   }
-  }
- 
 }
 
 .questions-conent {
   @include laptop {
     display: flex;
-    flex:1;
+    flex: 1;
     gap: calc(130px / 1920px * 100vw);
     .questions-title-wrap {
-      position:sticky;
+      position: sticky;
       top: 130px;
       height: calc(100svh - 130px);
       display: flex;
@@ -1260,71 +1382,71 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     }
   }
 }
-.questions-title{
-  @include laptop {text-align: start;}
-  
+.questions-title {
+  @include laptop {
+    text-align: start;
+  }
 }
-.questions-img-wrap{
+.questions-img-wrap {
   display: none;
   @include laptop {
     display: block;
     margin-top: auto;
     margin-left: -40px;
     width: 80%;
-    
+
     &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-100%, -40%) scale(1);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle  at center 70%, $accent-color 0% , transparent 50%);
-    filter:blur(20px);
-      -webkit-filter:blur(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: -1;
-    
-    pointer-events: none;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, 0%) scale(1);
-    width: 140%;
-    height: 5%;
-    background: linear-gradient(180deg, #00000000 0% , $bg-color 70%);
-    
-    
-    z-index: 2;
-    pointer-events: none;
-  }
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-100%, -40%) scale(1);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center 70%, $accent-color 0%, transparent 50%);
+      filter: blur(20px);
+      -webkit-filter: blur(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: -1;
+
+      pointer-events: none;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%) scale(1);
+      width: 140%;
+      height: 5%;
+      background: linear-gradient(180deg, #00000000 0%, $bg-color 70%);
+
+      z-index: 2;
+      pointer-events: none;
+    }
   }
 }
 
 .questions__text-container {
   padding-bottom: 110px;
   @include laptop {
-     padding-bottom: 10.9vw;
+    padding-bottom: 10.9vw;
   }
 }
 .questions__block {
   display: flex;
   flex-direction: column;
-  gap:16px;
+  gap: 16px;
   margin-bottom: 40px;
   @include tablet {
     margin-bottom: 20px;
   }
-   @include laptop {
+  @include laptop {
     margin-bottom: 80px;
   }
 }
 
-.question__text-gradient{
+.question__text-gradient {
   width: 100%;
   // border: 1px solid rgba(190, 154, 104, 0.40);
   padding: 1px;
@@ -1335,20 +1457,34 @@ grid-template-columns: 1fr 1fr; // 2 колонки
   // -webkit-filter: blur(4px);
   transition: all 0.3s ease;
   // for animation
-  clip-path: polygon(0% calc(100% - 20px), 30px 100%, 100% 100%, 100% 0%, 0% 0%);;
-  background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 90%);
-  @include tablet {background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 65%, rgba(190, 154, 104, 0.40) 95%)}
-  @include laptop {background: linear-gradient(50deg, rgba(190, 154, 104, 0.40) , rgba(190, 154, 104, 0) 65% , rgba(190, 154, 104, 0.40) 95%)}
+  clip-path: polygon(0% calc(100% - 20px), 30px 100%, 100% 100%, 100% 0%, 0% 0%);
+  background: linear-gradient(50deg, rgba(190, 154, 104, 0.4), rgba(190, 154, 104, 0) 90%);
+  @include tablet {
+    background: linear-gradient(
+      50deg,
+      rgba(190, 154, 104, 0.4),
+      rgba(190, 154, 104, 0) 65%,
+      rgba(190, 154, 104, 0.4) 95%
+    );
+  }
+  @include laptop {
+    background: linear-gradient(
+      50deg,
+      rgba(190, 154, 104, 0.4),
+      rgba(190, 154, 104, 0) 65%,
+      rgba(190, 154, 104, 0.4) 95%
+    );
+  }
   .questions__text-wrap {
-    padding:40px;
+    padding: 40px;
     background-color: #111111;
     clip-path: inherit;
     -webkit-clip-path: inherit;
     @include tablet {
       display: flex;
-      
+
       gap: 60px;
-      padding:40px 60px;
+      padding: 40px 60px;
     }
     @include laptop {
       padding: 60px;
@@ -1360,26 +1496,24 @@ grid-template-columns: 1fr 1fr; // 2 колонки
     @include tablet {
       width: 45%;
     }
-   
   }
   .block__text {
     @include general-text;
     @include tablet {
       width: 45%;
     }
-    
   }
 }
 .questions__footer {
   margin-left: 40px;
   @include tablet {
-margin-left: calc(50% + 30px);
-    }
-     @include laptop {
-margin-left: 30px;
-width: 60%;
-    }
-  &>p {
+    margin-left: calc(50% + 30px);
+  }
+  @include laptop {
+    margin-left: 30px;
+    width: 60%;
+  }
+  & > p {
     @include general-text--title;
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -1388,29 +1522,27 @@ width: 60%;
       color: $accent-color;
     }
     @include tablet {
-margin-bottom: 20px;
+      margin-bottom: 20px;
     }
     @include laptop {
-margin-bottom: 28px;
-max-width: 30vw;
+      margin-bottom: 28px;
+      max-width: 30vw;
     }
   }
-
-  
 }
 
 .social-list {
   display: flex;
   align-items: center;
   gap: 4px;
-   @include tablet {
+  @include tablet {
     gap: 12px;
   }
   @include laptop {
     gap: 20px;
   }
 
-  &__item{
+  &__item {
     transform: translateZ(1px);
     display: flex;
     width: 48px;
@@ -1418,7 +1550,7 @@ max-width: 30vw;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 0.75px solid rgba(255, 238, 215, 0.40);
+    border: 0.75px solid rgba(255, 238, 215, 0.4);
     position: relative;
     overflow: hidden;
     svg {
@@ -1428,54 +1560,52 @@ max-width: 30vw;
       width: 18px;
       height: 18px;
     }
-     &::before,
-      &::after {
-    content: '';
-    position: absolute;
-    background-color: rgb(81 81 69) ;
-    width: 102%;
-    height: 102%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    transition: all 0.4s ease;
-    // opacity: 0;
-    z-index: 1;
-  }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: rgb(81 81 69);
+      width: 102%;
+      height: 102%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      transition: all 0.4s ease;
+      // opacity: 0;
+      z-index: 1;
+    }
 
-  &::before {
-    transform: rotate(45deg) translate(0%, -100%);
-   background-color: rgb(94 95 81);
-  }
-
-  &::after {
-    transform: rotate(45deg) translate(0%, 100%);
-  
-  }
-  &:hover {
-    // border-color: #9691912d;
-    
     &::before {
-      opacity: 1;
-      transform: rotate(45deg) translate(0%, -49%);
+      transform: rotate(45deg) translate(0%, -100%);
+      background-color: rgb(94 95 81);
     }
 
     &::after {
-     opacity: 1;
-      transform: rotate(45deg) translate(0%, 49%);
+      transform: rotate(45deg) translate(0%, 100%);
     }
-    svg {
-      
-      transform: scale(1.2) ;
+    &:hover {
+      // border-color: #9691912d;
+
+      &::before {
+        opacity: 1;
+        transform: rotate(45deg) translate(0%, -49%);
+      }
+
+      &::after {
+        opacity: 1;
+        transform: rotate(45deg) translate(0%, 49%);
+      }
+      svg {
+        transform: scale(1.2);
+      }
     }
-  }
     @include laptop {
       width: 64px;
-height: 64px;
-svg {
-  width: 24px;
-height: 24px;
-}
+      height: 64px;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }
