@@ -440,8 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 📦 Функція підставляння даних у попап
   function fillModal(data) {
     imgEl.src = data.img || '';
-    imgEl.alt = data.name || 'specialty';
-    titleEl.textContent = data.name || '';
+    imgEl.alt = data.title || 'specialty';
+    titleEl.textContent = data.title || '';
     listEl.innerHTML = '';
 
     if (Array.isArray(data.description)) {

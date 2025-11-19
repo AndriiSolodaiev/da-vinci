@@ -598,12 +598,16 @@
     aspect-ratio: 1 / 0.6;
     padding: 40px;
     flex-direction: row;
-    gap: 80px;
+    gap: 50px;
 
     &::before {
       clip-path: polygon(0% 2%, 2% 0%, 98% 0%, 100% 2%, 100% 92%, 97% 92%, 93% 96%, 44% 96%, 40% 100%, 13% 100%, 10% 96%, 5% 96%, 2% 92%, 0% 92%);
       -webkit-clip-path: polygon(0% 2%, 2% 0%, 98% 0%, 100% 2%, 100% 92%, 97% 92%, 93% 96%, 44% 96%, 40% 100%, 13% 100%, 10% 96%, 5% 96%, 2% 92%, 0% 92%);
     }
+  }
+
+  @media screen and (min-width: 1680px) {
+    gap: 80px;
   }
 
   &__img-wrap {
@@ -796,4 +800,6 @@
   }
 }
 
-.grecaptcha-badge {}
+.grecaptcha-badge {
+  z-index: 1000;
+}
