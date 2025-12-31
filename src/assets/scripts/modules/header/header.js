@@ -15,14 +15,7 @@ window.addEventListener('scroll', function headerSquosh() {
     header.classList.remove('scroll-down');
   }
 });
-setTimeout(() => {
-  grecaptcha
-      .execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', { action: 'contact_submit' })
-      .then(function(token) {
-        document.getElementById('g-recaptcha-response').value = token;
-        document.getElementById('g-recaptcha-response-footer').value = token;
-      });
-}, 2000);
+
 document.body.addEventListener('click', function(evt) {
   const close = evt.target.closest('[data-call-us-modal-close]');
   const form = evt.target.closest('[data-call-us-modal]');
@@ -64,7 +57,13 @@ document.body.addEventListener('click', function(evt) {
   }
   if (btn) {
     const id = btn.dataset.specialtyId;
-    
+    grecaptcha
+      .execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', { action: 'contact_submit' })
+      .then(function(token) {
+        document.querySelectorAll('input[name="g-recaptcha-response"]').forEach(el => {
+          el.value = token;
+        });
+      });
     // Закриваємо попередню модалку (specialty)
     if (specialtyModal && !specialtyModal.classList.contains('hidden')) {
       specialtyModal.classList.add('hidden');
@@ -169,6 +168,21 @@ if (inputs.length) {
     }
     input.addEventListener('focus', () => {
       field.classList.add('is-focused');
+
+      if (typeof grecaptcha !== 'undefined') {
+        const now = Date.now();
+        if (!window.lastCaptchaUpdate || now - window.lastCaptchaUpdate > 1000 * 60) { 
+            window.lastCaptchaUpdate = now;
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', {action: 'contact_submit'})
+                .then(function(token) {
+                    document.querySelectorAll('input[name="g-recaptcha-response"]').forEach(el => {
+                        el.value = token;
+                    });
+                });
+            });
+        }
+      }
     });
 
     input.addEventListener('blur', () => {
