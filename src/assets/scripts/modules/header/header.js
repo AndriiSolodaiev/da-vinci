@@ -15,7 +15,14 @@ window.addEventListener('scroll', function headerSquosh() {
     header.classList.remove('scroll-down');
   }
 });
-
+setTimeout(() => {
+  grecaptcha
+      .execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', { action: 'contact_submit' })
+      .then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+        document.getElementById('g-recaptcha-response-footer').value = token;
+      });
+}, 2000);
 document.body.addEventListener('click', function(evt) {
   const close = evt.target.closest('[data-call-us-modal-close]');
   const form = evt.target.closest('[data-call-us-modal]');
@@ -57,11 +64,7 @@ document.body.addEventListener('click', function(evt) {
   }
   if (btn) {
     const id = btn.dataset.specialtyId;
-    grecaptcha
-      .execute('6Lc8ONwrAAAAAOy6MhGx1FeN1IJ9XV9f2U0cmHtZ', { action: 'contact_submit' })
-      .then(function(token) {
-        document.getElementById('g-recaptcha-response').value = token;
-      });
+    
     // Закриваємо попередню модалку (specialty)
     if (specialtyModal && !specialtyModal.classList.contains('hidden')) {
       specialtyModal.classList.add('hidden');
